@@ -31,5 +31,7 @@
     --colTextB: #b7b7b7;
 }
 
-
+.leaflet-control-attribution {
+  display: none !important;
+}
 

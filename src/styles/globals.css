@@ -4,24 +4,29 @@
 
 
 :root {
-    --colorBg:#f3f4f6 ;
-    --colorText:#585858;
-    --colorText2:#0d0d0d;
-    --colorNavbar:#6200ee;
-}
+    /* رنگ پس زمینه اصلی */
+    --colBg: #eeeeee;
 
+    /*  رنگ سایدبار و کارت ها   */
+    --colCard: #f9f4f4;
+
+    /*  رنگ متن 1 */
+    --colTextA: #3A3878;
+
+    /*  رنگ متن 2 */
+    --colTextB: #838AAB;
+}
 
 .dark {
-    --colorText2:#131313;
-    --colorBg:#1f1f1f ;
-    --colorText:#929292;
-    --colorText2:#dfdfdf;
-    --colorNavbar:#292929;
-}
+    /* رنگ پس زمینه اصلی */
+    --colBg: #3f3f46 ;
 
-.container { 
-    padding-right: 10px;
-    padding-left: 10px;
-    margin-right: auto;
-    margin-left: auto;
+    /*  رنگ سایدبار و کارت ها   */
+    --colCard: #27272a ;
+
+    /*  رنگ متن 1 */
+    --colTextA: #ececec;
+
+    /*  رنگ متن 2 */
+    --colTextB: #b7b7b7;
 }

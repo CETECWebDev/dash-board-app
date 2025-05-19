@@ -15,10 +15,7 @@ export default function App({ Component, pageProps }) {
   return (
     <DirectionProvider>
       <ThemeProvider attribute={"class"} defaultTheme="dark">
-        <div className="">
-          <SideBar
-              
-          />
+        <div>
          <Layout>
           <Component {...pageProps} />
         </Layout>

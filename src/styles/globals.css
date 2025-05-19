@@ -31,9 +31,6 @@
     --colTextB: #b7b7b7;
 }
 
-.mainContainer {
-    margin-left: auto;
-    margin-right: auto;
-    width: 100%;
+.leaflet-control-attribution {
+  display: none !important;
 }
-

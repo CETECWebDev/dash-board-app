@@ -17,6 +17,12 @@ export default function SideBar() {
 
   const { theme, setTheme } = useTheme();
   const [dir, setDir]  = useState("");
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => { 
+    setMounted(true);
+  },[])
+
+  if(!mounted) return null;
 
   
 

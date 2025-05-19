@@ -1,16 +1,27 @@
 import { useTheme } from 'next-themes';
-import React from 'react'
+import React, { useState } from 'react';
 
 export default function SideBar() {
-
   const { theme, setTheme } = useTheme();
-
+  const [isRight, setIsRight] = useState(false); // موقعیت سایدبار
 
   return (
-    <div className='hidden lg:flex fixed left-0 top-0 h-screen w-[260px] bg-[var(--colCard)] text-[var(--coTextA)] shadow-md flex-col justify-between p-4 z-50 overflow-y-auto'>
+    <div
+      className={`hidden lg:flex h-screen w-[260px] bg-[var(--colCard)] text-[var(--coTextA)] shadow-md flex-col justify-between p-4 overflow-y-auto transition-all duration-300 ${
+        isRight ? 'order-last' : 'order-first'
+      }`}
+    >
+      {/* دکمه تغییر جهت */}
+      <button
+        onClick={() => setIsRight(!isRight)}
+        className=" bg-gray-700 text-white text-xs px-2 py-1 rounded-full rotate-180 hover:bg-gray-600"
+        title="جابجایی سایدبار"
+      >
+        {isRight ? 'Chapchin kon' : '▶'}
+      </button>
 
       {/* info user */}
-      <div className="flex flex-col items-center gap-2">
+      <div className="flex flex-col items-center gap-2 mt-6">
         <div className="w-20 h-20 bg-gray-300 rounded-full overflow-hidden">
           <img src="/img2.jpg" alt="Profile" className="w-full h-full object-cover" />
         </div>
@@ -18,7 +29,7 @@ export default function SideBar() {
         <span className="text-xs text-gray-300">SUPERADMIN</span>
       </div>
 
-      {/* ناوبری و تنظیمات */}
+      {/* ناوبری */}
       <div className="flex flex-col gap-6 mt-6">
         <div>
           <h2 className="text-sm font-semibold text-gray-400 mb-2">MAIN NAVIGATION</h2>
@@ -40,7 +51,7 @@ export default function SideBar() {
         </div>
       </div>
 
-      {/* اعلان‌ها + Help Center */}
+      {/* اعلان‌ها + تغییر تم */}
       <div className="flex flex-col gap-4 mt-6">
         <div>
           <h2 className="text-sm font-semibold text-gray-400 mb-2">NOTIFICATIONS</h2>
@@ -60,11 +71,14 @@ export default function SideBar() {
                 Alerts
               </a>
             </li>
-              <li><a href="#" className="hover:text-blue-400" onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}>Change Theme</a></li>
+            <li>
+              <a href="#" onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')} className="hover:text-blue-400">
+                Change Theme
+              </a>
+            </li>
           </ul>
         </div>
 
-        {/* Help Center */}
         <div className="border-t border-gray-700 pt-4 flex justify-center items-center">
           <a href="#" className="flex items-center gap-2 text-sm text-gray-300 hover:text-blue-400">
             <i className="fa fa-question-circle text-blue-400"></i>
@@ -72,9 +86,6 @@ export default function SideBar() {
           </a>
         </div>
       </div>
-
-   
-
     </div>
   );
 }

@@ -8,7 +8,6 @@ import {
   FaDatabase,
 } from "react-icons/fa";
 import { IoMdSunny } from "react-icons/io";
-
 import { PiAlignRightFill } from "react-icons/pi";
 import { PiAlignLeftFill } from "react-icons/pi";
 import { BsFillMoonStarsFill } from "react-icons/bs";
@@ -27,15 +26,10 @@ export default function SideBar() {
   if (!mounted) return null;
 
   return (
-    <div
-      className={`h-screen w-[260px] bg-[var(--colCard)] text-[var(--coTextA)] shadow-md flex-col p-4 overflow-y-auto transition-all duration-300 ${isRight ? "order-last" : "order-first"
-        }`}
-    >
-      {/* دکمه تغییر جهت */}
+    <div className={`h-screen w-[260px] bg-[var(--colCard)] text-[var(--coTextA)] shadow-md flex-col p-4 overflow-y-auto transition-all duration-300 ${isRight ? "order-last" : "order-first"}`}>
 
 
-
-      {/* info user */}
+      {/* info user start*/}
       <div className="flex flex-col items-center gap-2 mt-7 ">
         <div className="w-20 h-20 bg-gray-300 rounded-full overflow-hidden ">
           <img
@@ -47,8 +41,9 @@ export default function SideBar() {
         <h1 className="text-lg font-bold text-center">Elvin Sherman</h1>
         <span className="text-xs text-gray-300">SUPERADMIN</span>
       </div>
+      {/* user infor end */}
 
-      {/* ناوبری و تنظیمات */}
+      {/* navigation start */}
       <div className="flex flex-col items-start pl-5 mt-10">
         <div className="flex flex-col gap-3">
           <h2 className="text-sm font-semibold text-gray-400 mb-2">
@@ -103,6 +98,9 @@ export default function SideBar() {
           </ul>
         </div>
       </div>
+      {/* navigation end */}
+
+      {/* settings start */}
       <div className="flex flex-col items-start pl-5 mt-10">
         <div className="flex flex-col gap-3">
           <h2 className="text-sm font-semibold text-gray-400 mb-2">
@@ -134,6 +132,7 @@ export default function SideBar() {
           </ul>
         </div>
       </div>
+      {/* settings end */}
 
     </div>
   );

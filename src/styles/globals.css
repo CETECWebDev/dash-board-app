@@ -34,3 +34,18 @@
 .leaflet-control-attribution {
   display: none !important;
 }
+
+.leaflet-control-zoom-out{
+  border-radius:50% !important;
+}
+
+.leaflet-control-zoom-in{
+    border-radius:50% !important;
+}
+
+.leaflet-touch .leaflet-bar {
+  border:none !important;
+  display: flex  !important;
+  gap: 5px !important;
+   flex-direction: row-reverse !important; 
+}

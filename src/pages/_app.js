@@ -1,6 +1,8 @@
 import SideBar from "@/components/module/SideBar";
 import "@/styles/globals.css";
 import 'leaflet/dist/leaflet.css'
+import '@fortawesome/fontawesome-free/css/all.min.css';
+
 import { ThemeProvider } from "next-themes";
 
 export default function App({ Component, pageProps }) {

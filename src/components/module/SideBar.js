@@ -7,7 +7,7 @@ export default function SideBar() {
 
 
   return (
-    <div className='hidden lg:flex fixed left-0 top-0 h-screen w-[260px] bg-[var(--colCard)] text-[var(--coTextA)] shadow-md flex-col justify-between p-4 z-50'>
+    <div className='hidden lg:flex fixed left-0 top-0 h-screen w-[260px] bg-[var(--colCard)] text-[var(--coTextA)] shadow-md flex-col justify-between p-4 z-50 overflow-y-auto'>
 
       {/* info user */}
       <div className="flex flex-col items-center gap-2">
@@ -60,6 +60,7 @@ export default function SideBar() {
                 Alerts
               </a>
             </li>
+              <li><a href="#" className="hover:text-blue-400" onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}>Change Theme</a></li>
           </ul>
         </div>
 
@@ -72,16 +73,7 @@ export default function SideBar() {
         </div>
       </div>
 
-      {/* اعلان‌ها */}
-      <div>
-        <h2 className="text-sm font-semibold text-gray-400 mb-2">NOTIFICATIONS</h2>
-        <ul className="space-y-2">
-          <li><a href="#" className="hover:text-blue-400">Tickets</a></li>
-          <li><a href="#" className="hover:text-blue-400">Alerts</a></li>
-          <li><a href="#" className="hover:text-blue-400" onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}>Change Theme</a></li>
-        </ul>
-      </div>
-
+   
 
     </div>
   );

@@ -15,7 +15,7 @@ const LineChart = () => {
     title: {
       text: 'Months',
       style: {
-        color: '#666',
+        color: ['var(--colTextA)'],
         fontSize: '14px'
       }
     }
@@ -26,7 +26,7 @@ const LineChart = () => {
     title: {
       text: 'Income ($)',
       style: {
-        color: '#666',
+        color: ['var(--colTextA)'],
         fontSize: '14px'
       }
     }

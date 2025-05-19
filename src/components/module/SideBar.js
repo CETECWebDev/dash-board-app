@@ -1,6 +1,11 @@
+import { useTheme } from 'next-themes';
 import React from 'react'
 
 export default function SideBar() {
+
+  const { theme, setTheme } = useTheme();
+
+
   return (
     <div className='fixed left-0 top-0 h-screen w-[300px] bg-[var(--colCard)] text-[var(--coTextA)] shadow-md flex flex-col gap-6'>
       
@@ -40,6 +45,7 @@ export default function SideBar() {
         <ul className="space-y-2">
           <li><a href="#" className="hover:text-blue-400">Tickets</a></li>
           <li><a href="#" className="hover:text-blue-400">Alerts</a></li>
+          <li><a href="#" className="hover:text-blue-400" onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}>Change Theme</a></li>
         </ul>
       </div>
     

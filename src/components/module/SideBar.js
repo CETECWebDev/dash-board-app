@@ -17,7 +17,7 @@ export default function SideBar() {
         className=" bg-gray-700 text-white text-xs px-2 py-1 rounded-full rotate-180 hover:bg-gray-600"
         title="جابجایی سایدبار"
       >
-        {isRight ? 'Chapchin kon' : '▶'}
+        {isRight ? '<' : '▶'}
       </button>
 
       {/* info user */}

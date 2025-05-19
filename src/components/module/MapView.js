@@ -29,6 +29,6 @@ export default function MapView() {
     }, [theme])
 
     return (
-        <div id="map" className={`w-full h-[90dvh]  ${theme.theme === 'dark' ? 'border-zinc-600 border-2 shadow-md' : 'shadow-md' } rounded-xl`} />
+        <div id="map" className={`w-[70%] h-[90dvh]  ${theme.theme === 'dark' ? 'border-zinc-600 border-2 shadow-md' : 'shadow-md' } rounded-xl`} />
     )
 }

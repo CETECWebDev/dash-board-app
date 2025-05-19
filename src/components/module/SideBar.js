@@ -1,15 +1,11 @@
 import { useTheme } from "next-themes";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   FaHome,
-  FaMoon,
   FaGlobe,
   FaServer,
   FaEnvelope,
   FaDatabase,
-  FaCog,
-  FaChartLine,
-
 } from "react-icons/fa";
 import { IoMdSunny } from "react-icons/io";
 
@@ -18,9 +14,11 @@ import { PiAlignLeftFill } from "react-icons/pi";
 import { BsFillMoonStarsFill } from "react-icons/bs";
 
 export default function SideBar() {
+
   const { theme, setTheme } = useTheme();
   const [dir, setDir]  = useState("");
 
+  
 
   const toggleDirection = () => {
     const currentDir = document.documentElement.getAttribute("dir");
@@ -38,26 +36,9 @@ export default function SideBar() {
     >
      
 
-      <div className="flex w-full gap-2">
-        <button
-          onClick={() => setIsRight(!isRight)}
-          className=" border p-3  rounded-full  color-[var(--colTextB)]]"
-          title="جابجایی سایدبار"
-        >
-          {dir=='ltr' ? <PiAlignLeftFill /> : <PiAlignRightFill />}
-        </button>
-        <div className="text-xl border p-2 rounded-full">
-          <div
-            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-            className="cursor-pointer flex items-center justify-center p-1"
-          >
-            {theme === "dark" ? <IoMdSunny /> : <BsFillMoonStarsFill />}
-          </div>
-        </div>
-      </div>
 
       {/* info user */}
-      <div className="flex flex-col items-center gap-2 mt-6 ">
+      <div className="flex flex-col items-center gap-2 mt-7 ">
         <div className="w-20 h-20 bg-gray-300 rounded-full overflow-hidden ">
           <img
             src="/img2.jpg"
@@ -70,12 +51,12 @@ export default function SideBar() {
       </div>
 
       {/* ناوبری و تنظیمات */}
-      <div className="flex flex-col gap-6">
-        <div>
+      <div className="flex flex-col items-start pl-5 mt-10">
+        <div className="flex flex-col gap-3">
           <h2 className="text-sm font-semibold text-gray-400 mb-2">
             MAIN NAVIGATION
           </h2>
-          <ul className="space-y-2">
+          <ul className="space-y-2 flex flex-col gap-3">
             <li>
               <a
                 href="#"
@@ -121,6 +102,15 @@ export default function SideBar() {
                 Data Bases
               </a>
             </li>
+          </ul>
+        </div>
+      </div>
+      <div className="flex flex-col items-start pl-5 mt-10">
+        <div className="flex flex-col gap-3">
+          <h2 className="text-sm font-semibold text-gray-400 mb-2">
+            Settings
+          </h2>
+          <ul className="space-y-2 flex flex-col gap-3">
             <li>
               <div className="flex w-full gap-2">
 
@@ -132,7 +122,7 @@ export default function SideBar() {
                 </button>
 
 
-                <button
+               <button
                   onClick={() => toggleDirection()}
                   className=" border flex justify-center items-center  rounded-full  color-[var(--colTextB)]] w-10 h-10"
                   title="جابجایی سایدبار"
@@ -142,65 +132,11 @@ export default function SideBar() {
 
               </div>
             </li>
-          </ul>
-        </div>
 
-        <div>
-          <h2 className="text-sm font-semibold text-gray-400 mb-2">SETTINGS</h2>
-          <ul className="space-y-2">
-            <li>
-              <a
-                href="#"
-                className="flex items-center gap-2 hover:text-[var(--textHover)]"
-              >
-                <FaCog className="text-gray-400" />
-                Settings
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className="flex items-center gap-2 hover:text-[var(--textHover)]"
-              >
-                <FaChartLine className="text-indigo-500" />
-                Analytics
-              </a>
-            </li>
           </ul>
         </div>
       </div>
 
-      {/* اعلان‌ها + تغییر تم */}
-      <div className="flex flex-col gap-4 mt-6">
-        <div>
-          <h2 className="text-sm font-semibold text-gray-400 mb-2">
-            NOTIFICATIONS
-          </h2>
-          <ul className="space-y-2">
-           
-            <li>
-              <a
-                href="#"
-                className="flex items-center gap-2 hover:text-[var(--textHover)]"
-              >
-                <i className="fa fa-bell text-pink-400"></i>
-                Alerts
-              </a>
-            </li>
-         
-          </ul>
-        </div>
-
-        <div className="border-t border-gray-700 pt-4 flex justify-center items-center">
-          <a
-            href="#"
-            className="flex items-center gap-2 text-sm text-gray-300 hover:text-[var(--textHover)]"
-          >
-            <i className="fa fa-question-circle text-blue-400"></i>
-            Help Center
-          </a>
-        </div>
-      </div>
     </div>
   );
 }

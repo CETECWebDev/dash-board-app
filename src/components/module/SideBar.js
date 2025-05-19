@@ -1,14 +1,24 @@
 import { useTheme } from 'next-themes';
-import React from 'react'
+import React from 'react';
+
+import { 
+  FaHome, 
+  FaGlobe, 
+  FaServer, 
+  FaEnvelope, 
+  FaDatabase, 
+  FaCog, 
+  FaChartLine, 
+  FaTicketAlt, 
+  FaBell, 
+  FaQuestionCircle 
+} from 'react-icons/fa';
 
 export default function SideBar() {
-
   const { theme, setTheme } = useTheme();
-
 
   return (
     <div className='hidden lg:flex fixed left-0 top-0 h-screen w-[260px] bg-[var(--colCard)] text-[var(--coTextA)] shadow-md flex-col justify-between p-4 z-50 overflow-y-auto'>
-
       {/* info user */}
       <div className="flex flex-col items-center gap-2">
         <div className="w-20 h-20 bg-gray-300 rounded-full overflow-hidden">
@@ -60,7 +70,11 @@ export default function SideBar() {
                 Alerts
               </a>
             </li>
-              <li><a href="#" className="hover:text-blue-400" onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}>Change Theme</a></li>
+            <li>
+              <a href="#" className="hover:text-blue-400" onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}>
+                Change Theme
+              </a>
+            </li>
           </ul>
         </div>
 
@@ -72,9 +86,6 @@ export default function SideBar() {
           </a>
         </div>
       </div>
-
-   
-
     </div>
   );
 }

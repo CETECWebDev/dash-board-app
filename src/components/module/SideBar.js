@@ -60,7 +60,7 @@ export default function SideBar() {
                 Alerts
               </a>
             </li>
-              <li><a href="#" className="hover:text-blue-400" onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}>Change Theme</a></li>
+              <li className='cursor-pointer' onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}>Change Theme</li>
           </ul>
         </div>
 

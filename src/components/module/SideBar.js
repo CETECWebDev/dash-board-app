@@ -17,9 +17,14 @@ export default function SideBar() {
 
   const { theme, setTheme } = useTheme();
   const [isRight, setIsRight] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
 
-
+  if (!mounted) return null;
 
   return (
     <div
@@ -95,6 +100,15 @@ export default function SideBar() {
                 Data Bases
               </a>
             </li>
+          </ul>
+        </div>
+      </div>
+      <div className="flex flex-col items-start pl-5 mt-10">
+        <div className="flex flex-col gap-3">
+          <h2 className="text-sm font-semibold text-gray-400 mb-2">
+            Settings
+          </h2>
+          <ul className="space-y-2 flex flex-col gap-3">
             <li>
               <div className="flex w-full gap-2">
 
@@ -116,9 +130,9 @@ export default function SideBar() {
 
               </div>
             </li>
+
           </ul>
         </div>
-
       </div>
 
     </div>

@@ -68,3 +68,32 @@
   gap: 5px !important;
    flex-direction: row-reverse !important; 
 }
+
+/* map markers */
+
+.blinking-circle-active {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #15a615;
+  animation: blink 1s infinite;
+}
+
+.blinking-circle-deactive {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #ff0000;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0.4; }
+  100% { opacity: 1; }
+}
+
+
+.selected-marker{
+  box-shadow: 0 0 0 2px white;
+}

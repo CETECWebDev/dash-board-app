@@ -2,7 +2,7 @@ import { Html, Head, Main, NextScript } from "next/document";
 
 export default function Document() {
   return (
-    <Html lang="en" className="">
+    <Html lang="en" dir="rtl" className="">
       <Head>
         {/* اضافه کردن لینک Font Awesome */}
         <link

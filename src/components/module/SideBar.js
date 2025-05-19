@@ -19,15 +19,24 @@ import { BsFillMoonStarsFill } from "react-icons/bs";
 
 export default function SideBar() {
   const { theme, setTheme } = useTheme();
-  const [isRight, setIsRight] = useState(false); // موقعیت سایدبار
+  const [dir, setDir]  = useState("");
+
+
+  const toggleDirection = () => {
+    const currentDir = document.documentElement.getAttribute("dir");
+    document.documentElement.setAttribute("dir", currentDir === "rtl" ? "ltr" : "rtl");
+    setDir(currentDir === "rtl" ? "ltr" : "rtl");
+  };
+
+
+
 
   return (
     <div
-      className={`hidden lg:flex h-screen w-[260px] bg-[var(--colCard)] text-[var(--coTextA)] shadow-md flex-col justify-between p-4 overflow-y-auto transition-all duration-300 ${
-        isRight ? "order-last" : "order-first"
-      }`}
+      className={'h-screen w-[260px] bg-[var(--colCard)] text-[var(--coTextA)] shadow-md flex-col p-4 overflow-y-auto transition-all duration-300'
+      }
     >
-      {/* دکمه تغییر جهت */}
+     
 
       <div className="flex w-full gap-2">
         <button
@@ -35,7 +44,7 @@ export default function SideBar() {
           className=" border p-3  rounded-full  color-[var(--colTextB)]]"
           title="جابجایی سایدبار"
         >
-          {isRight ? <PiAlignLeftFill /> : <PiAlignRightFill />}
+          {dir=='ltr' ? <PiAlignLeftFill /> : <PiAlignRightFill />}
         </button>
         <div className="text-xl border p-2 rounded-full">
           <div
@@ -111,6 +120,27 @@ export default function SideBar() {
                 <FaDatabase className="text-yellow-500" />
                 Data Bases
               </a>
+            </li>
+            <li>
+              <div className="flex w-full gap-2">
+
+                <button
+                  suppressHydrationWarning
+                  className=" border flex justify-center items-center  rounded-full  color-[var(--colTextB)] w-10 h-10"
+                  onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}>
+                  {theme === 'dark' ? <IoMdSunny /> : <BsFillMoonStarsFill />}
+                </button>
+
+
+                <button
+                  onClick={() => toggleDirection()}
+                  className=" border flex justify-center items-center  rounded-full  color-[var(--colTextB)]] w-10 h-10"
+                  title="جابجایی سایدبار"
+                >
+                  {dir=='ltr' ? <PiAlignLeftFill /> : <PiAlignRightFill />}
+                </button>
+
+              </div>
             </li>
           </ul>
         </div>

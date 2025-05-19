@@ -1,6 +1,7 @@
 import { useTheme } from 'next-themes';
 import React from 'react'
-import { FaHome , FaGlobe , FaServer , FaEnvelope , FaDatabase , FaCog , FaChartLine} from "react-icons/fa"
+import { FaHome, FaMoon, FaGlobe, FaServer, FaEnvelope, FaDatabase, FaCog, FaChartLine } from "react-icons/fa"
+import { IoMdSunny } from "react-icons/io";
 
 export default function SideBar() {
 
@@ -8,7 +9,13 @@ export default function SideBar() {
 
 
   return (
-    <div className='hidden lg:flex fixed left-0 top-0 h-screen w-[300px] bg-[var(--colCard)] text-[var(--coTextA)] shadow-md flex-col gap-10 p-4 z-50 overflow-y-auto'>
+    <div className='flex fixed left-0 top-0 h-screen w-[300px] bg-[var(--colCard)] text-[var(--coTextA)] shadow-md flex-col gap-5 p-4 z-50 overflow-y-auto select-none'>
+
+      {/* controls */}
+
+      <div className='text-xl'>
+        <div onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')} className='cursor-pointer'>{ theme === 'dark' ? <IoMdSunny/> : <FaMoon/> }</div>
+      </div>
 
       {/* info user */}
       <div className="flex flex-col items-center gap-2">
@@ -37,11 +44,10 @@ export default function SideBar() {
           <ul className="space-y-2">
             <li><a href="#" className="flex items-center gap-2 hover:text-blue-400"><FaCog className="text-gray-400" />Settings</a></li>
             <li><a href="#" className="flex items-center gap-2 hover:text-blue-400"><FaChartLine className="text-indigo-500" />Analytics</a></li>
-             <li className='cursor-pointer' onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}>Change Theme</li>
           </ul>
         </div>
       </div>
-   
+
 
     </div>
   );

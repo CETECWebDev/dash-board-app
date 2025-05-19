@@ -15,6 +15,12 @@
 
     /*  رنگ متن 2 */
     --colTextB: #838AAB;
+
+    --zoomControl: #3a3a3a;
+    --zoomControlText :#ffffff;
+
+
+    --textHover: #60a5fa;
 }
 
 .dark {
@@ -29,8 +35,36 @@
 
     /*  رنگ متن 2 */
     --colTextB: #b7b7b7;
+
+
+     --zoomControl: orange;
+     --zoomControlText :#ffffff;
+
+     --textHover: orange;
+
 }
 
 .leaflet-control-attribution {
   display: none !important;
+}
+
+.leaflet-control-zoom-out{
+  border-radius:50% !important;
+  background-color: var(--zoomControl) !important;
+  color: var(--zoomControlText) !important;
+  border:none !important;
+}
+
+.leaflet-control-zoom-in{
+    border-radius:50% !important;
+    background-color: var(--zoomControl) !important;
+    color: var(--zoomControlText) !important;
+    border:none !important;
+}
+
+.leaflet-touch .leaflet-bar {
+  border:none !important;
+  display: flex  !important;
+  gap: 5px !important;
+   flex-direction: row-reverse !important; 
 }

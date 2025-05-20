@@ -8,7 +8,8 @@ const LineChart = () => {
  const options = {
   chart: {
     type: 'line',
-    toolbar: { show: false }
+    toolbar: { show: false },
+    zoom: { enabled: false } // ← این خط زوم رو غیرفعال می‌کنه
   },
   xaxis: {
     categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
@@ -46,7 +47,7 @@ const series = [
 ];
 
 return (
-  <div className='p-2 bg-[var(--colCard)] rounded-lg shadow-lg'>
+  <div className='p-2 bg-[var(--colCard)] rounded-2xl shadow-lg'>
     <ApexChart options={options} series={series} type="line" height={350}  />
   </div>
   

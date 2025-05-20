@@ -15,31 +15,27 @@ import { BsFillMoonStarsFill } from "react-icons/bs";
 export default function SideBar() {
 
   const { theme, setTheme } = useTheme();
-  const [dir, setDir]  = useState("");
+  const [dir, setDir] = useState("");
   const [mounted, setMounted] = useState(false);
-  useEffect(() => { 
+
+  useEffect(() => {
     setMounted(true);
-  },[])
+  }, [])
 
-  if(!mounted) return null;
-
-  
+  if (!mounted) return null;
 
   const toggleDirection = () => {
     const currentDir = document.documentElement.getAttribute("dir");
     document.documentElement.setAttribute("dir", currentDir === "rtl" ? "ltr" : "rtl");
     setDir(currentDir === "rtl" ? "ltr" : "rtl");
-  };
+  }
 
 
 
 
   return (
-    <div
-      className={'h-screen w-[260px] bg-[var(--colCard)] text-[var(--coTextA)] shadow-md flex-col p-4 overflow-y-auto transition-all duration-300'
-      }
-    >
-     
+    <div className={'h-screen w-[300px] bg-[var(--colCard)] text-[var(--coTextA)] shadow-md flex-col p-4 overflow-y-auto transition-all duration-300'} >
+
 
       {/* info user start*/}
       <div className="flex flex-col items-center gap-2 mt-7 ">
@@ -130,12 +126,12 @@ export default function SideBar() {
                 </button>
 
 
-               <button
+                <button
                   onClick={() => toggleDirection()}
                   className=" border flex justify-center items-center  rounded-full  color-[var(--colTextB)]] w-10 h-10"
                   title="جابجایی سایدبار"
                 >
-                  {dir=='ltr' ? <PiAlignLeftFill /> : <PiAlignRightFill />}
+                  {dir == 'ltr' ? <PiAlignLeftFill /> : <PiAlignRightFill />}
                 </button>
 
               </div>

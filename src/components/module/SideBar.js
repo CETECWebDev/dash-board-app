@@ -95,7 +95,7 @@ export default function SideBar() {
               {[
                 { icon: <FaHome className="text-blue-500" />, label: "Dashboard"  },
                 { icon: <FaGlobe className="text-green-500" />, label: "Devices" , url: "/devices" },
-                { icon: <FaServer className="text-purple-500" />, label: "Servers" },
+                { icon: <FaServer className="text-purple-500" />, label: "Employees" , url: "/employees" },
                 { icon: <FaEnvelope className="text-red-500" />, label: "E-Mail" },
                 { icon: <FaDatabase className="text-yellow-500" />, label: "Data Bases" },
               ].map(({ icon, label , url }) => (

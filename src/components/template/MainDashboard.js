@@ -19,7 +19,7 @@ export default function MainDashboard() {
 
       <div className='flex gap-2'>
         <MapView devices={devices} selectedDevice={selectedDevice} setSelectedDevice={setSelectedDevice}/>
-        <DeviceDataCard />
+        <DeviceDataCard selectedDevice={selectedDevice} />
       </div>
 
     </div>

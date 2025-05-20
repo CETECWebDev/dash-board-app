@@ -4,43 +4,48 @@
 
 
 :root {
-    /* رنگ پس زمینه اصلی */
-    --colBg: #eeeeee;
+  /* رنگ پس زمینه اصلی */
+  --colBg: #eeeeee;
 
-    /*  رنگ سایدبار و کارت ها   */
-    --colCard: #fdfefe;
+  /*  رنگ سایدبار و کارت ها   */
+  --colCard: #fdfefe;
 
-    /*  رنگ متن 1 */
-    --colTextA: #3A3878;
+  /*  رنگ متن 1 */
+  --colTextA: #3A3878;
 
-    /*  رنگ متن 2 */
-    --colTextB: #838AAB;
+  /*  رنگ متن 2 */
+  --colTextB: #838AAB;
 
-    --zoomControl: #3a3a3a;
-    --zoomControlText :#ffffff;
+  --zoomControl: #3a3a3a;
+  --zoomControlText: #ffffff;
 
 
-    --textHover: #60a5fa;
+  --textHover: #60a5fa;
+
+  --selecMarker: #99919d;
+
 }
 
 .dark {
-    /* رنگ پس زمینه اصلی */
-    --colBg: #3f3f46 ;
+  /* رنگ پس زمینه اصلی */
+  --colBg: #3f3f46;
 
-    /*  رنگ سایدبار و کارت ها   */
-    --colCard: #27272a ;
+  /*  رنگ سایدبار و کارت ها   */
+  --colCard: #27272a;
 
-    /*  رنگ متن 1 */
-    --colTextA: #ececec;
+  /*  رنگ متن 1 */
+  --colTextA: #ececec;
 
-    /*  رنگ متن 2 */
-    --colTextB: #b7b7b7;
+  /*  رنگ متن 2 */
+  --colTextB: #b7b7b7;
 
 
-     --zoomControl: orange;
-     --zoomControlText :#ffffff;
+  --zoomControl: orange;
+  --zoomControlText: #ffffff;
 
-     --textHover: orange;
+  --textHover: orange;
+
+  --selecMarker: #eae1e1;
 
 }
 
@@ -48,25 +53,25 @@
   display: none !important;
 }
 
-.leaflet-control-zoom-out{
-  border-radius:50% !important;
+.leaflet-control-zoom-out {
+  border-radius: 50% !important;
   background-color: var(--zoomControl) !important;
   color: var(--zoomControlText) !important;
-  border:none !important;
+  border: none !important;
 }
 
-.leaflet-control-zoom-in{
-    border-radius:50% !important;
-    background-color: var(--zoomControl) !important;
-    color: var(--zoomControlText) !important;
-    border:none !important;
+.leaflet-control-zoom-in {
+  border-radius: 50% !important;
+  background-color: var(--zoomControl) !important;
+  color: var(--zoomControlText) !important;
+  border: none !important;
 }
 
 .leaflet-touch .leaflet-bar {
-  border:none !important;
-  display: flex  !important;
+  border: none !important;
+  display: flex !important;
   gap: 5px !important;
-   flex-direction: row-reverse !important; 
+  flex-direction: row-reverse !important;
 }
 
 /* map markers */
@@ -75,7 +80,7 @@
   width: 16px;
   height: 16px;
   border-radius: 50%;
-  background: #15a615;
+  background: #1ac11a;
   animation: blink 1s infinite;
 }
 
@@ -88,16 +93,29 @@
 }
 
 @keyframes blink {
-  0% { opacity: 1; }
-  50% { opacity: 0.4; }
-  100% { opacity: 1; }
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.4;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
 
 
-.selected-marker{
-  box-shadow: 0 0 0 2px white;
+.selected-marker {
+  transform: scale(1.2);
+  box-shadow: 0 0 0 1px var(--selecMarker);
 }
 
-.apexcharts-yaxis-label , .apexcharts-xaxis-label{
+
+/* Chart styles */
+
+.apexcharts-yaxis-label,
+.apexcharts-xaxis-label {
   fill: var(--colTextB) !important;
 }

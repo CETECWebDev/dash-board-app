@@ -8,7 +8,10 @@ const LineChart = () => {
  const options = {
   chart: {
     type: 'line',
-    toolbar: { show: false }
+    toolbar: { show: false },
+    zoom:{
+      enabled:false
+    }
   },
   xaxis: {
     categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],

@@ -7,144 +7,138 @@ import {
   FaEnvelope,
   FaDatabase,
 } from "react-icons/fa";
-import { IoMdSunny } from "react-icons/io";
-import { PiAlignRightFill } from "react-icons/pi";
-import { PiAlignLeftFill } from "react-icons/pi";
+import { IoMdSunny, IoIosMenu } from "react-icons/io";  // اضافه کردم اینجا
+import { PiAlignRightFill, PiAlignLeftFill } from "react-icons/pi";
 import { BsFillMoonStarsFill } from "react-icons/bs";
 
-import { useDirection } from "@/context/DirectionContext"; 
+import { useDirection } from "@/context/DirectionContext";
 
 export default function SideBar() {
-
   const { theme, setTheme } = useTheme();
-  const { dir, toggleDirection } = useDirection(); // 👈 اینو استفاده کن
+  const { dir, toggleDirection } = useDirection();
   const [mounted, setMounted] = useState(false);
-  useEffect(() => { 
+  const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
     setMounted(true);
-  },[])
+  }, []);
 
-  if(!mounted) return null;
+  if (!mounted) return null;
 
-  
+  const toggleMenu = () => setIsOpen(!isOpen);
 
+  const translateClass = isOpen
+    ? "translate-x-0"
+    : dir === "rtl"
+    ? "translate-x-full"
+    : "-translate-x-full";
 
-
-
-
+  const backdropClass = isOpen
+    ? "fixed inset-0 bg-black bg-opacity-50 z-40 md:hidden backdrop-blur-md"
+    : "hidden";
 
   return (
-     <div
-      className={`fixed top-0 h-screen w-[300px] bg-[var(--colCard)] text-[var(--coTextA)] shadow-md flex-col p-4 overflow-y-auto  ${
-        dir === "rtl" ? "right-0 left-auto" : "left-0 right-auto"
-      }`}
-    >
-     
+    <>
+      {/* دکمه همبرگری با آیکون IoIosMenu */}
+      <button
+        onClick={toggleMenu}
+        className={`block top-4 mt-5 p-2 rounded-md bg-[var(--colCard)] text-[var(--coTextA)] shadow-md md:hidden ${
+          dir === "rtl" ? "mr-5" : "ml-5"
+        }`}
+        aria-label="Toggle Menu"
+      >
+        {isOpen ? "✕" : <IoIosMenu size={24} />}
+      </button>
 
-      {/* info user start*/}
-      <div className="flex flex-col items-center gap-2 mt-7 ">
-        <div className="w-20 h-20 bg-gray-300 rounded-full overflow-hidden ">
-          <img
-            src="/img2.jpg"
-            alt="Profile"
-            className="w-full h-full object-cover"
-          />
+      {/* بک‌دراپ */}
+      <div
+        className={backdropClass}
+        onClick={() => setIsOpen(false)}
+        aria-hidden="true"
+      ></div>
+
+      {/* سایدبار */}
+      <div
+        className={` z-[99999]
+          fixed top-0 h-screen w-[300px] bg-[var(--colCard)] text-[var(--coTextA)] shadow-md flex-col p-4 overflow-y-auto
+          ${dir === "rtl" ? "right-0 left-auto" : "left-0 right-auto"}
+          transition-transform duration-300 ease-in-out
+          md:translate-x-0
+          ${translateClass}
+        `}
+      >
+        {/* info user */}
+        <div className="flex flex-col items-center gap-2 mt-7 ">
+          <div className="w-20 h-20 bg-gray-300 rounded-full overflow-hidden ">
+            <img
+              src="/img2.jpg"
+              alt="Profile"
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <h1 className="text-lg font-bold text-center">Elvin Sherman</h1>
+          <span className="text-xs text-gray-300">SUPERADMIN</span>
         </div>
-        <h1 className="text-lg font-bold text-center">Elvin Sherman</h1>
-        <span className="text-xs text-gray-300">SUPERADMIN</span>
-      </div>
-      {/* user infor end */}
 
-      {/* navigation start */}
-      <div className="flex flex-col items-start pl-5 mt-10">
-        <div className="flex flex-col gap-3">
-          <h2 className="text-sm font-semibold text-gray-400 mb-2">
-            MAIN NAVIGATION
-          </h2>
-          <ul className="space-y-2 flex flex-col gap-3">
-            <li>
-              <a
-                href="#"
-                className="flex items-center gap-2 hover:text-[var(--textHover)]"
-              >
-                <FaHome className="text-blue-500" />
-                Dashboard
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className="flex items-center gap-2 hover:text-[var(--textHover)]"
-              >
-                <FaGlobe className="text-green-500" />
-                Domains
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className="flex items-center gap-2 hover:text-[var(--textHover)]"
-              >
-                <FaServer className="text-purple-500" />
-                Servers
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className="flex items-center gap-2 hover:text-[var(--textHover)]"
-              >
-                <FaEnvelope className="text-red-500" />
-                E-Mail
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className="flex items-center gap-2 hover:text-[var(--textHover)]"
-              >
-                <FaDatabase className="text-yellow-500" />
-                Data Bases
-              </a>
-            </li>
-          </ul>
+        {/* navigation */}
+        <div className="flex flex-col items-start pl-5 mt-10">
+          <div className="flex flex-col gap-3">
+            <h2 className="text-sm font-semibold text-gray-400 mb-2">
+              MAIN NAVIGATION
+            </h2>
+            <ul className="space-y-2 flex flex-col gap-3">
+              {[
+                { icon: <FaHome className="text-blue-500" />, label: "Dashboard" },
+                { icon: <FaGlobe className="text-green-500" />, label: "Domains" },
+                { icon: <FaServer className="text-purple-500" />, label: "Servers" },
+                { icon: <FaEnvelope className="text-red-500" />, label: "E-Mail" },
+                { icon: <FaDatabase className="text-yellow-500" />, label: "Data Bases" },
+              ].map(({ icon, label }) => (
+                <li key={label}>
+                  <a
+                    href="#"
+                    className="flex items-center gap-2 hover:text-[var(--textHover)]"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {icon}
+                    {label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
-      </div>
-      {/* navigation end */}
 
-      {/* settings start */}
-      <div className="flex flex-col items-start pl-5 mt-10">
-        <div className="flex flex-col gap-3">
-          <h2 className="text-sm font-semibold text-gray-400 mb-2">
-            Settings
-          </h2>
-          <ul className="space-y-2 flex flex-col gap-3">
-            <li>
-              <div className="flex w-full gap-2">
+        {/* settings */}
+        <div className="flex flex-col items-start pl-5 mt-10">
+          <div className="flex flex-col gap-3">
+            <h2 className="text-sm font-semibold text-gray-400 mb-2">Settings</h2>
+            <ul className="space-y-2 flex flex-col gap-3">
+              <li>
+                <div className="flex w-full gap-2">
+                  <button
+                    suppressHydrationWarning
+                    className="border flex justify-center items-center rounded-full color-[var(--colTextB)] w-10 h-10"
+                    onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                  >
+                    {theme === "dark" ? <IoMdSunny /> : <BsFillMoonStarsFill />}
+                  </button>
 
-                <button
-                  suppressHydrationWarning
-                  className=" border flex justify-center items-center  rounded-full  color-[var(--colTextB)] w-10 h-10"
-                  onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}>
-                  {theme === 'dark' ? <IoMdSunny /> : <BsFillMoonStarsFill />}
-                </button>
-
-
-               <button
-                  onClick={() => toggleDirection()}
-                  className=" border flex justify-center items-center  rounded-full  color-[var(--colTextB)]] w-10 h-10"
-                  title="جابجایی سایدبار"
-                >
-                  {dir=='ltr' ? <PiAlignLeftFill /> : <PiAlignRightFill />}
-                </button>
-
-              </div>
-            </li>
-
-          </ul>
+                  <button
+                    onClick={() => toggleDirection()}
+                    className="border flex justify-center items-center rounded-full color-[var(--colTextB)] w-10 h-10"
+                    title=""
+                  >
+                    {dir === "ltr" ? <PiAlignLeftFill /> : <PiAlignRightFill />}
+                  </button>
+                </div>
+              </li>
+            </ul>
+          </div>
         </div>
-      </div>
-      {/* settings end */}
 
-    </div>
+
+      </div>
+    </>
   );
 }

@@ -6,7 +6,7 @@ export default function MainLayout({ children }) {
 
   return (
     <div className="flex">
-      <div className={`${dir === 'rtl' ? 'mr-[300px]' : 'ml-[300px]'} w-[calc(100%-300px)] `}>
+      <div className={`${dir === 'rtl' ? 'lg:mr-[300px]' : 'lg:ml-[300px]'} w-[calc(100%-300px)] `}>
         {children}
       </div>
     </div>

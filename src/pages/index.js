@@ -1,8 +1,10 @@
+import SideBar from "@/components/module/SideBar"
 import MainDashboard from "@/components/template/MainDashboard"
 
-export default function Home({props}) {
+export default function Home({ props }) {
   return (
     <>
+      <SideBar />
       < MainDashboard />
     </>
   )
@@ -11,6 +13,6 @@ export default function Home({props}) {
 
 export async function getStaticProps() {
   return {
-    props:{}
+    props: {}
   }
 }

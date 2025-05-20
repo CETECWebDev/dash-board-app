@@ -12,10 +12,12 @@ import { PiAlignRightFill } from "react-icons/pi";
 import { PiAlignLeftFill } from "react-icons/pi";
 import { BsFillMoonStarsFill } from "react-icons/bs";
 
+import { useDirection } from "@/context/DirectionContext"; 
+
 export default function SideBar() {
 
   const { theme, setTheme } = useTheme();
-  const [dir, setDir] = useState("");
+  const { dir, toggleDirection } = useDirection(); // 👈 اینو استفاده کن
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -24,18 +26,17 @@ export default function SideBar() {
 
   if (!mounted) return null;
 
-  const toggleDirection = () => {
-    const currentDir = document.documentElement.getAttribute("dir");
-    document.documentElement.setAttribute("dir", currentDir === "rtl" ? "ltr" : "rtl");
-    setDir(currentDir === "rtl" ? "ltr" : "rtl");
-  }
 
 
 
 
   return (
-    <div className={'h-screen w-[300px] bg-[var(--colCard)] text-[var(--coTextA)] shadow-md flex-col p-4 overflow-y-auto transition-all duration-300'} >
-
+     <div
+      className={`fixed top-0 h-screen w-[300px] bg-[var(--colCard)] text-[var(--coTextA)] shadow-md flex-col p-4 overflow-y-auto  ${
+        dir === "rtl" ? "right-0 left-auto" : "left-0 right-auto"
+      }`}
+    >
+     
 
       {/* info user start*/}
       <div className="flex flex-col items-center gap-2 mt-7 ">

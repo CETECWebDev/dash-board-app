@@ -97,3 +97,7 @@
 .selected-marker{
   box-shadow: 0 0 0 2px white;
 }
+
+.apexcharts-yaxis-label , .apexcharts-xaxis-label{
+  fill: var(--colTextB) !important;
+}

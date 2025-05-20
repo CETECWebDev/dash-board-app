@@ -9,7 +9,9 @@ const LineChart = () => {
   chart: {
     type: 'line',
     toolbar: { show: false },
-    zoom: { enabled: false } // ← این خط زوم رو غیرفعال می‌کنه
+    zoom:{
+      enabled:false
+    }
   },
   xaxis: {
     categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],

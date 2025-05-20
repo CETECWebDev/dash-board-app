@@ -23,7 +23,7 @@ export const DirectionProvider = ({ children }) => {
   );
 };
 
-export const useDirection = () => {
+export const useDirectionContext = () => {
   const context = useContext(DirectionContext);
   if (!context) {
     throw new Error('useDirection must be used within a DirectionProvider');

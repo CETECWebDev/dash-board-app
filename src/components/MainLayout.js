@@ -1,7 +1,7 @@
-import { useDirection } from "@/context/DirectionContext";
+import { useDirectionContext } from "@/context/DirectionContext";
 
 export default function MainLayout({ children }) {
-  const { dir } = useDirection();
+  const { dir } = useDirectionContext();
 
   return (
     <div className="flex">

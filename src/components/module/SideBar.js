@@ -17,14 +17,16 @@ import { useDirection } from "@/context/DirectionContext";
 export default function SideBar() {
 
   const { theme, setTheme } = useTheme();
-  const { dir, toggleDirection } = useDirection()
-  const [mounted, setMounted] = useState(false)
-
-  useEffect(() => {
+  const { dir, toggleDirection } = useDirection(); // 👈 اینو استفاده کن
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => { 
     setMounted(true);
-  }, [])
+  },[])
 
-  if (!mounted) return null;
+  if(!mounted) return null;
+
+  
+
 
 
 
@@ -32,7 +34,7 @@ export default function SideBar() {
 
   return (
      <div
-      className={`fixed top-0 h-screen w-[300px] z-[9999] bg-[var(--colCard)] text-[var(--coTextA)] shadow-md flex-col p-4 overflow-y-auto  ${
+      className={`fixed top-0 h-screen w-[300px] bg-[var(--colCard)] text-[var(--coTextA)] shadow-md flex-col p-4 overflow-y-auto  ${
         dir === "rtl" ? "right-0 left-auto" : "left-0 right-auto"
       }`}
     >
@@ -127,12 +129,12 @@ export default function SideBar() {
                 </button>
 
 
-                <button
+               <button
                   onClick={() => toggleDirection()}
                   className=" border flex justify-center items-center  rounded-full  color-[var(--colTextB)]] w-10 h-10"
                   title="جابجایی سایدبار"
                 >
-                  {dir == 'ltr' ? <PiAlignLeftFill /> : <PiAlignRightFill />}
+                  {dir=='ltr' ? <PiAlignLeftFill /> : <PiAlignRightFill />}
                 </button>
 
               </div>

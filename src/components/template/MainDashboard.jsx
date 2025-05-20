@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import dynamic from 'next/dynamic';
 import mockDevices from '@/data/db';
 import LineChart from '../module/LineChart';
-import DeviceDataCard from '../module/DeviceDataCard';
 const MapView = dynamic(() => import('@/components/module/MapView'), {
   ssr: false,
 });
@@ -19,12 +18,13 @@ export default function MainDashboard() {
 
       <div className='flex gap-2'>
         <MapView devices={devices} selectedDevice={selectedDevice} setSelectedDevice={setSelectedDevice}/>
-        <DeviceDataCard />
       </div>
 
     </div>
 
+    <div className='p-5'>
     <LineChart/>
+    </div>
     </>
 
   )

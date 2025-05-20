@@ -15,8 +15,8 @@ function DeviceDataCard({ selectedDevice }) {
             <div className='lg:flex lg:flex-col lg:gap-7 grid grid-cols-2 gap-x-2 gap-y-5'>
                 <div className='flex items-center gap-2'><GrStatusGoodSmall className={selectedDevice.active ? 'text-green-500' : 'text-red-700'} />Status : {selectedDevice.active ? 'Active' : 'Deactive'}</div>
                 <div className='flex items-center gap-2'><FaCarAlt />Counted Vehicle : {selectedDevice.countedV}</div>
-                <Link  target="_blank" href={`https://www.google.com/maps/dir/?api=1&destination=${selectedDevice.lat},${selectedDevice.lng}`} className=' flex items-center justify-center gap-2 border-2 rounded-full py-2 border-[var(--colTextA)]'><FaLocationCrosshairs/> Directions</Link>
-                <Link  href={'/'} className='flex items-center justify-center gap-2 border-2 rounded-full py-2 border-[var(--colTextA)]'> <FaThList/> Full details </Link>
+                <Link  target="_blank" href={`https://www.google.com/maps/dir/?api=1&destination=${selectedDevice.lat},${selectedDevice.lng}`} className=' flex items-center justify-center gap-2 border-2 rounded-full py-2 border-[var(--colTextA)] hover:text-[var(--textHover)] hover:border-[var(--textHover)]' ><FaLocationCrosshairs/> Directions</Link>
+                <Link  href={'/'} className='flex items-center justify-center gap-2 border-2 rounded-full py-2 border-[var(--colTextA)] hover:text-[var(--textHover)] hover:border-[var(--textHover)]'> <FaThList/> Full details </Link>
             </div>
         </div>
     );

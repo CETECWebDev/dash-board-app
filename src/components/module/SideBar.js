@@ -39,7 +39,7 @@ export default function SideBar() {
 
   return (
     <>
-      {/* دکمه همبرگری با آیکون IoIosMenu */}
+      {/* Hamburger menu */}
       <button
         onClick={toggleMenu}
         className={`block top-4 mt-5 p-2 rounded-md bg-[var(--colCard)] text-[var(--coTextA)] shadow-md md:hidden ${
@@ -50,14 +50,14 @@ export default function SideBar() {
         {isOpen ? "✕" : <IoIosMenu size={24} />}
       </button>
 
-      {/* بک‌دراپ */}
+      {/* Back drop Effect */}
       <div
         className={backdropClass}
         onClick={() => setIsOpen(false)}
         aria-hidden="true"
       ></div>
 
-      {/* سایدبار */}
+      {/* Side Bar */}
       <div
         className={` z-[99999]
           fixed top-0 h-screen w-[300px] bg-[var(--colCard)] text-[var(--coTextA)] shadow-md flex-col p-4 overflow-y-auto
@@ -118,7 +118,7 @@ export default function SideBar() {
                 <div className="flex w-full gap-2">
                   <button
                     suppressHydrationWarning
-                    className="border flex justify-center items-center rounded-full color-[var(--colTextB)] w-10 h-10"
+                    className="hover:text-[var(--textHover)] hover:border-[var(--textHover)] border flex justify-center items-center rounded-full color-[var(--colTextB)] w-10 h-10"
                     onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
                   >
                     {theme === "dark" ? <IoMdSunny /> : <BsFillMoonStarsFill />}
@@ -126,7 +126,7 @@ export default function SideBar() {
 
                   <button
                     onClick={() => toggleDirection()}
-                    className="border flex justify-center items-center rounded-full color-[var(--colTextB)] w-10 h-10"
+                    className="hover:text-[var(--textHover)] hover:border-[var(--textHover)] border flex justify-center items-center rounded-full color-[var(--colTextB)] w-10 h-10"
                     title=""
                   >
                     {dir === "ltr" ? <PiAlignLeftFill /> : <PiAlignRightFill />}

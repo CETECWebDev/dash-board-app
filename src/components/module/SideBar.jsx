@@ -17,8 +17,8 @@ import { useDirection } from "@/context/DirectionContext";
 export default function SideBar() {
 
   const { theme, setTheme } = useTheme();
-  const { dir, toggleDirection } = useDirection(); // 👈 اینو استفاده کن
-  const [mounted, setMounted] = useState(false);
+  const { dir, toggleDirection } = useDirection()
+  const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
     setMounted(true);

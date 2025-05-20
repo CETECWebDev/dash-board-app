@@ -12,6 +12,8 @@ export default function Home({ props }) {
 
 
 export async function getStaticProps() {
+  
+
   return {
     props: {}
   }

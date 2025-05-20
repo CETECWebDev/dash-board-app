@@ -17,14 +17,16 @@ export default function MainDashboard() {
     <>
     <div className='p-5'>
 
-      <div className='flex gap-2'>
+      <div className='flex gap-2 mb-3'>
         <MapView devices={devices} selectedDevice={selectedDevice} setSelectedDevice={setSelectedDevice}/>
         <DeviceDataCard selectedDevice={selectedDevice} />
       </div>
 
+      <LineChart/>
+
     </div>
 
-    <LineChart/>
+  
     </>
 
   )

@@ -119,3 +119,7 @@
 .apexcharts-xaxis-label {
   fill: var(--colTextB) !important;
 }
+
+.apexcharts-tooltip , .apexcharts-tooltip-title{
+  background-color: var(--colCard) !important;
+}

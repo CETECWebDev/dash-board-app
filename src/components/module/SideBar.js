@@ -16,6 +16,28 @@ import {
 
 export default function SideBar() {
   const { theme, setTheme } = useTheme();
+<<<<<<< HEAD
+=======
+  const [dir, setDir]  = useState("");
+  const [mounted, setMounted] = useState(false);
+  
+  useEffect(() => { 
+    setMounted(true);
+  },[])
+
+  if(!mounted) return null;
+
+  
+
+  const toggleDirection = () => {
+    const currentDir = document.documentElement.getAttribute("dir");
+    document.documentElement.setAttribute("dir", currentDir === "rtl" ? "ltr" : "rtl");
+    setDir(currentDir === "rtl" ? "ltr" : "rtl");
+  };
+
+
+
+>>>>>>> 9913fb1 (create DataChart)
 
   return (
     <div className='hidden lg:flex fixed left-0 top-0 h-screen w-[260px] bg-[var(--colCard)] text-[var(--coTextA)] shadow-md flex-col justify-between p-4 z-50 overflow-y-auto'>

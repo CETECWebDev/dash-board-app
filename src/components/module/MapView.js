@@ -1,18 +1,18 @@
 import React, { useEffect, useRef } from 'react'
 import L from 'leaflet'
 import { useTheme } from 'next-themes'
+import { getBlinkingIcon } from '@/lib/getBlinkingIcon';
 
-export default function MapView() {
+export default function MapView({ devices, selectedDevice, setSelectedDevice }) {
 
     const theme = useTheme()
-
-    console.log(theme);
-    
+    const mapRef = useRef(null);
+    const markersRef = useRef([]);
 
     const darkmap = `https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png`
     const lightmap = `https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png`
 
-    const mapRef = useRef(null);
+
 
     useEffect(() => {
 
@@ -28,7 +28,33 @@ export default function MapView() {
 
     }, [theme])
 
+
+    useEffect(() => {
+
+        markersRef.current.forEach(marker => {
+            marker.remove();
+        });
+        markersRef.current = [];
+
+
+
+
+        devices.forEach(device => {
+            const icon = getBlinkingIcon(device.active, selectedDevice.id === device.id);
+            const marker = L.marker([device.lat, device.lng], { icon }).addTo(mapRef.current);
+
+            marker.on('click', () => {
+                setSelectedDevice(device);
+            });
+
+            markersRef.current.push(marker);
+        });
+
+    }, [selectedDevice , theme]);
+
+
+
     return (
-        <div id="map" className={`w-full h-[90dvh]  ${theme.theme === 'dark' ? 'border-zinc-600 border-2 shadow-md' : 'shadow-md' } rounded-xl`} />
+        <div id="map" className={`w-[100%] h-[50dvh] lg:h-[90dvh] transform-gpu rounded-xl z-0  ${theme.theme === 'dark' ? 'border-zinc-600 border-2 shadow-md' : 'shadow-md'} `} />
     )
 }

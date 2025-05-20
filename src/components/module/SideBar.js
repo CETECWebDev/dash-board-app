@@ -1,113 +1,144 @@
-import { useTheme } from 'next-themes';
-import React from 'react';
+// src/components/module/SideBar.js
 
-import { 
-  FaHome, 
-  FaGlobe, 
-  FaServer, 
-  FaEnvelope, 
-  FaDatabase, 
-  FaCog, 
-  FaChartLine, 
-  FaTicketAlt, 
-  FaBell, 
-  FaQuestionCircle 
-} from 'react-icons/fa';
+import { useTheme } from "next-themes";
+import React, { useEffect, useState } from "react";
+import {
+  FaHome,
+  FaGlobe,
+  FaServer,
+  FaEnvelope,
+  FaDatabase,
+} from "react-icons/fa";
+import { IoMdSunny, IoIosMenu } from "react-icons/io";
+import { PiAlignRightFill, PiAlignLeftFill } from "react-icons/pi";
+import { BsFillMoonStarsFill } from "react-icons/bs";
+
+import { useDirection } from "@/context/DirectionContext";
 
 export default function SideBar() {
   const { theme, setTheme } = useTheme();
-<<<<<<< HEAD
-=======
-  const [dir, setDir]  = useState("");
+  const { dir, toggleDirection } = useDirection();
   const [mounted, setMounted] = useState(false);
-  
-  useEffect(() => { 
+  const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
     setMounted(true);
-  },[])
+  }, []);
 
-  if(!mounted) return null;
+  if (!mounted) return null;
 
-  
+  const toggleMenu = () => setIsOpen(!isOpen);
 
-  const toggleDirection = () => {
-    const currentDir = document.documentElement.getAttribute("dir");
-    document.documentElement.setAttribute("dir", currentDir === "rtl" ? "ltr" : "rtl");
-    setDir(currentDir === "rtl" ? "ltr" : "rtl");
-  };
+  const translateClass = isOpen
+    ? "translate-x-0"
+    : dir === "rtl"
+    ? "translate-x-full"
+    : "-translate-x-full";
 
-
-
->>>>>>> 9913fb1 (create DataChart)
+  const backdropClass = isOpen
+    ? "fixed inset-0 bg-black bg-opacity-50 z-40 md:hidden backdrop-blur-md"
+    : "hidden";
 
   return (
-    <div className='hidden lg:flex fixed left-0 top-0 h-screen w-[260px] bg-[var(--colCard)] text-[var(--coTextA)] shadow-md flex-col justify-between p-4 z-50 overflow-y-auto'>
-      {/* info user */}
-      <div className="flex flex-col items-center gap-2">
-        <div className="w-20 h-20 bg-gray-300 rounded-full overflow-hidden">
-          <img src="/img2.jpg" alt="Profile" className="w-full h-full object-cover" />
-        </div>
-        <h1 className="text-lg font-bold text-center">Elvin Sherman</h1>
-        <span className="text-xs text-gray-300">SUPERADMIN</span>
-      </div>
+    <>
+      {/* Hamburger menu */}
+      <button
+        onClick={toggleMenu}
+        className={`block top-4 mt-5 p-2 rounded-md bg-[var(--colCard)] text-[var(--colTextA)] shadow-md md:hidden ${
+          dir === "rtl" ? "mr-5" : "ml-5"
+        }`}
+        aria-label="Toggle Menu"
+      >
+        {isOpen ? "✕" : <IoIosMenu size={24} />}
+      </button>
 
-      {/* ناوبری و تنظیمات */}
-      <div className="flex flex-col gap-6 mt-6">
-        <div>
-          <h2 className="text-sm font-semibold text-gray-400 mb-2">MAIN NAVIGATION</h2>
-          <ul className="space-y-2">
-            <li><a href="#" className="flex items-center gap-2 hover:text-blue-400"><FaHome className="text-blue-500" />Dashboard</a></li>
-            <li><a href="#" className="flex items-center gap-2 hover:text-blue-400"><FaGlobe className="text-green-500" />Domains</a></li>
-            <li><a href="#" className="flex items-center gap-2 hover:text-blue-400"><FaServer className="text-purple-500" />Servers</a></li>
-            <li><a href="#" className="flex items-center gap-2 hover:text-blue-400"><FaEnvelope className="text-red-500" />E-Mail</a></li>
-            <li><a href="#" className="flex items-center gap-2 hover:text-blue-400"><FaDatabase className="text-yellow-500" />Data Bases</a></li>
-          </ul>
+      {/* Back drop Effect */}
+      <div
+        className={backdropClass}
+        onClick={() => setIsOpen(false)}
+        aria-hidden="true"
+      ></div>
+
+      {/* Side Bar */}
+      <div
+        className={`z-[99999]
+          fixed top-0 h-screen w-[300px] bg-[var(--colCard)] text-[var(--colTextA)] shadow-md flex-col p-4 overflow-y-auto
+          ${dir === "rtl" ? "right-0 left-auto" : "left-0 right-auto"}
+          transition-transform duration-300 ease-in-out
+          md:translate-x-0
+          ${translateClass}
+        `}
+      >
+        {/* info user */}
+        <div className="flex flex-col items-center gap-2 mt-7 ">
+          <div className="w-20 h-20 bg-gray-300 rounded-full overflow-hidden ">
+            <img
+              src="/img2.jpg"
+              alt="Profile"
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <h1 className="text-lg font-bold text-center">Elvin Sherman</h1>
+          <span className="text-xs text-gray-300">SUPERADMIN</span>
         </div>
 
-        <div>
-          <h2 className="text-sm font-semibold text-gray-400 mb-2">SETTINGS</h2>
-          <ul className="space-y-2">
-            <li><a href="#" className="flex items-center gap-2 hover:text-blue-400"><FaCog className="text-gray-400" />Settings</a></li>
-            <li><a href="#" className="flex items-center gap-2 hover:text-blue-400"><FaChartLine className="text-indigo-500" />Analytics</a></li>
-          </ul>
+        {/* navigation */}
+        <div className="flex flex-col items-start pl-5 mt-10">
+          <div className="flex flex-col gap-3">
+            <h2 className="text-sm font-semibold text-gray-400 mb-2">
+              MAIN NAVIGATION
+            </h2>
+            <ul className="space-y-2 flex flex-col gap-3">
+              {[
+                { icon: <FaHome className="text-blue-500" />, label: "Dashboard" },
+                { icon: <FaGlobe className="text-green-500" />, label: "Domains" },
+                { icon: <FaServer className="text-purple-500" />, label: "Servers" },
+                { icon: <FaEnvelope className="text-red-500" />, label: "E-Mail" },
+                { icon: <FaDatabase className="text-yellow-500" />, label: "Data Bases" },
+              ].map(({ icon, label }) => (
+                <li key={label}>
+                  <a
+                    href="#"
+                    className="flex items-center gap-2 hover:text-[var(--textHover)]"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {icon}
+                    {label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
-      </div>
 
-      {/* اعلان‌ها + Help Center */}
-      <div className="flex flex-col gap-4 mt-6">
-        <div>
-          <h2 className="text-sm font-semibold text-gray-400 mb-2">NOTIFICATIONS</h2>
-          <ul className="space-y-2">
-            <li>
-              <a href="#" className="flex items-center justify-between hover:text-blue-400">
-                <div className="flex items-center gap-2">
-                  <FaTicketAlt className="text-orange-400" />
-                  Tickets
+        {/* settings */}
+        <div className="flex flex-col items-start pl-5 mt-10">
+          <div className="flex flex-col gap-3">
+            <h2 className="text-sm font-semibold text-gray-400 mb-2">Settings</h2>
+            <ul className="space-y-2 flex flex-col gap-3">
+              <li>
+                <div className="flex w-full gap-2">
+                  <button
+                    suppressHydrationWarning
+                    className="hover:text-[var(--textHover)] hover:border-[var(--textHover)] border flex justify-center items-center rounded-full text-[var(--colTextB)] w-10 h-10"
+                    onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                  >
+                    {theme === "dark" ? <IoMdSunny /> : <BsFillMoonStarsFill />}
+                  </button>
+
+                  <button
+                    onClick={() => toggleDirection()}
+                    className="hover:text-[var(--textHover)] hover:border-[var(--textHover)] border flex justify-center items-center rounded-full text-[var(--colTextB)] w-10 h-10"
+                    title="Toggle Direction"
+                  >
+                    {dir === "ltr" ? <PiAlignLeftFill /> : <PiAlignRightFill />}
+                  </button>
                 </div>
-                <span className="text-xs bg-orange-400 text-white px-2 py-0.5 rounded-full">12</span>
-              </a>
-            </li>
-            <li>
-              <a href="#" className="flex items-center gap-2 hover:text-blue-400">
-                <FaBell className="text-pink-400" />
-                Alerts
-              </a>
-            </li>
-            <li>
-              <a href="#" className="hover:text-blue-400" onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}>
-                Change Theme
-              </a>
-            </li>
-          </ul>
-        </div>
-
-        {/* Help Center */}
-        <div className="border-t border-gray-700 pt-4 flex justify-center items-center">
-          <a href="#" className="flex items-center gap-2 text-sm text-gray-300 hover:text-blue-400">
-            <FaQuestionCircle className="text-blue-400" />
-            Help Center
-          </a>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }

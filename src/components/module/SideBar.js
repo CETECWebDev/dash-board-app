@@ -46,7 +46,7 @@ export default function SideBar() {
       {/* Hamburger menu */}
       <button
         onClick={toggleMenu}
-        className={`block mt-5 p-2 rounded-md bg-[var(--colCard)] text-[var(--coTextA)] shadow-md md:hidden ${
+        className={`block mt-5 p-2 rounded-md bg-[var(--colCard)] text-[var(--coTextA)] shadow-md lg:hidden ${
           dir === "rtl" ? "mr-5" : "ml-5"
         }`}
         aria-label="Toggle Menu"

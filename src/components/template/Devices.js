@@ -1,48 +1,23 @@
 import React, { useState } from 'react';
 import mockDevices from '@/data/db';
+import usePagination from '@/hooks/usePagination';
+import DeviceInfoCard from '../module/DeviceInfoCard';
+import Link from 'next/link';
 
 export default function Devices() {
+
   const devices = mockDevices;
-
-  const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 8; // items count per page
-
-  const totalPages = Math.ceil(devices.length / itemsPerPage);
-
-  const startIndex = (currentPage - 1) * itemsPerPage;
-  const endIndex = startIndex + itemsPerPage;
-  const currentDevices = devices.slice(startIndex, endIndex);
+  const [totalPages , pagedList , currentPage , setCurrentPage] = usePagination( 8 , devices)
 
   return (
-    <div className="p-4 space-y-6">
+    <div className="p-3 space-y-6">
+
+      <Link href={'/add-device'} className='block mt-3'>+ Add new device</Link>
+
       {/* Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {currentDevices.map(device => (
-          <div
-            key={device.id}
-            className="bg-[var(--colCard)] rounded-lg shadow p-6 flex flex-col gap-2 border"
-          >
-            <div className="flex items-center justify-between">
-              <span className="font-bold text-lg text-[var(--colTextA)]">
-                {device.name} <span className=" text-sm">({device.id})</span>
-              </span>
-              <span
-                className={`px-2 py-1 rounded text-xs font-semibold ${
-                  device.active
-                    ? 'bg-green-100 text-green-700'
-                    : 'bg-red-100 text-red-700'
-                }`}
-              >
-                {device.active ? 'Active' : 'Inactive'}
-              </span>
-            </div>
-            <div className="text-[var(--colTextB)] text-sm">
-              Lat: {device.lat}, Lng: {device.lng}
-            </div>
-            <div className="text-[var(--colTextB)] font-medium">
-              Counted Value: {device.countedV}
-            </div>
-          </div>
+        {pagedList.map(device => (
+          <DeviceInfoCard key={device.id} {...device} />
         ))}
       </div>
 
@@ -68,6 +43,8 @@ export default function Devices() {
           Next
         </button>
       </div>
+
+
     </div>
   );
 }

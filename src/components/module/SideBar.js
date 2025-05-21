@@ -7,10 +7,11 @@ import {
   FaEnvelope,
   FaDatabase,
 } from "react-icons/fa";
-import { IoMdSunny, IoIosMenu } from "react-icons/io";  // اضافه کردم اینجا
+import { IoMdSunny, IoIosMenu } from "react-icons/io"; // اضافه کردم اینجا
 import { PiAlignRightFill, PiAlignLeftFill } from "react-icons/pi";
 import { BsFillMoonStarsFill } from "react-icons/bs";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 import { useDirectionContext } from "@/context/DirectionContext";
 
@@ -19,6 +20,7 @@ export default function SideBar() {
   const { dir, toggleDirection } = useDirectionContext();
   const [mounted, setMounted] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     setMounted(true);
@@ -37,8 +39,6 @@ export default function SideBar() {
   const backdropClass = isOpen
     ? "fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden backdrop-blur-md"
     : "hidden";
-
- 
 
   return (
     <>
@@ -59,8 +59,6 @@ export default function SideBar() {
         onClick={() => setIsOpen(false)}
         aria-hidden="true"
       ></div>
-
-      
 
       {/* Side Bar */}
       <div
@@ -93,23 +91,56 @@ export default function SideBar() {
             </h2>
             <ul className="space-y-2 flex flex-col gap-3">
               {[
-                { icon: <FaHome className="text-blue-500" />, label: "Dashboard"  },
-                { icon: <FaGlobe className="text-green-500" />, label: "Devices" , url: "/devices" },
-                { icon: <FaServer className="text-purple-500" />, label: "Employees" , url: "/employees" },
-                { icon: <FaEnvelope className="text-red-500" />, label: "E-Mail" },
-                { icon: <FaDatabase className="text-yellow-500" />, label: "Data Bases" },
-              ].map(({ icon, label , url }) => (
-                <li key={label}>
-                  <Link
-                    href={url ?? "/"}
-                    className="flex items-center gap-2 hover:text-[var(--textHover)]"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    {icon}
-                    {label}
-                  </Link>
-                </li>
-              ))}
+                {
+                  icon: <FaHome className="text-blue-500" />,
+                  label: "Dashboard",
+                   url: "/",
+                },
+                {
+                  icon: <FaGlobe className="text-green-500" />,
+                  label: "Devices",
+                  url: "/devices",
+                },
+                {
+                  icon: <FaServer className="text-purple-500" />,
+                  label: "Employees",
+                  url: "/employees",
+                },
+                {
+                  icon: <FaEnvelope className="text-red-500" />,
+                  label: "E-Mail",
+                  url: "#",
+
+                },
+                {
+                  icon: <FaDatabase className="text-yellow-500" />,
+                  label: "Data Bases",
+                  url: "#",
+
+                },
+              ].map(({ icon, label, url }) => {
+                 const isActive =
+                  url === "/"
+                  ? pathname === "/" // فقط اگه دقیقاً صفحه اصلی بود
+                  : url && pathname.startsWith(url); // برای بقیه لینک‌ها
+
+                return (
+                  <li key={label}>
+                    <Link
+                      href={url ?? "/"}
+                      className={`flex items-center gap-2 pb-1 border-b-2 transition-colors duration-200 ${
+                        isActive
+                          ? "border-[var(--textHover)]  font-semibold"
+                          : "border-transparent hover:text-[var(--textHover)]"
+                      }`}
+                      onClick={() => setIsOpen(false)}
+                    >
+                      {icon}
+                      {label}
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
           </div>
         </div>
@@ -117,14 +148,18 @@ export default function SideBar() {
         {/* settings */}
         <div className="flex flex-col items-start pl-5 mt-10">
           <div className="flex flex-col gap-3">
-            <h2 className="text-sm font-semibold text-gray-400 mb-2">Settings</h2>
+            <h2 className="text-sm font-semibold text-gray-400 mb-2">
+              Settings
+            </h2>
             <ul className="space-y-2 flex flex-col gap-3">
               <li>
                 <div className="flex w-full gap-2">
                   <button
                     suppressHydrationWarning
                     className="hover:text-[var(--textHover)] hover:border-[var(--textHover)] border flex justify-center items-center rounded-full color-[var(--colTextB)] w-10 h-10"
-                    onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                    onClick={() =>
+                      setTheme(theme === "dark" ? "light" : "dark")
+                    }
                   >
                     {theme === "dark" ? <IoMdSunny /> : <BsFillMoonStarsFill />}
                   </button>
@@ -141,8 +176,6 @@ export default function SideBar() {
             </ul>
           </div>
         </div>
-
-
       </div>
     </>
   );

@@ -11,9 +11,9 @@ export default function Devices() {
   const [totalPages , pagedList , currentPage , setCurrentPage] = usePagination( 8 , devices)
 
   return (
-    <div className="p-3 space-y-6">
+    <div className="p-5 space-y-4">
 
-      <Link href={'/add-device'} className='block mt-3'>+ Add new device</Link>
+      <button href={'/add-device'} className='  border-2 rounded-full py-2 px-4 border-[var(--colTextA)] hover:text-[var(--textHover)] hover:border-[var(--textHover)]'>+ Add new device</button>
 
       {/* Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

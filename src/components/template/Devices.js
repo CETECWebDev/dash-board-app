@@ -13,7 +13,7 @@ export default function Devices() {
   return (
     <div className="p-5 space-y-4">
 
-      <button href={'/add-device'} className='  border-2 rounded-full py-2 px-4 border-[var(--colTextA)] hover:text-[var(--textHover)] hover:border-[var(--textHover)]'>+ Add new device</button>
+      <Link href={'/add-device'} className='  border-2 rounded-full py-2 px-4 border-[var(--colTextA)] hover:text-[var(--textHover)] hover:border-[var(--textHover)]'>+ Add new device</Link>
 
       {/* Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

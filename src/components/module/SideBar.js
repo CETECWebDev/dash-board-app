@@ -12,14 +12,18 @@ import {
 import { IoMdSunny, IoIosMenu } from "react-icons/io";
 import { PiAlignRightFill, PiAlignLeftFill } from "react-icons/pi";
 import { BsFillMoonStarsFill } from "react-icons/bs";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
-import { useDirection } from "@/context/DirectionContext";
+import { useDirectionContext } from "@/context/DirectionContext";
+import { MdTranslate } from "react-icons/md";
 
 export default function SideBar() {
   const { theme, setTheme } = useTheme();
-  const { dir, toggleDirection } = useDirection();
+  const { dir, toggleDirection } = useDirectionContext();
   const [mounted, setMounted] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     setMounted(true);
@@ -36,7 +40,7 @@ export default function SideBar() {
     : "-translate-x-full";
 
   const backdropClass = isOpen
-    ? "fixed inset-0 bg-black bg-opacity-50 z-40 md:hidden backdrop-blur-md"
+    ? "fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden backdrop-blur-md"
     : "hidden";
 
   return (
@@ -44,7 +48,7 @@ export default function SideBar() {
       {/* Hamburger menu */}
       <button
         onClick={toggleMenu}
-        className={`block top-4 mt-5 p-2 rounded-md bg-[var(--colCard)] text-[var(--colTextA)] shadow-md md:hidden ${
+        className={`block mt-5 p-2 rounded-md bg-[var(--colCard)] text-[var(--coTextA)] shadow-md lg:hidden ${
           dir === "rtl" ? "mr-5" : "ml-5"
         }`}
         aria-label="Toggle Menu"
@@ -65,7 +69,7 @@ export default function SideBar() {
           fixed top-0 h-screen w-[300px] bg-[var(--colCard)] text-[var(--colTextA)] shadow-md flex-col p-4 overflow-y-auto
           ${dir === "rtl" ? "right-0 left-auto" : "left-0 right-auto"}
           transition-transform duration-300 ease-in-out
-          md:translate-x-0
+          lg:translate-x-0
           ${translateClass}
         `}
       >
@@ -86,27 +90,58 @@ export default function SideBar() {
         <div className="flex flex-col items-start pl-5 mt-10">
           <div className="flex flex-col gap-3">
             <h2 className="text-sm font-semibold text-gray-400 mb-2">
-              MAIN NAVIGATION
+              {dir === "ltr" ? "Main Navigation" : "منوی ناوبری"}
             </h2>
             <ul className="space-y-2 flex flex-col gap-3">
               {[
-                { icon: <FaHome className="text-blue-500" />, label: "Dashboard" },
-                { icon: <FaGlobe className="text-green-500" />, label: "Domains" },
-                { icon: <FaServer className="text-purple-500" />, label: "Servers" },
-                { icon: <FaEnvelope className="text-red-500" />, label: "E-Mail" },
-                { icon: <FaDatabase className="text-yellow-500" />, label: "Data Bases" },
-              ].map(({ icon, label }) => (
-                <li key={label}>
-                  <a
-                    href="#"
-                    className="flex items-center gap-2 hover:text-[var(--textHover)]"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    {icon}
-                    {label}
-                  </a>
-                </li>
-              ))}
+                {
+                  icon: <FaHome className="text-blue-500" />,
+                  label: dir === "ltr" ? "Dashboard" : "داشبورد",
+                  url: "/",
+                },
+                {
+                  icon: <FaGlobe className="text-green-500" />,
+                  label: dir === "ltr" ? "Devices" : "دستگاه ها",
+                  url: "/devices",
+                },
+                {
+                  icon: <FaServer className="text-purple-500" />,
+                  label: dir === "ltr" ? "Employees" : "کارمندان",
+                  url: "/employees",
+                },
+                {
+                  icon: <FaEnvelope className="text-red-500" />,
+                  label: dir === "ltr" ? "Email" : "ایمیل",
+                  url: "#",
+                },
+                {
+                  icon: <FaDatabase className="text-yellow-500" />,
+                  label: dir === "ltr" ? "Databases" : "دیتابیس ها",
+                  url: "#",
+                },
+              ].map(({ icon, label, url }) => {
+                 const isActive =
+                  url === "/"
+                  ? pathname === "/" // فقط اگه دقیقاً صفحه اصلی بود
+                  : url && pathname.startsWith(url); // برای بقیه لینک‌ها
+
+                return (
+                  <li key={label}>
+                    <Link
+                      href={url ?? "/"}
+                      className={`flex items-center gap-2 pb-1 border-b-2 transition-colors duration-200 ${
+                        isActive
+                          ? "border-[var(--textHover)]  font-semibold"
+                          : "border-transparent hover:text-[var(--textHover)]"
+                      }`}
+                      onClick={() => setIsOpen(false)}
+                    >
+                      {icon}
+                      {label}
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
           </div>
         </div>
@@ -114,14 +149,18 @@ export default function SideBar() {
         {/* settings */}
         <div className="flex flex-col items-start pl-5 mt-10">
           <div className="flex flex-col gap-3">
-            <h2 className="text-sm font-semibold text-gray-400 mb-2">Settings</h2>
+            <h2 className="text-sm font-semibold text-gray-400 mb-2">
+             {dir === "ltr" ? "Setting" : "تنظیمات"}
+            </h2>
             <ul className="space-y-2 flex flex-col gap-3">
               <li>
                 <div className="flex w-full gap-2">
                   <button
                     suppressHydrationWarning
-                    className="hover:text-[var(--textHover)] hover:border-[var(--textHover)] border flex justify-center items-center rounded-full text-[var(--colTextB)] w-10 h-10"
-                    onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                    className="hover:text-[var(--textHover)] hover:border-[var(--textHover)] border flex justify-center items-center rounded-full color-[var(--colTextB)] w-10 h-10"
+                    onClick={() =>
+                      setTheme(theme === "dark" ? "light" : "dark")
+                    }
                   >
                     {theme === "dark" ? <IoMdSunny /> : <BsFillMoonStarsFill />}
                   </button>
@@ -131,7 +170,7 @@ export default function SideBar() {
                     className="hover:text-[var(--textHover)] hover:border-[var(--textHover)] border flex justify-center items-center rounded-full text-[var(--colTextB)] w-10 h-10"
                     title="Toggle Direction"
                   >
-                    {dir === "ltr" ? <PiAlignLeftFill /> : <PiAlignRightFill />}
+                    {dir === "ltr" ? <MdTranslate /> : <MdTranslate />}
                   </button>
                 </div>
               </li>

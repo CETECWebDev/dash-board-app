@@ -3,12 +3,12 @@ import Link from 'next/link'
 import React from 'react'
 import { useDirectionContext } from "@/context/DirectionContext";
 import PaginationControls from '../module/PaginationControls';
+// import PaginationControls from '../module/PaginationControls';
 
 
 export default function Employees({ employees }) {
 
   const [totalPages, currentEmployees, currentPage, setCurrentPage] = usePagination(6, employees)
-  const { dir, toggleDirection } = useDirectionContext();
 
   return (
     <div className="min-h-screen p-5 text-[var(--colTextA)]">
@@ -64,7 +64,6 @@ export default function Employees({ employees }) {
         currentPage={currentPage}
         totalPages={totalPages}
         setCurrentPage={setCurrentPage}
-        dir={dir}
       />
    
 

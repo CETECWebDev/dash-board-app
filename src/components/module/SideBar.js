@@ -7,7 +7,7 @@ import {
   FaEnvelope,
   FaDatabase,
 } from "react-icons/fa";
-import { IoMdSunny, IoIosMenu } from "react-icons/io"; // اضافه کردم اینجا
+import { IoMdSunny, IoIosMenu } from "react-icons/io";
 import { PiAlignRightFill, PiAlignLeftFill } from "react-icons/pi";
 import { BsFillMoonStarsFill } from "react-icons/bs";
 import Link from "next/link";

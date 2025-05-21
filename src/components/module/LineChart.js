@@ -25,7 +25,7 @@ const LineChart = () => {
   },
   yaxis: {
     min: 0,
-    max: 100,
+    // max: 100,
     title: {
       text: 'Income ($)',
       style: {

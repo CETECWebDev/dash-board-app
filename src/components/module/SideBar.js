@@ -14,6 +14,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 import { useDirectionContext } from "@/context/DirectionContext";
+import { MdTranslate } from "react-icons/md";
 
 export default function SideBar() {
   const { theme, setTheme } = useTheme();
@@ -167,7 +168,7 @@ export default function SideBar() {
                     className="hover:text-[var(--textHover)] hover:border-[var(--textHover)] border flex justify-center items-center rounded-full color-[var(--colTextB)] w-10 h-10"
                     title=""
                   >
-                    {dir === "ltr" ? <PiAlignLeftFill /> : <PiAlignRightFill />}
+                    {dir === "ltr" ? <MdTranslate /> : <MdTranslate />}
                   </button>
                 </div>
               </li>

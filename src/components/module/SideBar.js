@@ -87,36 +87,34 @@ export default function SideBar() {
         <div className="flex flex-col items-start pl-5 mt-10">
           <div className="flex flex-col gap-3">
             <h2 className="text-sm font-semibold text-gray-400 mb-2">
-              MAIN NAVIGATION
+              {dir === "ltr" ? "Main Navigation" : "منوی ناوبری"}
             </h2>
             <ul className="space-y-2 flex flex-col gap-3">
               {[
                 {
                   icon: <FaHome className="text-blue-500" />,
-                  label: "Dashboard",
-                   url: "/",
+                  label: dir === "ltr" ? "Dashboard" : "داشبورد",
+                  url: "/",
                 },
                 {
                   icon: <FaGlobe className="text-green-500" />,
-                  label: "Devices",
+                  label: dir === "ltr" ? "Devices" : "دستگاه ها",
                   url: "/devices",
                 },
                 {
                   icon: <FaServer className="text-purple-500" />,
-                  label: "Employees",
+                  label: dir === "ltr" ? "Employees" : "کارمندان",
                   url: "/employees",
                 },
                 {
                   icon: <FaEnvelope className="text-red-500" />,
-                  label: "E-Mail",
+                  label: dir === "ltr" ? "Email" : "ایمیل",
                   url: "#",
-
                 },
                 {
                   icon: <FaDatabase className="text-yellow-500" />,
-                  label: "Data Bases",
+                  label: dir === "ltr" ? "Databases" : "دیتابیس ها",
                   url: "#",
-
                 },
               ].map(({ icon, label, url }) => {
                  const isActive =
@@ -149,7 +147,7 @@ export default function SideBar() {
         <div className="flex flex-col items-start pl-5 mt-10">
           <div className="flex flex-col gap-3">
             <h2 className="text-sm font-semibold text-gray-400 mb-2">
-              Settings
+             {dir === "ltr" ? "Setting" : "تنظیمات"}
             </h2>
             <ul className="space-y-2 flex flex-col gap-3">
               <li>

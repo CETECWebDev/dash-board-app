@@ -4,7 +4,7 @@ const postUser = async (user) => {
     
 
     try{
-        const res = await fetch(`https://corsproxy.io/?url=http://89.235.119.239/gateway/employees/` , {
+        const res = await fetch(`/api/users` , {
             method: 'POST' , 
             headers : {
                 'Content-Type' : 'application/json'

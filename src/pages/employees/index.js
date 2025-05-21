@@ -1,4 +1,4 @@
-import fetchUsers from '@/api/fetchUsers';
+import fetchUsers from '@/api-functions/fetchUsers';
 import SideBar from '@/components/module/SideBar';
 import Employees from '@/components/template/Employees';
 import React from 'react'

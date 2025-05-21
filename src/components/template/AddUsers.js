@@ -3,22 +3,22 @@ import { RiUser3Line } from "react-icons/ri";
 import { IoMail } from "react-icons/io5";
 import { IoMdArrowBack } from "react-icons/io";
 import Link from 'next/link';
-import postUser from '@/api/postUser';
+import postUser from '@/api-functions/postUser';
 import { useDirectionContext } from "@/context/DirectionContext";
 
 
 export default function AddUsers() {
 
     const { dir } = useDirectionContext();
-    
+
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
 
     const createUser = async (e) => {
         e.preventDefault()
-        const newUser = { name , email }
+        const newUser = { name, email }
         const res = await postUser(newUser)
-        console.log(res); 
+        alert(res)
     }
 
     return (
@@ -27,7 +27,7 @@ export default function AddUsers() {
                 className="bg-[var(--colCard)] p-8 rounded-2xl backdrop-blur-md w-full lg:w-[70%]"
             >
                 <h1 className="text-center text-2xl md:text-3xl font-medium text-[var(--colTextA)] mb-8">
-                   { dir === "ltr" ? "Add User" : "افزودن کاربر"}
+                    {dir === "ltr" ? "Add User" : "افزودن کاربر"}
                 </h1>
 
                 {/* Name Field */}
@@ -67,8 +67,8 @@ export default function AddUsers() {
                     Create User
                 </button>
 
-                <Link href={'/employees'} className='flex items-center gap-2 mt-5'><IoMdArrowBack /> 
-                   { dir === "ltr" ? "Back" : " بازگشت"}
+                <Link href={'/employees'} className='flex items-center gap-2 mt-5'><IoMdArrowBack />
+                    {dir === "ltr" ? "Back" : " بازگشت"}
                 </Link>
 
 

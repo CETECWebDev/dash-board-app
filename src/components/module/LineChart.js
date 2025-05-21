@@ -49,7 +49,7 @@ const series = [
 ];
 
 return (
-  <div className='p-2 bg-[var(--colCard)] rounded-lg shadow-lg'>
+  <div className='p-2 bg-[var(--colCard)] rounded-2xl shadow-lg'>
     <ApexChart options={options} series={series} type="line" height={350}  />
   </div>
   

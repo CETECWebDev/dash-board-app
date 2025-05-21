@@ -10,12 +10,13 @@ import {
 import { IoMdSunny, IoIosMenu } from "react-icons/io";  // اضافه کردم اینجا
 import { PiAlignRightFill, PiAlignLeftFill } from "react-icons/pi";
 import { BsFillMoonStarsFill } from "react-icons/bs";
+import Link from "next/link";
 
-import { useDirection } from "@/context/DirectionContext";
+import { useDirectionContext } from "@/context/DirectionContext";
 
 export default function SideBar() {
   const { theme, setTheme } = useTheme();
-  const { dir, toggleDirection } = useDirection();
+  const { dir, toggleDirection } = useDirectionContext();
   const [mounted, setMounted] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -37,12 +38,14 @@ export default function SideBar() {
     ? "fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden backdrop-blur-md"
     : "hidden";
 
+ 
+
   return (
     <>
       {/* Hamburger menu */}
       <button
         onClick={toggleMenu}
-        className={`block top-4 mt-5 p-2 rounded-md bg-[var(--colCard)] text-[var(--coTextA)] shadow-md lg:hidden ${
+        className={`block mt-5 p-2 rounded-md bg-[var(--colCard)] text-[var(--coTextA)] shadow-md lg:hidden ${
           dir === "rtl" ? "mr-5" : "ml-5"
         }`}
         aria-label="Toggle Menu"
@@ -56,6 +59,8 @@ export default function SideBar() {
         onClick={() => setIsOpen(false)}
         aria-hidden="true"
       ></div>
+
+      
 
       {/* Side Bar */}
       <div
@@ -88,21 +93,21 @@ export default function SideBar() {
             </h2>
             <ul className="space-y-2 flex flex-col gap-3">
               {[
-                { icon: <FaHome className="text-blue-500" />, label: "Dashboard" },
-                { icon: <FaGlobe className="text-green-500" />, label: "Domains" },
-                { icon: <FaServer className="text-purple-500" />, label: "Servers" },
+                { icon: <FaHome className="text-blue-500" />, label: "Dashboard"  },
+                { icon: <FaGlobe className="text-green-500" />, label: "Devices" , url: "/devices" },
+                { icon: <FaServer className="text-purple-500" />, label: "Employees" , url: "/employees" },
                 { icon: <FaEnvelope className="text-red-500" />, label: "E-Mail" },
                 { icon: <FaDatabase className="text-yellow-500" />, label: "Data Bases" },
-              ].map(({ icon, label }) => (
+              ].map(({ icon, label , url }) => (
                 <li key={label}>
-                  <a
-                    href="#"
+                  <Link
+                    href={url ?? "/"}
                     className="flex items-center gap-2 hover:text-[var(--textHover)]"
                     onClick={() => setIsOpen(false)}
                   >
                     {icon}
                     {label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

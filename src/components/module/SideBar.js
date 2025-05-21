@@ -35,7 +35,7 @@ export default function SideBar() {
     : "-translate-x-full";
 
   const backdropClass = isOpen
-    ? "fixed inset-0 bg-black bg-opacity-50 z-40 md:hidden backdrop-blur-md"
+    ? "fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden backdrop-blur-md"
     : "hidden";
 
  
@@ -68,7 +68,7 @@ export default function SideBar() {
           fixed top-0 h-screen w-[300px] bg-[var(--colCard)] text-[var(--coTextA)] shadow-md flex-col p-4 overflow-y-auto
           ${dir === "rtl" ? "right-0 left-auto" : "left-0 right-auto"}
           transition-transform duration-300 ease-in-out
-          md:translate-x-0
+          lg:translate-x-0
           ${translateClass}
         `}
       >

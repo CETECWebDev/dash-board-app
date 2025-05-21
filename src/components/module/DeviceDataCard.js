@@ -23,7 +23,7 @@ function DeviceDataCard({ selectedDevice }) {
                   <GrStatusGoodSmall className={selectedDevice.active ? 'text-green-500' : 'text-red-700'} />
                   {dir === "ltr" ? "Status :" : "وضعیت :"}
                   {selectedDevice.active
-                    ? (dir === "ltr" ? "Active " : "فعال ")
+                    ? (dir === "ltr" ? " Active " : "فعال ")
                     : (dir === "ltr" ? "Deactive" : "غیرفعال")}
                 </div>
                 <div className='flex items-center gap-2'><FaCarAlt /> {dir === "ltr" ? "Counted Vehicle : " : "خودروهای شمارش شده :"} {selectedDevice.countedV}</div>

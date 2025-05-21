@@ -40,7 +40,7 @@ function LoginTemplate() {
         </h1>
 
         {/* Email Field */}
-        <div className="mb-6 border-b border-white flex items-center gap-3">
+        <div className="mb-6 border-b  flex items-center gap-3">
           <RiUser3Line className="text-[var(--colTextA)] text-xl" />
           <div className="relative w-full">
             <input
@@ -57,7 +57,7 @@ function LoginTemplate() {
         </div>
 
         {/* Password Field */}
-        <div className="mb-6 border-b border-white flex items-center gap-3 relative">
+        <div className="mb-6 border-b  flex items-center gap-3 relative">
           <RiLock2Line className="text-[var(--colTextA)] text-xl" />
           <div className="relative w-full">
             <input
@@ -102,7 +102,7 @@ function LoginTemplate() {
 
         <button
           type="submit"
-          className="w-full bg-white text-black font-medium py-3 rounded-lg mb-6 hover:bg-gray-200 transition"
+          className="w-full bg-[var(--colBg)] text-[var(--colTextA)] font-medium py-3 rounded-lg mb-6 hover:text-[var(--textHover)] border hover:border-[var(--textHover)] transition"
         >
           Login
         </button>

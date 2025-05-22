@@ -10,13 +10,17 @@ import { useDirectionContext } from "@/context/DirectionContext";
 export default function Devices() {
 
   const devices = mockDevices;
-  const [totalPages , pagedList , currentPage , setCurrentPage] = usePagination( 8 , devices)
-  const { dir, toggleDirection } = useDirectionContext();
+  const [totalPages, pagedList, currentPage, setCurrentPage] = usePagination(8, devices)
 
   return (
     <div className="p-5 space-y-4">
 
-      <Link href={'/add-device'} className='  border-2 rounded-full py-2 px-4 border-[var(--colTextA)] hover:text-[var(--textHover)] hover:border-[var(--textHover)]'> {(dir === "ltr" ? "+ Add Device " : " افزودن دستگاه + ")} </Link>
+      <div className='flex items-center gap-5'>
+
+        <Link href={'/add-device'} className='  border-2 rounded-full py-2 px-4 border-[var(--colTextA)] hover:text-[var(--textHover)] hover:border-[var(--textHover)]'>+ Add new device</Link>
+        <Link href={'/device-settings'} className='  border-2 rounded-full py-2 px-4 border-[var(--colTextA)] hover:text-[var(--textHover)] hover:border-[var(--textHover)]'>Change Settings</Link>
+
+      </div>
 
       {/* Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

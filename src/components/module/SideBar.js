@@ -1,3 +1,5 @@
+// src/components/module/SideBar.js
+
 import { useTheme } from "next-themes";
 import React, { useEffect, useState } from "react";
 import {
@@ -15,6 +17,9 @@ import { usePathname } from "next/navigation";
 
 import { useDirectionContext } from "@/context/DirectionContext";
 import { MdTranslate } from "react-icons/md";
+import { CiRoute } from "react-icons/ci";
+import { MdDevices } from "react-icons/md";
+import { FaUserAlt } from "react-icons/fa";
 
 export default function SideBar() {
   const { theme, setTheme } = useTheme();
@@ -63,8 +68,8 @@ export default function SideBar() {
 
       {/* Side Bar */}
       <div
-        className={` z-[99999]
-          fixed top-0 h-screen w-[300px] bg-[var(--colCard)] text-[var(--coTextA)] shadow-md flex-col p-4 overflow-y-auto
+        className={`z-[99999]
+          fixed top-0 h-screen w-[300px] bg-[var(--colCard)] text-[var(--colTextA)] shadow-md flex-col p-4 overflow-y-auto
           ${dir === "rtl" ? "right-0 left-auto" : "left-0 right-auto"}
           transition-transform duration-300 ease-in-out
           lg:translate-x-0
@@ -98,20 +103,21 @@ export default function SideBar() {
                   url: "/",
                 },
                 {
-                  icon: <FaGlobe className="text-green-500" />,
+                  icon: <MdDevices  className="text-green-500" />,
                   label: dir === "ltr" ? "Devices" : "دستگاه ها",
                   url: "/devices",
                 },
+               {
+                  icon: <CiRoute  className="text-red-500" />,
+                  label: dir === "ltr" ? "Roads" : "مسیرها",
+                  url: "/roads",
+                },
                 {
-                  icon: <FaServer className="text-purple-500" />,
-                  label: dir === "ltr" ? "Employees" : "کارمندان",
+                  icon: <FaUserAlt  className="text-purple-500" />,
+                  label: dir === "ltr" ? "Employees" : "کاربرها",
                   url: "/employees",
                 },
-                {
-                  icon: <FaEnvelope className="text-red-500" />,
-                  label: dir === "ltr" ? "Email" : "ایمیل",
-                  url: "#",
-                },
+             
                 {
                   icon: <FaDatabase className="text-yellow-500" />,
                   label: dir === "ltr" ? "Databases" : "دیتابیس ها",
@@ -165,8 +171,8 @@ export default function SideBar() {
 
                   <button
                     onClick={() => toggleDirection()}
-                    className="hover:text-[var(--textHover)] hover:border-[var(--textHover)] border flex justify-center items-center rounded-full color-[var(--colTextB)] w-10 h-10"
-                    title=""
+                    className="hover:text-[var(--textHover)] hover:border-[var(--textHover)] border flex justify-center items-center rounded-full text-[var(--colTextB)] w-10 h-10"
+                    title="Toggle Direction"
                   >
                     {dir === "ltr" ? <MdTranslate /> : <MdTranslate />}
                   </button>

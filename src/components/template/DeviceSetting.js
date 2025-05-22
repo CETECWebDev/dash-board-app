@@ -5,7 +5,10 @@ import Link from 'next/link';
 import { useDirectionContext } from "@/context/DirectionContext";
 import { FaGlobe } from "react-icons/fa";
 import { TiArrowLoop } from "react-icons/ti";
+<<<<<<< HEAD
 import { IoMdArrowBack } from 'react-icons/io';
+=======
+>>>>>>> main
 
 
 export default function AddDevice() {

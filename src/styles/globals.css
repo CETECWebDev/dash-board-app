@@ -2,6 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'IranSans';
+  src: url('/fonts/IRANSans.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+.font-IranSans {
+  font-family: 'IranSans', sans-serif;
+}
+
 
 :root {
   /* رنگ پس زمینه اصلی */
@@ -82,7 +93,10 @@
   border-radius: 50%;
   background: #1ac11a;
   animation: blink 1s infinite;
+  position: relative;
+  z-index: 9999999999;
 }
+
 
 .blinking-circle-deactive {
   width: 16px;
@@ -107,10 +121,10 @@
 }
 
 
-.selected-marker {
+/* .selected-marker {
   transform: scale(1.2);
   box-shadow: 0 0 0 1px var(--selecMarker);
-}
+}  */
 
 
 /* Chart styles */
@@ -120,7 +134,8 @@
   fill: var(--colTextB) !important;
 }
 
-.apexcharts-tooltip , .apexcharts-tooltip-title{
+.apexcharts-tooltip,
+.apexcharts-tooltip-title {
   background-color: var(--colCard) !important;
 }
 

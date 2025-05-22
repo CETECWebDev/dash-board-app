@@ -82,7 +82,10 @@
   border-radius: 50%;
   background: #1ac11a;
   animation: blink 1s infinite;
+  position: relative;
+  z-index: 9999999999;
 }
+
 
 .blinking-circle-deactive {
   width: 16px;
@@ -107,10 +110,10 @@
 }
 
 
-.selected-marker {
+/* .selected-marker {
   transform: scale(1.2);
   box-shadow: 0 0 0 1px var(--selecMarker);
-}
+}  */
 
 
 /* Chart styles */
@@ -120,6 +123,68 @@
   fill: var(--colTextB) !important;
 }
 
-.apexcharts-tooltip , .apexcharts-tooltip-title{
+.apexcharts-tooltip,
+.apexcharts-tooltip-title {
   background-color: var(--colCard) !important;
+}
+
+
+/* test */
+
+.selected-marker {
+  position: relative;
+  transform: scale(1.2);
+}
+
+.selected-marker.active::after  {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+
+  
+  border-top: 2px solid #1ac11a;
+
+
+  filter: drop-shadow(0 0 2px #1ac11a) drop-shadow(0 0 4px #1ac11a);
+
+  animation: rotateNeon 1.2s linear infinite;
+  z-index: -1;
+}
+
+
+.selected-marker.inactive::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+
+  
+  border-top: 2px solid #ff0000;
+
+
+  filter: drop-shadow(0 0 2px #ff0000) drop-shadow(0 0 4px #ff0000);
+
+  animation: rotateNeon 1.2s linear infinite;
+  z-index: -1;
+}
+
+
+@keyframes rotateNeon {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

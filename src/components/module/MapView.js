@@ -54,6 +54,7 @@ export default function MapView({ devices, selectedDevice, setSelectedDevice }) 
 
 
     return (
-        <div id="map" className={`w-[100%] h-[50dvh] lg:h-[90dvh] transform-gpu rounded-xl z-0  ${theme.theme === 'dark' ? 'border-zinc-600 border-2 shadow-md' : 'shadow-md'} `} />
+        <div id="map" className={`w-[100%] h-[50dvh] lg:h-[90dvh] transform-gpu rounded-xl z-0  ${theme.theme === 'dark' ? 'border-zinc-600 border-2 shadow-md' : 'shadow-md'} relative`} >
+        </div>
     )
 }

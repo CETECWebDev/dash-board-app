@@ -2,6 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'IranSans';
+  src: url('/fonts/IRANSans.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+.font-IranSans {
+  font-family: 'IranSans', sans-serif;
+}
+
 
 :root {
   /* رنگ پس زمینه اصلی */

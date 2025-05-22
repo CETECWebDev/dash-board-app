@@ -1,5 +1,5 @@
 # Website
-(https://dashboard-app-beta.netlify.app/)
+https://dashboard-app-beta.netlify.app
 
 
 

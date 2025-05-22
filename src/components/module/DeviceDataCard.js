@@ -27,8 +27,8 @@ function DeviceDataCard({ selectedDevice }) {
                     : (dir === "ltr" ? "Deactive" : " غیرفعال")}
                 </div>
                 <div className='flex items-center gap-2'><FaCarAlt /> {dir === "ltr" ? "Counted Vehicle : " : "خودروهای شمارش شده :"} {selectedDevice.countedV}</div>
-                <Link  target="_blank" href={`https://www.google.com/maps/dir/?api=1&destination=${selectedDevice.lat},${selectedDevice.lng}`} className=' flex items-center justify-center gap-2 border-2 rounded-full py-2 border-[var(--colTextA)] hover:text-[var(--textHover)] hover:border-[var(--textHover)]' ><FaLocationCrosshairs/> Directions</Link>
-                <Link  href={'/'} className='flex items-center justify-center gap-2 border-2 rounded-full py-2 border-[var(--colTextA)] hover:text-[var(--textHover)] hover:border-[var(--textHover)]'> <FaThList/> Full details </Link>
+                <Link  target="_blank" href={`https://www.google.com/maps/dir/?api=1&destination=${selectedDevice.lat},${selectedDevice.lng}`} className=' flex items-center justify-center gap-2 border-2 rounded-full py-2 border-[var(--colTextA)] hover:text-[var(--textHover)] hover:border-[var(--textHover)]' ><FaLocationCrosshairs/> {(dir === "ltr" ? " Full Directions " : " مسیر ها ")} </Link>
+                <Link  href={'/'} className='flex items-center justify-center gap-2 border-2 rounded-full py-2 border-[var(--colTextA)] hover:text-[var(--textHover)] hover:border-[var(--textHover)]'> <FaThList/> {(dir === "ltr" ? " Full details " : " جزئیات کامل ")} </Link>
             </div>
         </div>
     );

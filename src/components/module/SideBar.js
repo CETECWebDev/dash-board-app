@@ -17,6 +17,9 @@ import { usePathname } from "next/navigation";
 
 import { useDirectionContext } from "@/context/DirectionContext";
 import { MdTranslate } from "react-icons/md";
+import { CiRoute } from "react-icons/ci";
+import { MdDevices } from "react-icons/md";
+import { FaUserAlt } from "react-icons/fa";
 
 export default function SideBar() {
   const { theme, setTheme } = useTheme();
@@ -100,20 +103,21 @@ export default function SideBar() {
                   url: "/",
                 },
                 {
-                  icon: <FaGlobe className="text-green-500" />,
+                  icon: <MdDevices  className="text-green-500" />,
                   label: dir === "ltr" ? "Devices" : "دستگاه ها",
                   url: "/devices",
                 },
+               {
+                  icon: <CiRoute  className="text-red-500" />,
+                  label: dir === "ltr" ? "Roads" : "مسیرها",
+                  url: "/roads",
+                },
                 {
-                  icon: <FaServer className="text-purple-500" />,
-                  label: dir === "ltr" ? "Employees" : "کارمندان",
+                  icon: <FaUserAlt  className="text-purple-500" />,
+                  label: dir === "ltr" ? "Employees" : "کاربرها",
                   url: "/employees",
                 },
-                {
-                  icon: <FaEnvelope className="text-red-500" />,
-                  label: dir === "ltr" ? "Email" : "ایمیل",
-                  url: "#",
-                },
+             
                 {
                   icon: <FaDatabase className="text-yellow-500" />,
                   label: dir === "ltr" ? "Databases" : "دیتابیس ها",

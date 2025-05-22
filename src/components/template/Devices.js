@@ -15,7 +15,7 @@ export default function Devices() {
 
   return (
     <div className="p-5 space-y-4">
-
+      {/* Add Device Button */}
       <Link href={'/add-device'} className='  border-2 rounded-full py-2 px-4 border-[var(--colTextA)] hover:text-[var(--textHover)] hover:border-[var(--textHover)]'> {(dir === "ltr" ? "+ Add Device " : " افزودن دستگاه + ")} </Link>
 
       {/* Cards */}

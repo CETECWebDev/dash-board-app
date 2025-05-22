@@ -24,6 +24,7 @@ const LineChart = () => {
     }
   },
   yaxis: {
+    
     min: 0,
     // max: 100,
     title: {
@@ -39,6 +40,14 @@ const LineChart = () => {
     width: 3
   },
   colors: ['var(--colTextA)'],
+
+  grid: {
+    yaxis: {
+      lines: {
+        show: false,
+      },
+    },
+  },
 };
 
 const series = [

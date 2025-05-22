@@ -9,9 +9,10 @@ export default function MapView({ devices, selectedDevice, setSelectedDevice }) 
     const mapRef = useRef(null);
     const markersRef = useRef([]);
 
-    const darkmap = `https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png`
-    const lightmap = `https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png`
 
+
+    const darkmap = `https://img-proxy-five.vercel.app/image-proxy?url=https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png`
+    const lightmap = `https://img-proxy-five.vercel.app/image-proxy?url=https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png`
 
 
     useEffect(() => {
@@ -50,7 +51,7 @@ export default function MapView({ devices, selectedDevice, setSelectedDevice }) 
             markersRef.current.push(marker);
         });
 
-    }, [selectedDevice , theme]);
+    }, [selectedDevice, theme]);
 
 
 

@@ -123,3 +123,81 @@
 .apexcharts-tooltip , .apexcharts-tooltip-title{
   background-color: var(--colCard) !important;
 }
+
+
+/* test */
+
+.selected-marker {
+  position: relative;
+  transform: scale(1.2);
+}
+
+/* .selected-marker.active::after  {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+
+  
+  border-top: 2px solid #1ac11a;
+
+
+  filter: drop-shadow(0 0 2px #1ac11a) drop-shadow(0 0 4px #1ac11a);
+
+  animation: rotateNeon 1.2s linear infinite;
+  z-index: -1;
+} */
+
+
+.selected-marker.active::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  /* border: 2px solid transparent; */
+  border: 2px solid #1ac11a;
+  filter: drop-shadow(0 0 2px #1ac11a) drop-shadow(0 0 4px #1ac11a);
+  animation: pulseNeon 1.0s ease-in-out infinite;
+  z-index: -1;
+}
+
+
+.selected-marker.inactive::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  /* border: 2px solid transparent; */
+  border: 2px solid #ff0000;
+  filter: drop-shadow(0 0 2px #ff0000) drop-shadow(0 0 4px #ff0000);
+  animation: pulseNeon 1.0s ease-in-out infinite;
+  z-index: -1;
+}
+
+@keyframes pulseNeon {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.8);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

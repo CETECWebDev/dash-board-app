@@ -8,6 +8,7 @@ import { TiArrowLoop } from "react-icons/ti";
 import { IoMdArrowBack } from 'react-icons/io';
 
 
+
 export default function AddDevice() {
 
     const { dir } = useDirectionContext();

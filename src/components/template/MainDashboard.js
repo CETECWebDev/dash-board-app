@@ -38,10 +38,8 @@ export default function MainDashboard() {
 
         <button
           onClick={scrollToTop}
-          className="fixed bottom-4 right-4 p-2 rounded-full shadow-md z-50 bg-[var(--colCard)] text-orange-500"
-          style={{
-            border: '1.5px solid orange',
-          }}
+          className="fixed bottom-4 right-4 p-2 rounded-full shadow-md z-50 bg-[var(--colCard)] text-[var(--colTextA)] border-2 border-[var()] hover:text-[var(--textHover)] hover:border-[var(--textHover)]"
+       
           aria-label="Scroll to top"
         >
           <FaArrowUp size={16} />

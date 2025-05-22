@@ -13,6 +13,17 @@
   font-family: 'IranSans', sans-serif;
 }
 
+@font-face {
+  font-family: 'IranYekan';
+  src: url('/fonts/iranyekanwebregular.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+.font-IranYekan {
+  font-family: 'IranYekan', sans-serif;
+}
+
 
 :root {
   /* رنگ پس زمینه اصلی */

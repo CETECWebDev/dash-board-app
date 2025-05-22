@@ -6,18 +6,20 @@ import PaginationControls from '../module/PaginationControls';
 // import PaginationControls from '../module/PaginationControls';
 
 
+
 export default function Employees({ employees }) {
 
   const [totalPages, currentEmployees, currentPage, setCurrentPage] = usePagination(6, employees)
-
+  const { dir, toggleDirection } = useDirectionContext();
+  
   return (
     <div className="min-h-screen p-5 text-[var(--colTextA)] space-y-4">
 
-      <Link href={'/add-user'} className='  border-2 rounded-full py-2 px-4 border-[var(--colTextA)] hover:text-[var(--textHover)] hover:border-[var(--textHover)]'>+ Add user</Link>
+      <Link href={'/add-user'} className='  border-2 rounded-full py-2 px-4 border-[var(--colTextA)] hover:text-[var(--textHover)] hover:border-[var(--textHover)]'> {(dir === "ltr" ? " + Add User " : " افزودن کاربر + ")}</Link>
 
 
       <ul className="w-full rounded-lg p-5 space-y-4 text-[var(--colTextA)] bg-[var(--colCard)] shadow-lg">
-        <h1 className="text-2xl font-bold mb-4 w-full text-center ">Employee List</h1>
+        <h1 className="text-2xl font-bold mb-4 w-full text-center ">{(dir === "ltr" ? " Employee List " : " لیست کارمندان ")} </h1>
         {(currentEmployees ?? []).map((emp) => (
           <li
             key={emp.id}

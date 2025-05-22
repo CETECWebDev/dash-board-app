@@ -4,6 +4,8 @@ import usePagination from '@/hooks/usePagination';
 import DeviceInfoCard from '../module/DeviceInfoCard';
 import Link from 'next/link';
 import PaginationControls from '../module/PaginationControls';
+import { useDirectionContext } from "@/context/DirectionContext";
+
 
 export default function Devices() {
 

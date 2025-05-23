@@ -6,11 +6,10 @@ import {
   FaHome,
   FaGlobe,
   FaServer,
-  FaEnvelope,
   FaDatabase,
 } from "react-icons/fa";
+import { RiRouteFill } from "react-icons/ri";
 import { IoMdSunny, IoIosMenu } from "react-icons/io";
-import { PiAlignRightFill, PiAlignLeftFill } from "react-icons/pi";
 import { BsFillMoonStarsFill } from "react-icons/bs";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -105,14 +104,14 @@ export default function SideBar() {
                   url: "/devices",
                 },
                 {
-                  icon: <FaServer className="text-purple-500" />,
-                  label: dir === "ltr" ? "Employees" : "کارمندان",
-                  url: "/employees",
+                  icon: <RiRouteFill className="text-red-500" />,
+                  label: dir === "ltr" ? "Route" : "محورها",
+                  url: "/route",
                 },
                 {
-                  icon: <FaEnvelope className="text-red-500" />,
-                  label: dir === "ltr" ? "Email" : "ایمیل",
-                  url: "#",
+                  icon: <FaServer className="text-purple-500" />,
+                  label: dir === "ltr" ? "Employees" : "کاربران",
+                  url: "/employees",
                 },
                 {
                   icon: <FaDatabase className="text-yellow-500" />,
@@ -120,10 +119,10 @@ export default function SideBar() {
                   url: "#",
                 },
               ].map(({ icon, label, url }) => {
-                 const isActive =
+                const isActive =
                   url === "/"
-                  ? pathname === "/" // فقط اگه دقیقاً صفحه اصلی بود
-                  : url && pathname.startsWith(url); // برای بقیه لینک‌ها
+                    ? pathname === "/" // فقط اگه دقیقاً صفحه اصلی بود
+                    : url && pathname.startsWith(url); // برای بقیه لینک‌ها
 
                 return (
                   <li key={label}>
@@ -150,7 +149,7 @@ export default function SideBar() {
         <div className="flex flex-col items-start pl-5 mt-10">
           <div className="flex flex-col gap-3">
             <h2 className="text-sm font-semibold text-gray-400 mb-2">
-             {dir === "ltr" ? "Setting" : "تنظیمات"}
+              {dir === "ltr" ? "Setting" : "تنظیمات"}
             </h2>
             <ul className="space-y-2 flex flex-col gap-3">
               <li>

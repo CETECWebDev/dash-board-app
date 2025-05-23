@@ -4,16 +4,20 @@ import React, { useState } from "react";
 import { useDirectionContext } from "@/context/DirectionContext";
 import PaginationControls from "../module/PaginationControls";
 // import PaginationControls from '../module/PaginationControls';
-import { MdDelete } from "react-icons/md";
+import { MdDelete, MdEdit, MdCheck, MdClose } from "react-icons/md";
 import deleteUser from "@/api-functions/deleteUser";
+import editUser from "@/api-functions/editUser";
 import { useRouter } from "next/router";
 
 export default function Employees({ employees: initialEmployees }) {
-  const [employees, setEmployees] = useState(initialEmployees); 
+  const [employees, setEmployees] = useState(initialEmployees);
   const [totalPages, currentEmployees, currentPage, setCurrentPage] =
     usePagination(6, employees);
   const { dir, toggleDirection } = useDirectionContext();
   const router = useRouter();
+  const [editingId, setEditingId] = useState(null);
+  const [editName, setEditName] = useState("");
+  const [editEmail, setEditEmail] = useState("");
 
   const handleDelete = async (emp) => {
     const result = await deleteUser(emp);
@@ -23,6 +27,39 @@ export default function Employees({ employees: initialEmployees }) {
       // حذف منطق تغییر صفحه، چون usePagination خودش مدیریت می‌کند
     } else {
       alert("حذف کاربر با خطا مواجه شد");
+    }
+  };
+
+  const startEdit = (emp) => {
+    setEditingId(emp.id);
+    setEditName(emp.name);
+    setEditEmail(emp.email);
+  };
+
+  const cancelEdit = () => {
+    setEditingId(null);
+    setEditName("");
+    setEditEmail("");
+  };
+
+  const saveEdit = async () => {
+    const user = { id: editingId, name: editName, email: editEmail };
+    try {
+      const result = await editUser(user);
+      if (result === "User Edited") {
+        setEmployees((prev) =>
+          prev.map((emp) =>
+            emp.id === editingId ? { ...emp, name: editName, email: editEmail } : emp
+          )
+        );
+        cancelEdit();
+        alert("User edited successfully");
+      } else {
+        alert("Unexpected response: " + result);
+      }
+    } catch (error) {
+      console.error("Error editing user:", error);
+      alert("Error editing user: " + error.message);
     }
   };
 
@@ -45,11 +82,56 @@ export default function Employees({ employees: initialEmployees }) {
             key={emp.id}
             className="flex justify-between items-center border-b-2 border-[var(--colTextA)] py-5 last:border-b-0"
           >
-            <span className="font-medium ">{emp.name}</span>
-            <span className="text-sm ">{emp.email}</span>
-            <button onClick={() => handleDelete(emp)}>
-              <MdDelete />
-            </button>
+            {editingId === emp.id ? (
+              // Edit mode
+              <>
+                <input
+                  className="bg-transparent border-b w-1/3"
+                  value={editName}
+                  onChange={(e) => setEditName(e.target.value)}
+                />
+                <input
+                  className="bg-transparent border-b w-1/3  "
+                  value={editEmail}
+                  onChange={(e) => setEditEmail(e.target.value)}
+                />
+                <div className="flex gap-3">
+                  <button
+                    onClick={saveEdit}
+                    className="text-green-400 hover:scale-110 text-2xl"
+                  >
+                    <MdCheck />
+                  </button>
+                  <button
+                    onClick={cancelEdit}
+                    className="text-red-400 hover:scale-110 text-2xl"
+                  >
+                    <MdClose />
+                  </button>
+                </div>
+              </>
+            ) : (
+              // View mode
+              <>
+                <span className="font-medium w-1/3">{emp.name}</span>
+                <span className="text-sm w-1/3">{emp.email}</span>
+                <span className="text-sm w-1/3">{emp.id}</span>
+                <div className="flex gap-3">
+                  <button
+                    onClick={() => startEdit(emp)}
+                    className="hover:text-yellow-400 hover:scale-110 text-2xl"
+                  >
+                    <MdEdit />
+                  </button>
+                  <button
+                    onClick={() => handleDelete(emp)}
+                    className="hover:text-red-400 hover:scale-110 text-2xl"
+                  >
+                    <MdDelete />
+                  </button>
+                </div>
+              </>
+            )}
           </li>
         ))}
       </ul>

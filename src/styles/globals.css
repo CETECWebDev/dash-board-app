@@ -227,3 +227,12 @@
     opacity: 1;
   }
 }
+
+
+
+
+input:focus {
+  outline: 2px solid var(--textHover) ;
+  border-radius: 2px;
+  border:none;
+}

@@ -1,5 +1,5 @@
 import React from 'react'
-import RoutesInfoCard from '@/components/module/RoadsInfoCard';
+import RoadsInfoCard from '@/components/module/RoadsInfoCard';
 import usePagination from '@/hooks/usePagination';
 
 import {mockRoutes} from '@/data/db';
@@ -23,8 +23,8 @@ export default function Routes() {
 
       {/* Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {pagedList.map(route => (
-          <RoutesInfoCard key={route.id} {...route} />
+        {pagedList.map(road => (
+          <RoadsInfoCard key={road.id} {...road} />
         ))}
       </div>
 

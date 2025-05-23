@@ -1,7 +1,7 @@
 import React from 'react'
 
 export default function RoutesInfoCard(props) {
-    const { id, name, simcardnumber, firmware, ip } = props
+    const { id, name, Road_Name, firmware, ip } = props
     return (
         <div className="bg-[var(--colCard)] rounded-lg shadow p-4 flex flex-col gap-2">
             <div className="flex items-center justify-between">
@@ -10,7 +10,7 @@ export default function RoutesInfoCard(props) {
                 </span>
             </div>
             <div className="text-[var(--colTextB)] text-sm">
-                Sim Card Number: {simcardnumber}
+                Road_Name: {Road_Name}
             </div>
             <div className="text-[var(--colTextB)] text-sm">
                 Firmware: {firmware}

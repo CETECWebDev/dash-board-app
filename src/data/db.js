@@ -12,16 +12,16 @@
   ]
   
   const mockRoutes = [
-    { id: 1, name: "Road 1", simcardnumber: "09100000001" ,firmware: "v1.0" ,ip:"192.923.123.123"},
-    { id: 2, name: "Road 2", simcardnumber: "09100000002" ,firmware: "v2.0" ,ip:"190.923.123.123" },
-    { id: 3, name: "Road 3", simcardnumber: "09100000003" ,firmware: "v3.0" ,ip:"194.923.123.123" },
-    { id: 4, name: "Road 4", simcardnumber: "09100000004" ,firmware: "v4.0" ,ip:"196.923.123.123" },
-    { id: 5, name: "Road 5", simcardnumber: "09100000005" ,firmware: "v5.0" ,ip:"198.923.123.123" },
-    { id: 6, name: "Road 6", simcardnumber: "09100000046" ,firmware: "v6.0" ,ip:"311.923.123.123" },
-    { id: 7, name: "Road 7", simcardnumber: "09100000606" ,firmware: "v6.0" ,ip:"511.923.123.123" },
-    { id: 8, name: "Road 8", simcardnumber: "091000003446" ,firmware: "v2.0" ,ip:"1311.923.123.123" },
-    { id: 9, name: "Road 9", simcardnumber: "09100000026" ,firmware: "v6.0" ,ip:"911.923.123.123" },
-    { id: 10, name: "Road 10", simcardnumber: "09100000011" ,firmware: "v4.0" ,ip:"141.923.123.123" },
+    { id: 1, name: "Road 1", Road_Name: "Rash-tehran" ,firmware: "v1.0" ,ip:"192.923.123.123"},
+    { id: 2, name: "Road 2", Road_Name: "tehran-rasht" ,firmware: "v2.0" ,ip:"190.923.123.123" },
+    { id: 3, name: "Road 3", Road_Name: "Rash-tehran" ,firmware: "v3.0" ,ip:"194.923.123.123" },
+    { id: 4, name: "Road 4", Road_Name: "tehran-rasht" ,firmware: "v4.0" ,ip:"196.923.123.123" },
+    { id: 5, name: "Road 5", Road_Name: "Rash-tehran" ,firmware: "v5.0" ,ip:"198.923.123.123" },
+    { id: 6, name: "Road 6", Road_Name: "tehran-rasht" ,firmware: "v6.0" ,ip:"311.923.123.123" },
+    { id: 7, name: "Road 7", Road_Name: "Rash-tehran" ,firmware: "v6.0" ,ip:"511.923.123.123" },
+    { id: 8, name: "Road 8", Road_Name: "tehran-rasht" ,firmware: "v2.0" ,ip:"1311.923.123.123" },
+    { id: 9, name: "Road 9", Road_Name: "Rash-tehran" ,firmware: "v6.0" ,ip:"911.923.123.123" },
+    { id: 10, name: "Road 10", Road_Name: "tehran-rasht" ,firmware: "v4.0" ,ip:"141.923.123.123" },
 
   ]
 

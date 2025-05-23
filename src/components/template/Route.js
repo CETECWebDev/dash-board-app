@@ -83,15 +83,7 @@ export default function Route() {
 
   const renderId = (id) =>
     dir === "rtl" ? (
-      <p
-        style={{
-          textAlign: "right",
-          fontWeight: "bold",
-          marginBottom: 12,
-          whiteSpace: "nowrap",
-          direction: "rtl",
-        }}
-      >
+      <p className="text-right font-bold mb-3 whitespace-nowrap" dir="rtl">
         {`شناسه: ${id}`}
       </p>
     ) : (
@@ -128,8 +120,7 @@ export default function Route() {
             {currentData.map((route) => (
               <div
                 key={route.id}
-                className="bg-[var(--colCard)] rounded-2xl p-5 text-[var(--colTextA)] shadow border border-[var(--colTextA)] space-y-4 flex flex-col justify-between"
-                style={{ minHeight: "280px" }}
+                className="bg-[var(--colCard)] rounded-2xl p-5 text-[var(--colTextA)] shadow border border-[var(--colTextA)] space-y-4 flex flex-col justify-between min-h-[280px]"
                 dir={dir}
               >
                 <div>
@@ -183,8 +174,7 @@ export default function Route() {
             {currentBargasht.map((route) => (
               <div
                 key={route.id}
-                className="bg-[var(--colCard)] rounded-2xl p-5 text-[var(--colTextA)] shadow border border-[var(--colTextA)] space-y-4 flex flex-col justify-between"
-                style={{ minHeight: "280px" }}
+                className="bg-[var(--colCard)] rounded-2xl p-5 text-[var(--colTextA)] shadow border border-[var(--colTextA)] space-y-4 flex flex-col justify-between min-h-[280px]"
                 dir={dir}
               >
                 <div>

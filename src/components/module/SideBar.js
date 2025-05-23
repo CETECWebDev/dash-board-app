@@ -1,5 +1,3 @@
-// src/components/module/SideBar.js
-
 import { useTheme } from "next-themes";
 import React, { useEffect, useState } from "react";
 import {
@@ -104,7 +102,7 @@ export default function SideBar() {
                   url: "/devices",
                 },
                 {
-                  icon: <RiRouteFill className="text-red-500" />,
+                  icon: <RiRouteFill className="text-gray-300" />,
                   label: dir === "ltr" ? "Route" : "محورها",
                   url: "/route",
                 },

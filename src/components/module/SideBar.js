@@ -2,9 +2,9 @@ import { useTheme } from "next-themes";
 import React, { useEffect, useState } from "react";
 import {
   FaHome,
-  FaGlobe,
   FaServer,
   FaDatabase,
+  FaUserAlt,
 } from "react-icons/fa";
 import { RiRouteFill } from "react-icons/ri";
 import { IoMdSunny, IoIosMenu } from "react-icons/io";
@@ -14,6 +14,8 @@ import { usePathname } from "next/navigation";
 
 import { useDirectionContext } from "@/context/DirectionContext";
 import { MdTranslate } from "react-icons/md";
+import { CiRoute } from "react-icons/ci";
+import { MdDevices } from "react-icons/md";
 
 export default function SideBar() {
   const { theme, setTheme } = useTheme();
@@ -97,9 +99,14 @@ export default function SideBar() {
                   url: "/",
                 },
                 {
-                  icon: <FaGlobe className="text-green-500" />,
+                  icon: <MdDevices className="text-green-500" />,
                   label: dir === "ltr" ? "Devices" : "دستگاه ها",
                   url: "/devices",
+                },
+                {
+                  icon: <CiRoute className="text-red-500" />,
+                  label: dir === "ltr" ? "Roads" : "مسیرها",
+                  url: "/roads",
                 },
                 {
                   icon: <RiRouteFill className="text-gray-300" />,
@@ -107,7 +114,7 @@ export default function SideBar() {
                   url: "/route",
                 },
                 {
-                  icon: <FaServer className="text-purple-500" />,
+                  icon: <FaUserAlt className="text-purple-500" />,
                   label: dir === "ltr" ? "Employees" : "کاربران",
                   url: "/employees",
                 },

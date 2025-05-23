@@ -13,7 +13,6 @@ export default function MapView({ devices, selectedDevice, setSelectedDevice }) 
     const lightmap = `https://img-proxy-five.vercel.app/image-proxy?url=https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png`
 
 
-
     useEffect(() => {
 
         // map init once
@@ -50,11 +49,12 @@ export default function MapView({ devices, selectedDevice, setSelectedDevice }) 
             markersRef.current.push(marker);
         });
 
-    }, [selectedDevice , theme]);
+    }, [selectedDevice, theme]);
 
 
 
     return (
-        <div id="map" className={`w-[100%] h-[50dvh] lg:h-[90dvh] transform-gpu rounded-xl z-0  ${theme.theme === 'dark' ? 'border-zinc-600 border-2 shadow-md' : 'shadow-md'} `} />
+        <div id="map" className={`w-[100%] h-[50dvh] lg:h-[90dvh] transform-gpu rounded-xl z-0  ${theme.theme === 'dark' ? 'border-zinc-600 border-2 shadow-md' : 'shadow-md'} relative`} >
+        </div>
     )
 }

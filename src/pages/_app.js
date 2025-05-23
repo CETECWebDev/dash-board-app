@@ -13,7 +13,7 @@ export default function App({ Component, pageProps }) {
   return (
     <DirectionProvider>
       <ThemeProvider attribute={"class"} defaultTheme="dark">
-        <div>
+        <div >
           <MainLayout>
             <Component {...pageProps} />
           </MainLayout>

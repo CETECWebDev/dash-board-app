@@ -1,6 +1,11 @@
 export const getBlinkingIcon = (isActive, isSelected) => {
   const baseClass = isActive ? 'blinking-circle-active' : 'blinking-circle-deactive';
-  const fullClass = isSelected ? `${baseClass} selected-marker` : baseClass;
+
+  const selectedClass = isSelected
+    ? `selected-marker ${isActive ? 'active' : 'inactive'}`
+    : '';
+
+  const fullClass = `${baseClass} ${selectedClass}`.trim();
 
   return L.divIcon({
     className: '',

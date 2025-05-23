@@ -1,22 +1,29 @@
 import usePagination from "@/hooks/usePagination";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import { useDirectionContext } from "@/context/DirectionContext";
 import PaginationControls from "../module/PaginationControls";
 // import PaginationControls from '../module/PaginationControls';
 import { MdDelete } from "react-icons/md";
-import  deleteUser  from "@/api-functions/deleteUser";
+import deleteUser from "@/api-functions/deleteUser";
 import { useRouter } from "next/router";
 
-
-export default function Employees({ employees }) {
-    const [totalPages, currentEmployees, currentPage, setCurrentPage] =
+export default function Employees({ employees: initialEmployees }) {
+  const [employees, setEmployees] = useState(initialEmployees); 
+  const [totalPages, currentEmployees, currentPage, setCurrentPage] =
     usePagination(6, employees);
-    const { dir, toggleDirection } = useDirectionContext();
-    const router = useRouter();
-    const handleDelete = async (emp) => {
-      await deleteUser(emp);
+  const { dir, toggleDirection } = useDirectionContext();
+  const router = useRouter();
 
+  const handleDelete = async (emp) => {
+    const result = await deleteUser(emp);
+    if (result === "User deleted") {
+      const updated = employees.filter((e) => e.id !== emp.id);
+      setEmployees(updated);
+      // حذف منطق تغییر صفحه، چون usePagination خودش مدیریت می‌کند
+    } else {
+      alert("حذف کاربر با خطا مواجه شد");
+    }
   };
 
   return (

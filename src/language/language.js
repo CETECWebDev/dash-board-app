@@ -14,11 +14,11 @@ const languagesText = {
   },
 
   devicespage: {
-    adddevice: { en: "+ Add new device", fa: " افزودن دستگاه جدید +" },
+    adddevice: { en: " Add new device", fa: " افزودن دستگاه جدید " },
     settings: { en: "Change Settings", fa: "تغییر تنظیمات" },
   },
   employeespage: {
-    adduser: { en: "+ Add User", fa: "افزودن کاربر + " },
+    adduser: { en: " Add User", fa: "افزودن کاربر  " },
     removemodal: { en: "Are you sure you want to delete this user ?", fa: "آیا مطمئن هستید که می خواهید این کاربر را حذف کنید؟" },
     removemodal_yes: { en: "Confirm", fa: "تایید" },
     removemodal_no: { en: "Cancel", fa: "لغو" },
@@ -35,7 +35,7 @@ const languagesText = {
     },
 
     Roads :{
-        addRoad: { en: "+ Add Road", fa: "افزودن محور +" },
+        addRoad: { en: " Add Road", fa: "افزودن محور " },
 
     },
 

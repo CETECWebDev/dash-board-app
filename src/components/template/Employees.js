@@ -8,6 +8,7 @@ import { MdDelete, MdEdit, MdCheck, MdClose } from "react-icons/md";
 import deleteUser from "@/api-functions/deleteUser";
 import editUser from "@/api-functions/editUser";
 import { useRouter } from "next/router";
+import { translate } from "@/language/language";
 
 export default function Employees({ employees: initialEmployees }) {
   const [employees, setEmployees] = useState(initialEmployees);
@@ -96,7 +97,9 @@ export default function Employees({ employees: initialEmployees }) {
         className="  border-2 rounded-full py-2 px-4 border-[var(--colTextA)] hover:text-[var(--textHover)] hover:border-[var(--textHover)]"
       >
         {" "}
-        {dir === "ltr" ? " + Add User " : " افزودن کاربر + "}
+        {/* {dir === "ltr" ? " + Add User " : " افزودن کاربر + "} */}
+        {translate(dir ,"employeespage.adduser")}
+
       </Link>
 
       <ul className="w-full rounded-lg p-5 space-y-4 text-[var(--colTextA)] bg-[var(--colCard)] shadow-lg">

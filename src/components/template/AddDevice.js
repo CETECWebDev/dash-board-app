@@ -21,7 +21,6 @@ export default function AddDevice() {
     e.preventDefault();
     const newDevice = { name, model, serialNumber };
     console.log("🛠️ Device Created:", newDevice);
-    // Reset form (optional)
     setName('');
     setModel('');
     setSerialNumber('');

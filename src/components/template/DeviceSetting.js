@@ -6,6 +6,7 @@ import { useDirectionContext } from "@/context/DirectionContext";
 import { FaGlobe } from "react-icons/fa";
 import { TiArrowLoop } from "react-icons/ti";
 import { IoMdArrowBack } from 'react-icons/io';
+import { translate } from '@/language/language';
 
 
 
@@ -13,41 +14,24 @@ export default function AddDevice() {
 
     const { dir } = useDirectionContext();
 
-    const [name, setName] = useState('');
-    const [model, setModel] = useState('');
-    const [serialNumber, setSerialNumber] = useState('');
-
-    const createDevice = (e) => {
-        e.preventDefault();
-        const newDevice = { name, model, serialNumber };
-        console.log("🛠️ Device Created:", newDevice);
-        alert(dir === "ltr" ? "Device created in console" : "دستگاه در کنسول ثبت شد");
-        // Reset form (optional)
-        setName('');
-        setModel('');
-        setSerialNumber('');
-    };
-
     return (
-        <div className='p-5 mt-8 flex flex-col items-center gap-3'>
+        <div className='p-5 flex flex-col items-center gap-3'>
 
-            <button className=' border-2 w-[200px] rounded-full py-2 px-4 border-[var(--colTextA)] hover:text-[var(--textHover)] hover:border-[var(--textHover)]'>Select Devices</button>
+            <button className=' border-2 w-[200px] rounded-full py-2 px-4 border-[var(--colTextA)] hover:text-[var(--textHover)] hover:border-[var(--textHover)]'>{ translate( dir , "deviceSetting.select" ) }</button>
 
-            <form onSubmit={createDevice}
+            <form
                 className="bg-[var(--colCard)] p-8 rounded-2xl backdrop-blur-md w-full lg:w-[80%]"
             >
                 <h1 className="text-center text-2xl md:text-3xl font-medium text-[var(--colTextA)] mb-8">
-                    Device Settings
+                    {translate( dir , "deviceSetting.title" )}
                 </h1>
 
-                {/* Device webframe */}
+                {/* Device frameware */}
                 <div className="mb-6 border-b border-[var(--colTextA)] flex items-center gap-3">
                     <MdDevicesOther className="text-[var(--colTextA)] text-xl" />
                     <div className="relative w-full">
                         <input
-                            value={name}
-                            onChange={e => setName(e.target.value)}
-                            placeholder={`Webframe version ...`}
+                            placeholder={`${translate( dir , "deviceSetting.frameware" )}...`}
                             className="peer w-full bg-transparent text-[var(--colTextA)] py-3 focus:outline-none"
                         />
                     </div>
@@ -59,9 +43,7 @@ export default function AddDevice() {
                     <FaGlobe className="text-[var(--colTextA)] text-xl" />
                     <div className="relative w-full">
                         <input
-                            value={model}
-                            onChange={e => setModel(e.target.value)}
-                            placeholder={`Device server IP`}
+                            placeholder={`${translate( dir , "deviceSetting.serverID" )}...`}
                             className="peer w-full bg-transparent text-[var(--colTextA)] py-3 focus:outline-none"
                         />
                     </div>
@@ -74,9 +56,7 @@ export default function AddDevice() {
                     <RiSimCardFill className="text-[var(--colTextA)] text-xl" />
                     <div className="relative w-full">
                         <input
-                            value={serialNumber}
-                            onChange={e => setSerialNumber(e.target.value)}
-                            placeholder={`Device simcard number ...`}
+                            placeholder={`${translate( dir , "deviceSetting.simNumber" )} ...`}
                             className="peer w-full bg-transparent text-[var(--colTextA)] py-3 focus:outline-none"
                         />
                     </div>
@@ -88,32 +68,32 @@ export default function AddDevice() {
                     <TiArrowLoop className="text-[var(--colTextA)] text-xl" />
                     <div className="relative w-full">
                         <input
-                            value={serialNumber}
-                            onChange={e => setSerialNumber(e.target.value)}
-                            placeholder={`Loop number  ...`}
+                            placeholder={`${translate( dir , "deviceSetting.loopNumber" )} ...`}
                             className="peer w-full bg-transparent text-[var(--colTextA)] py-3 focus:outline-none"
                         />
                     </div>
                 </div>
 
                 {/* Submit Button */}
-                <button
-                    type="submit"
-                    className="w-full border hover:border hover:border-[var(--textHover)] bg-[var(--colBg)] text-[var(--colTextA)] font-medium py-3 rounded-lg mt-10 hover:text-[var(--textHover)] transition"
-                >
-                    Apply to all device
-                </button>
-                <button
-                    type="submit"
-                    className="w-full border hover:border hover:border-[var(--textHover)] bg-[var(--colBg)] text-[var(--colTextA)] font-medium py-3 rounded-lg mt-10 mb-6 hover:text-[var(--textHover)] transition"
-                >
-                    Apply to selected devices
-                </button>
+                <div className='flex items-center gap-5 mt-10 mb-10'>
+                    <button
+                        type="submit"
+                        className="w-full border hover:border hover:border-[var(--textHover)] bg-[var(--colBg)] text-[var(--colTextA)] font-medium py-3 rounded-lg hover:text-[var(--textHover)] transition"
+                    >
+                       {translate( dir , "deviceSetting.applyAll" )}
+                    </button>
+                    <button
+                        type="submit"
+                        className="w-full border hover:border hover:border-[var(--textHover)] bg-[var(--colBg)] text-[var(--colTextA)] font-medium py-3 rounded-lg  hover:text-[var(--textHover)] transition"
+                    >
+                        {translate( dir , "deviceSetting.applySelected" )}
+                    </button>
+                </div>
 
                 {/* Back link */}
                 <Link href={'/devices'} className='flex items-center gap-2 mt-5'>
                     <IoMdArrowBack />
-                    {dir === "ltr" ? "Back" : "بازگشت"}
+                    {translate( dir , "backLink.back" )}
                 </Link>
 
             </form>

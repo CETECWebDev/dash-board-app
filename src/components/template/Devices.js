@@ -16,9 +16,9 @@ export default function Devices() {
   
 
   return (
-    <div className="p-5 space-y-4">
+    <div className="p-5 ">
 
-      <div className='flex items-center gap-5'>
+      <div className='flex items-center gap-5 mb-3' >
 
         <Link href={'/add-device'} className='  border-2 rounded-full py-2 px-4 border-[var(--colTextA)] hover:text-[var(--textHover)] hover:border-[var(--textHover)]'>{translate(dir ,"devicespage.adddevice")}</Link>
         <Link href={'/device-settings'} className='  border-2 rounded-full py-2 px-4 border-[var(--colTextA)] hover:text-[var(--textHover)] hover:border-[var(--textHover)]'>{translate(dir ,"devicespage.settings")}</Link>

@@ -10,8 +10,9 @@ const languagesText = {
     },
 
   pagination: {
-    previous: { en: "← Previous", fa: " قبلی ←" },
-    next: { en: "Next", fa: "بعدی" },
+    // previous: { en: "← ", fa: " ←" },
+    // next: { en: "Next", fa: "بعدی" },
+    page: { en: "Page", fa: "صفحه" },
   },
 
   devicespage: {
@@ -20,7 +21,7 @@ const languagesText = {
   },
   employeespage: {
     adduser: { en: "+ Add User", fa: "افزودن کاربر + " },
-    removemodal: { en: "Are you sure you want to delete this user ?", fa: "آیا مطمئن هستید که می خواهید این کارمند را حذف کنید؟" },
+    removemodal: { en: "Are you sure you want to delete this user ?", fa: "آیا مطمئن هستید که می خواهید این کاربر را حذف کنید؟" },
     removemodal_yes: { en: "Confirm", fa: "تایید" },
     removemodal_no: { en: "Cancel", fa: "لغو" },
 

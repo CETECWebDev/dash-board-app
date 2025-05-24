@@ -20,13 +20,14 @@ export default function PaginationControls({
         disabled={currentPage === 1}
       >
         <span dir={dir}>
-          {translate(dir , "pagination.previous")}
+          {/* {translate(dir , "pagination.previous")} */}
+          ←
         </span>
       </button>
 
       <span 
       className="mx-4 text-base font-semibold text-[var(--colTextA)]">
-            {dir === 'ltr' ? 'Page' : 'صفحه'} <span className="text-blue-600 dark:text-blue-400">{currentPage}</span>   {dir === 'ltr' ? 'of' : 'از'} <span className="text-blue-600 dark:text-blue-400">{totalPages}</span>
+             {translate(dir ,"pagination.page")} <span className="text-blue-600 dark:text-blue-400">{currentPage}</span>   {dir === 'ltr' ? 'of' : 'از'} <span className="text-blue-600 dark:text-blue-400">{totalPages}</span>
       </span>
 
       <button
@@ -36,7 +37,7 @@ export default function PaginationControls({
         disabled={currentPage === totalPages}
       >
         <span dir={dir}>
-          {dir === 'rtl' ? '→ بعدی' : 'Next →'}
+          →
         </span>
       </button>
     </div>

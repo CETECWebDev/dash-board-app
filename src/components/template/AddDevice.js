@@ -6,6 +6,7 @@ import { IoMdBarcode, IoMdArrowBack } from "react-icons/io";
 import Link from 'next/link';
 import { useDirectionContext } from "@/context/DirectionContext";
 import { MdRoute } from "react-icons/md";
+import { translate } from '@/language/language';
 
 
 export default function AddDevice() {
@@ -20,8 +21,6 @@ export default function AddDevice() {
     e.preventDefault();
     const newDevice = { name, model, serialNumber };
     console.log("🛠️ Device Created:", newDevice);
-    alert(dir === "ltr" ? "Device created in console" : "دستگاه در کنسول ثبت شد");
-    // Reset form (optional)
     setName('');
     setModel('');
     setSerialNumber('');
@@ -33,7 +32,7 @@ export default function AddDevice() {
         className="bg-[var(--colCard)] p-8 rounded-2xl backdrop-blur-md w-full lg:w-[70%]"
       >
         <h1 className="text-center text-2xl md:text-3xl font-medium text-[var(--colTextA)] mb-8">
-          {dir === "ltr" ? "Add Device" : "افزودن دستگاه"}
+          {translate(dir , "addDevice.title")}
         </h1>
 
         {/* Device Name */}
@@ -43,7 +42,7 @@ export default function AddDevice() {
             <input
               value={name}
               onChange={e => setName(e.target.value)}
-              placeholder={dir === "ltr" ? "Device Name..." : "نام دستگاه..."}
+              placeholder={`${translate(dir , "addDevice.name")} ...`}
               className="peer w-full bg-transparent text-[var(--colTextA)] py-3 focus:outline-none"
             />
           </div>
@@ -90,7 +89,7 @@ export default function AddDevice() {
             <input
               value={serialNumber}
               onChange={e => setSerialNumber(e.target.value)}
-              placeholder={`Device Code ...`}
+              placeholder={`${translate(dir , "addDevice.devicecode")} ...`}
               className="peer w-full bg-transparent text-[var(--colTextA)] py-3 focus:outline-none"
             />
           </div>
@@ -105,7 +104,7 @@ export default function AddDevice() {
             <input
               value={serialNumber}
               onChange={e => setSerialNumber(e.target.value)}
-              placeholder={`Device road ...`}
+              placeholder={`${translate(dir , "addDevice.deviceroad")} ...`}
               className="peer w-full bg-transparent text-[var(--colTextA)] py-3 focus:outline-none"
             />
           </div>
@@ -119,7 +118,7 @@ export default function AddDevice() {
             <input
               value={serialNumber}
               onChange={e => setSerialNumber(e.target.value)}
-              placeholder={`Device simcard number ...`}
+              placeholder={`${translate(dir , "addDevice.simNumber")} ...`}
               className="peer w-full bg-transparent text-[var(--colTextA)] py-3 focus:outline-none"
             />
           </div>
@@ -133,7 +132,7 @@ export default function AddDevice() {
             <input
               value={serialNumber}
               onChange={e => setSerialNumber(e.target.value)}
-              placeholder={`Device simcard serial  ...`}
+              placeholder={`${translate(dir , "addDevice.simSerial")} ...`}
               className="peer w-full bg-transparent text-[var(--colTextA)] py-3 focus:outline-none"
             />
           </div>
@@ -142,7 +141,7 @@ export default function AddDevice() {
         {/* Device Status */}
 
         <div className="text-[var(--colTextA)] flex items-center gap-4">
-          Device Status:
+          {translate(dir , 'addDevice.deviceStatus' )}
 
           <label className="flex items-center gap-1 cursor-pointer">
             <input
@@ -152,7 +151,7 @@ export default function AddDevice() {
               className="accent-green-500 cursor-pointer bg-transparent"
               defaultChecked
             />
-            Active
+            {translate(dir , 'addDevice.active' )}
           </label>
 
           <label className="flex items-center gap-1 cursor-pointer">
@@ -162,7 +161,7 @@ export default function AddDevice() {
               value="deactive"
               className="accent-red-500 cursor-pointer bg-transparent"
             />
-            Deactive
+             {translate(dir , 'addDevice.deactive' )}
           </label>
         </div>
 
@@ -172,13 +171,13 @@ export default function AddDevice() {
           type="submit"
           className="w-full border hover:border hover:border-[var(--textHover)] bg-[var(--colBg)] text-[var(--colTextA)] font-medium py-3 rounded-lg mt-10 mb-6 hover:text-[var(--textHover)] transition"
         >
-          {dir === "ltr" ? "Create Device" : "ایجاد دستگاه"}
+           {translate(dir , 'addDevice.createDevice' )}
         </button>
 
         {/* Back link */}
         <Link href={'/devices'} className='flex items-center gap-2 mt-5'>
           <IoMdArrowBack />
-          {dir === "ltr" ? "Back" : "بازگشت"}
+          {translate(dir , 'backLink.back' )}
         </Link>
 
       </form>

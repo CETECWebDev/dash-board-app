@@ -12,7 +12,7 @@ import { translate } from '@/language/language';
 export default function Routes() {
   const Routes = mockRoutes;
   const [totalPages , pagedList , currentPage , setCurrentPage] = usePagination( 8 , Routes)
-  const { dir, toggleDirection } = useDirectionContext();
+  const { dir } = useDirectionContext();
   
   
 

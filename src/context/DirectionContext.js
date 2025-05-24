@@ -11,7 +11,7 @@ export const DirectionProvider = ({ children }) => {
       document.documentElement.setAttribute('dir', savedDir);
       setDir(savedDir);
     } else {
-      const currentDir = document.documentElement.getAttribute('dir') || 'ltr';
+      const currentDir = document.documentElement.getAttribute('dir') || 'rtl';
       setDir(currentDir);
       localStorage.setItem('direction', currentDir);
     }

@@ -24,6 +24,10 @@
     { id: 10, name: "Road 10", Road_Name: "tehran-rasht" ,firmware: "v4.0" ,ip:"141.923.123.123" },
 
   ]
+  
+
+
+
 
   export default mockDevices;
   export { mockRoutes };

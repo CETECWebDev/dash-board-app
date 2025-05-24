@@ -1,9 +1,9 @@
 import React from 'react'
-import RoadsInfoCard from '@/components/module/RoadsInfoCard';
+import RoadsInfoCard from '@/components/module/Cards/RoadsInfoCard';
 import usePagination from '@/hooks/usePagination';
 
 import {mockRoutes} from '@/data/db';
-import PaginationControls from '../module/PaginationControls';
+import PaginationControls from '../../module/Controls/PaginationControls';
 import Link from 'next/link';
 import { useDirectionContext } from "@/context/DirectionContext";
 import { translate } from '@/language/language';

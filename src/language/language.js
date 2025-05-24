@@ -9,22 +9,23 @@ const languagesText = {
         settings: { en: 'Settings', fa: 'تنظیمات' }
     },
 
-  pagination: {
-    page: { en: "Page", fa: "صفحه" },
-  },
+    pagination: {
+        page: { en: "Page", fa: "صفحه" },
+    },
 
-  devicespage: {
-    adddevice: { en: " Add new device", fa: " افزودن دستگاه جدید " },
-    settings: { en: "Change Settings", fa: "تغییر تنظیمات" },
-  },
-  employeespage: {
-    adduser: { en: " Add User", fa: "افزودن کاربر  " },
-    removemodal: { en: "Are you sure you want to delete this user ?", fa: "آیا مطمئن هستید که می خواهید این کاربر را حذف کنید؟" },
-    removemodal_yes: { en: "Confirm", fa: "تایید" },
-    removemodal_no: { en: "Cancel", fa: "لغو" },
+    devicespage: {
+        adddevice: { en: " Add Device", fa: " افزودن دستگاه  " },
+        settings: { en: "Change Settings", fa: "تغییر تنظیمات" },
+    },
 
-  },
-  
+    employeespage: {
+        adduser: { en: " Add User", fa: "افزودن کاربر  " },
+        removemodal: { en: "Are you sure you want to delete this user ?", fa: "آیا مطمئن هستید که می خواهید این کاربر را حذف کنید؟" },
+        removemodal_yes: { en: "Confirm", fa: "تایید" },
+        removemodal_no: { en: "Cancel", fa: "لغو" },
+
+    },
+
     deviceDataCard: {
         status: { en: 'Status', fa: 'وضعیت' },
         active: { en: 'Active', fa: 'فعال' },
@@ -34,7 +35,7 @@ const languagesText = {
         detail: { en: ' Details', fa: ' جزئیات' },
     },
 
-    Roads :{
+    Roads: {
         addRoad: { en: " Add Road", fa: "افزودن محور " },
 
     },
@@ -58,21 +59,24 @@ const languagesText = {
         back: { en: 'back', fa: 'بازگشت' }
     },
 
-
-
-
-   
-
     deviceSetting: {
-        title: {en: 'Device Settings' , fa: 'تنظیمات دستگاه'},
-        select: {en: 'Select Device' , fa: 'انتخاب دستگاه'},
-        frameware: {en: 'Frameware Version' , fa: 'نخسه فریم ور'},
-        serverID: {en: 'Device Server IP' , fa: 'ای پی سرور'},
-        simNumber: {en: 'Simcard Number' , fa: 'شماره سیمکارت'},
-        loopNumber: {en: 'loopNumber' , fa: 'شماره حلقه'},
-        applyAll: {en: 'Apply to all Devices' , fa: 'اعمال برای همه دستگاها'},
-        applySelected: {en: 'Apply to selected Devices' , fa: 'اعمال به دستگاهای انتخاب شده'},
+        title: { en: 'Device Settings', fa: 'تنظیمات دستگاه' },
+        select: { en: 'Select Device', fa: 'انتخاب دستگاه' },
+        frameware: { en: 'Frameware Version', fa: 'نخسه فریم ور' },
+        serverID: { en: 'Device Server IP', fa: 'ای پی سرور' },
+        simNumber: { en: 'Simcard Number', fa: 'شماره سیمکارت' },
+        loopNumber: { en: 'loopNumber', fa: 'شماره حلقه' },
+        applyAll: { en: 'Apply to all Devices', fa: 'اعمال برای همه دستگاها' },
+        applySelected: { en: 'Apply to selected Devices', fa: 'اعمال به دستگاهای انتخاب شده' },
     },
+
+
+    applySettingModal: {
+        deviceList: {en: 'Device List' , fa: ''},
+        SelectedDevices: {en: 'Selected Devices' , fa: ''},
+        apply: {en: 'Apply' , fa: 'اعمال تغییرات'},
+        cancel: {en: 'Cancel' , fa: 'لغو'}
+    }
 
 
 };

@@ -9,7 +9,7 @@ export default function PaginationControls({
   totalPages, 
   setCurrentPage
 }) {
-  const { dir, toggleDirection } = useDirectionContext();
+  const { dir } = useDirectionContext();
 
   return (
     <div className="flex justify-center items-center gap-2 mt-6" dir="ltr">

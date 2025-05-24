@@ -1,4 +1,4 @@
-import SideBar from "@/components/module/SideBar";
+import SideBar from "@/components/module/SideBar/SideBar";
 import "@/styles/globals.css";
 import "leaflet/dist/leaflet.css";
 

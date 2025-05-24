@@ -2,7 +2,7 @@ import usePagination from "@/hooks/usePagination";
 import Link from "next/link";
 import React, { useState } from "react";
 import { useDirectionContext } from "@/context/DirectionContext";
-import PaginationControls from "../module/PaginationControls";
+import PaginationControls from "../../module/Controls/PaginationControls";
 // import PaginationControls from '../module/PaginationControls';
 import { MdDelete, MdEdit, MdCheck, MdClose } from "react-icons/md";
 import deleteUser from "@/api-functions/deleteUser";

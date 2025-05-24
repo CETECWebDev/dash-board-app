@@ -1,9 +1,10 @@
-import SideBar from "@/components/module/SideBar"
-import MainDashboard from "@/components/template/MainDashboard"
+import SideBar from "@/components/module/SideBar/SideBar"
+import MainDashboard from "@/components/template/Dashboard/MainDashboard"
 
 export default function Home({ props }) {
   return (
     <>
+    
       <SideBar />
       < MainDashboard />
     </>

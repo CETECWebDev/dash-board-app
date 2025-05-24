@@ -1,5 +1,5 @@
-import SideBar from '@/components/module/SideBar'
-import DeviceSetting from '@/components/template/DeviceSetting'
+import SideBar from '@/components/module/SideBar/SideBar'
+import DeviceSetting from '@/components/template/DeviceSetting/DeviceSetting'
 import React from 'react'
 
 export default function DeviceSettings() {

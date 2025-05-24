@@ -1,6 +1,6 @@
 import fetchUsers from '@/api-functions/fetchUsers';
-import SideBar from '@/components/module/SideBar';
-import Employees from '@/components/template/Employees';
+import SideBar from '@/components/module/SideBar/SideBar';
+import Employees from '@/components/template/Users/Employees';
 import React from 'react'
 
 export default function EmployeesPage({ employees }) {

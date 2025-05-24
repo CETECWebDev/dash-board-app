@@ -4,7 +4,7 @@ import dynamic from 'next/dynamic';
 
 const ApexChart = dynamic(() => import('react-apexcharts'), { ssr: false });
 
-const LineChart = () => {
+const LineChart = ({h , shadow , labelSize}) => {
  const options = {
   chart: {
     type: 'line',
@@ -19,7 +19,7 @@ const LineChart = () => {
       text: 'Months',
       style: {
         color: ['var(--colTextA)'],
-        fontSize: '14px'
+        fontSize: `${labelSize}px`
       }
     }
   },
@@ -31,7 +31,7 @@ const LineChart = () => {
       text: 'Income ($)',
       style: {
         color: ['var(--colTextA)'],
-        fontSize: '14px'
+        fontSize: `${labelSize}px`
       }
     }
   },
@@ -58,8 +58,8 @@ const series = [
 ];
 
 return (
-  <div className='p-2 bg-[var(--colCard)] rounded-2xl shadow-lg'>
-    <ApexChart options={options} series={series} type="line" height={350}  />
+  <div className={`p-2 bg-[var(--colCard)] rounded-2xl ${shadow ? 'shadow-lg' : ''}`}>
+    <ApexChart options={options} series={series} type='line' height={h} />
   </div>
   
 );

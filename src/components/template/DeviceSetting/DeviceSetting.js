@@ -7,23 +7,37 @@ import { FaGlobe } from "react-icons/fa";
 import { TiArrowLoop } from "react-icons/ti";
 import { IoMdArrowBack } from 'react-icons/io';
 import { translate } from '@/language/language';
+import SelectDeviceModal from '@/components/module/Modals/SelectDeviceModal';
+import mockDevices from '@/data/db';
 
 
 
 export default function AddDevice() {
 
-    const { dir } = useDirectionContext();
-
+    const { dir } = useDirectionContext()
+    const [devices , setDevices] = useState(mockDevices) 
+    const [selectedDevices, setSelectedDevices] = useState([])
+    const [isModalOpen , setIsModalOpen] = useState(false)
+    
     return (
         <div className='p-5 flex flex-col items-center gap-3'>
 
-            <button className=' border-2 w-[200px] rounded-full py-2 px-4 border-[var(--colTextA)] hover:text-[var(--textHover)] hover:border-[var(--textHover)]'>{ translate( dir , "deviceSetting.select" ) }</button>
+            <SelectDeviceModal
+                devices={devices}
+                setDevices={setDevices}
+                selectedDevices={selectedDevices}
+                setSelectedDevices={setSelectedDevices}
+                isModalOpen={isModalOpen}
+                setIsModalOpen={setIsModalOpen}
+            />
+
+            <button onClick={()=> setIsModalOpen(true)} className=' border-2 w-[200px] rounded-full py-2 px-4 border-[var(--colTextA)] hover:text-[var(--textHover)] hover:border-[var(--textHover)]'>{translate(dir, "deviceSetting.select")}</button>
 
             <form
                 className="bg-[var(--colCard)] p-8 rounded-2xl backdrop-blur-md w-full lg:w-[80%]"
             >
                 <h1 className="text-center text-2xl md:text-3xl font-medium text-[var(--colTextA)] mb-8">
-                    {translate( dir , "deviceSetting.title" )}
+                    {translate(dir, "deviceSetting.title")}
                 </h1>
 
                 {/* Device frameware */}
@@ -31,7 +45,7 @@ export default function AddDevice() {
                     <MdDevicesOther className="text-[var(--colTextA)] text-xl" />
                     <div className="relative w-full">
                         <input
-                            placeholder={`${translate( dir , "deviceSetting.frameware" )}...`}
+                            placeholder={`${translate(dir, "deviceSetting.frameware")}...`}
                             className="peer w-full bg-transparent text-[var(--colTextA)] py-3 focus:outline-none"
                         />
                     </div>
@@ -43,7 +57,7 @@ export default function AddDevice() {
                     <FaGlobe className="text-[var(--colTextA)] text-xl" />
                     <div className="relative w-full">
                         <input
-                            placeholder={`${translate( dir , "deviceSetting.serverID" )}...`}
+                            placeholder={`${translate(dir, "deviceSetting.serverID")}...`}
                             className="peer w-full bg-transparent text-[var(--colTextA)] py-3 focus:outline-none"
                         />
                     </div>
@@ -56,7 +70,7 @@ export default function AddDevice() {
                     <RiSimCardFill className="text-[var(--colTextA)] text-xl" />
                     <div className="relative w-full">
                         <input
-                            placeholder={`${translate( dir , "deviceSetting.simNumber" )} ...`}
+                            placeholder={`${translate(dir, "deviceSetting.simNumber")} ...`}
                             className="peer w-full bg-transparent text-[var(--colTextA)] py-3 focus:outline-none"
                         />
                     </div>
@@ -68,7 +82,7 @@ export default function AddDevice() {
                     <TiArrowLoop className="text-[var(--colTextA)] text-xl" />
                     <div className="relative w-full">
                         <input
-                            placeholder={`${translate( dir , "deviceSetting.loopNumber" )} ...`}
+                            placeholder={`${translate(dir, "deviceSetting.loopNumber")} ...`}
                             className="peer w-full bg-transparent text-[var(--colTextA)] py-3 focus:outline-none"
                         />
                     </div>
@@ -80,23 +94,24 @@ export default function AddDevice() {
                         type="submit"
                         className="w-full border hover:border hover:border-[var(--textHover)] bg-[var(--colBg)] text-[var(--colTextA)] font-medium py-3 rounded-lg hover:text-[var(--textHover)] transition"
                     >
-                       {translate( dir , "deviceSetting.applyAll" )}
+                        {translate(dir, "deviceSetting.applyAll")}
                     </button>
                     <button
                         type="submit"
                         className="w-full border hover:border hover:border-[var(--textHover)] bg-[var(--colBg)] text-[var(--colTextA)] font-medium py-3 rounded-lg  hover:text-[var(--textHover)] transition"
                     >
-                        {translate( dir , "deviceSetting.applySelected" )}
+                        {translate(dir, "deviceSetting.applySelected")}
                     </button>
                 </div>
 
                 {/* Back link */}
                 <Link href={'/devices'} className='flex items-center gap-2 mt-5'>
                     <IoMdArrowBack />
-                    {translate( dir , "backLink.back" )}
+                    {translate(dir, "backLink.back")}
                 </Link>
 
             </form>
+
         </div>
     );
 }

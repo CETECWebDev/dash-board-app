@@ -6,14 +6,22 @@ export const DirectionProvider = ({ children }) => {
   const [dir, setDir] = useState('ltr');
 
   useEffect(() => {
-    const currentDir = document.documentElement.getAttribute('dir');
-    setDir(currentDir || 'ltr');
+    const savedDir = localStorage.getItem('direction');
+    if (savedDir) {
+      document.documentElement.setAttribute('dir', savedDir);
+      setDir(savedDir);
+    } else {
+      const currentDir = document.documentElement.getAttribute('dir') || 'ltr';
+      setDir(currentDir);
+      localStorage.setItem('direction', currentDir);
+    }
   }, []);
 
   const toggleDirection = () => {
     const newDir = dir === 'rtl' ? 'ltr' : 'rtl';
     document.documentElement.setAttribute('dir', newDir);
     setDir(newDir);
+    localStorage.setItem('direction', newDir)
   };
 
   return (

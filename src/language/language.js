@@ -18,6 +18,25 @@ const languagesText = {
         detail: { en: ' Details', fa: ' جزئیات' },
     },
 
+
+    addDevice: {
+        title: { en: 'Add Device', fa: 'افزودن دستگاه' },
+        name: { en: 'Device Name', fa: 'نام دستگاه' },
+        devicecode: { en: 'Device Code', fa: 'کد دستگاه' },
+        deviceroad: { en: 'Device Road', fa: 'محور دستگاه' },
+        simNumber: { en: 'Simcard Number', fa: 'شماره سیمکارت' },
+        simSerial: { en: 'Simcard Serial', fa: 'سریال سیمکارت' },
+        deviceStatus: { en: 'Device Status', fa: 'وضعیت دستگاه' },
+        active: { en: 'Active', fa: 'فعال' },
+        deactive: { en: 'Deactive', fa: 'غیر فعال' },
+        createDevice: { en: 'Create Device', fa: ' ثبت دستگاه' },
+    },
+
+
+    backLink: {
+        back: {en: 'back' , fa: 'بازگشت'}
+    },
+
     pagination: {
         previous: { en: "← Previous", fa: " قبلی ←" },
         next: { en: "Next", fa: "بعدی" },

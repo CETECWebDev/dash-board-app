@@ -20,7 +20,7 @@ import { MdTranslate } from "react-icons/md";
 import { CiRoute } from "react-icons/ci";
 import { MdDevices } from "react-icons/md";
 import { FaUserAlt } from "react-icons/fa";
-import languagesText from "@/language/language";
+import { translate } from "@/language/language"
 
 export default function SideBar() {
   const { theme, setTheme } = useTheme();
@@ -40,8 +40,8 @@ export default function SideBar() {
   const translateClass = isOpen
     ? "translate-x-0"
     : dir === "rtl"
-    ? "translate-x-full"
-    : "-translate-x-full";
+      ? "translate-x-full"
+      : "-translate-x-full";
 
   const backdropClass = isOpen
     ? "fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden backdrop-blur-md"
@@ -52,9 +52,8 @@ export default function SideBar() {
       {/* Hamburger menu */}
       <button
         onClick={toggleMenu}
-        className={`block mt-5 p-2 rounded-md bg-[var(--colCard)] text-[var(--coTextA)] shadow-md lg:hidden ${
-          dir === "rtl" ? "mr-5"  : "ml-5"
-        }`}
+        className={`block mt-5 p-2 rounded-md bg-[var(--colCard)] text-[var(--coTextA)] shadow-md lg:hidden ${dir === "rtl" ? "mr-5" : "ml-5"
+          }`}
         aria-label="Toggle Menu"
       >
         {isOpen ? "✕" : <IoIosMenu size={24} />}
@@ -100,45 +99,44 @@ export default function SideBar() {
               {[
                 {
                   icon: <FaHome className="text-blue-500" />,
-                  label: dir === "ltr" ? languagesText.sidebar.dashboard.en : languagesText.sidebar.dashboard.fa ,
+                  label: translate(dir , "sidebar.dashboard"),
                   url: "/",
                 },
                 {
-                  icon: <MdDevices  className="text-green-500" />,
-                  label: dir === "ltr" ? languagesText.sidebar.devices.en : languagesText.sidebar.devices.fa,
+                  icon: <MdDevices className="text-green-500" />,
+                  label: translate(dir , "sidebar.devices"),
                   url: "/devices",
                 },
-               {
-                  icon: <CiRoute  className="text-red-500" />,
+                {
+                  icon: <CiRoute className="text-red-500" />,
                   label: dir === "ltr" ? "Roads" : "مسیرها",
                   url: "/roads",
                 },
                 {
-                  icon: <FaUserAlt  className="text-purple-500" />,
+                  icon: <FaUserAlt className="text-purple-500" />,
                   label: dir === "ltr" ? "Employees" : "کاربرها",
                   url: "/employees",
                 },
-             
+
                 {
                   icon: <FaDatabase className="text-yellow-500" />,
                   label: dir === "ltr" ? "Databases" : "دیتابیس ها",
                   url: "#",
                 },
               ].map(({ icon, label, url }) => {
-                 const isActive =
+                const isActive =
                   url === "/"
-                  ? pathname === "/" // فقط اگه دقیقاً صفحه اصلی بود
-                  : url && pathname.startsWith(url); // برای بقیه لینک‌ها
+                    ? pathname === "/" // فقط اگه دقیقاً صفحه اصلی بود
+                    : url && pathname.startsWith(url); // برای بقیه لینک‌ها
 
                 return (
                   <li key={label}>
                     <Link
                       href={url ?? "/"}
-                      className={`flex items-center gap-2 pb-1 border-b-2 transition-colors duration-200 ${
-                        isActive
+                      className={`flex items-center gap-2 pb-1 border-b-2 transition-colors duration-200 ${isActive
                           ? "border-[var(--textHover)]  font-semibold"
                           : "border-transparent hover:text-[var(--textHover)]"
-                      }`}
+                        }`}
                       onClick={() => setIsOpen(false)}
                     >
                       {icon}
@@ -155,7 +153,7 @@ export default function SideBar() {
         <div className="flex flex-col items-start pl-5 mt-10">
           <div className="flex flex-col gap-3">
             <h2 className="text-sm font-semibold text-gray-400 mb-2">
-             {dir === "ltr" ? "Setting" : "تنظیمات"}
+              {dir === "ltr" ? "Setting" : "تنظیمات"}
             </h2>
             <ul className="space-y-2 flex flex-col gap-3">
               <li>

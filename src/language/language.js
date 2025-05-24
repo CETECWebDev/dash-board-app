@@ -36,6 +36,11 @@ const languagesText = {
         detail: {en: ' Details' , fa: ' جزئیات'},
     },
 
+    Roads :{
+        addRoad: { en: "+ Add Road", fa: "افزودن محور +" },
+
+    }
+
 
 };
 

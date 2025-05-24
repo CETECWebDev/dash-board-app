@@ -8,6 +8,7 @@ import { MdDelete, MdEdit, MdCheck, MdClose } from "react-icons/md";
 import deleteUser from "@/api-functions/deleteUser";
 import editUser from "@/api-functions/editUser";
 import { useRouter } from "next/router";
+import { translate } from "@/language/language";
 
 export default function Employees({ employees: initialEmployees }) {
   const [employees, setEmployees] = useState(initialEmployees);
@@ -18,6 +19,8 @@ export default function Employees({ employees: initialEmployees }) {
   const [editingId, setEditingId] = useState(null);
   const [editName, setEditName] = useState("");
   const [editEmail, setEditEmail] = useState("");
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [selectedEmployee, setSelectedEmployee] = useState(null);
 
   const handleDelete = async (emp) => {
     const result = await deleteUser(emp);
@@ -63,6 +66,30 @@ export default function Employees({ employees: initialEmployees }) {
     }
   };
 
+  const confirmDelete = (emp) => {
+    setSelectedEmployee(emp);
+    setShowDeleteModal(true);
+  };
+
+  const handleConfirmDelete = async () => {
+    if (selectedEmployee) {
+      const result = await deleteUser(selectedEmployee);
+      if (result === "User deleted") {
+        const updated = employees.filter((e) => e.id !== selectedEmployee.id);
+        setEmployees(updated);
+        setShowDeleteModal(false);
+        setSelectedEmployee(null);
+      } else {
+        alert("حذف کاربر با خطا مواجه شد");
+      }
+    }
+  };
+
+  const handleCancelDelete = () => {
+    setShowDeleteModal(false);
+    setSelectedEmployee(null);
+  };
+
   return (
     <div className="min-h-screen p-5 text-[var(--colTextA)] space-y-4">
       <Link
@@ -70,7 +97,9 @@ export default function Employees({ employees: initialEmployees }) {
         className="  border-2 rounded-full py-2 px-4 border-[var(--colTextA)] hover:text-[var(--textHover)] hover:border-[var(--textHover)]"
       >
         {" "}
-        {dir === "ltr" ? " + Add User " : " افزودن کاربر + "}
+        {/* {dir === "ltr" ? " + Add User " : " افزودن کاربر + "} */}
+        {translate(dir ,"employeespage.adduser")}
+
       </Link>
 
       <ul className="w-full rounded-lg p-5 space-y-4 text-[var(--colTextA)] bg-[var(--colCard)] shadow-lg">
@@ -115,7 +144,7 @@ export default function Employees({ employees: initialEmployees }) {
               <>
                 <span className="font-medium w-1/3">{emp.name}</span>
                 <span className="text-sm w-1/3">{emp.email}</span>
-                <span className="text-sm w-1/3">{emp.id}</span>
+                {/* <span className="text-sm w-1/3">{emp.id}</span> */}
                 <div className="flex gap-3">
                   <button
                     onClick={() => startEdit(emp)}
@@ -124,7 +153,7 @@ export default function Employees({ employees: initialEmployees }) {
                     <MdEdit />
                   </button>
                   <button
-                    onClick={() => handleDelete(emp)}
+                    onClick={() => confirmDelete(emp)}
                     className="hover:text-red-400 hover:scale-110 text-2xl"
                   >
                     <MdDelete />
@@ -142,6 +171,28 @@ export default function Employees({ employees: initialEmployees }) {
         totalPages={totalPages}
         setCurrentPage={setCurrentPage}
       />
+
+      {showDeleteModal && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+          <div className="bg-yellow-500 p-5 rounded shadow-lg">
+            <p>Are you sure you want to delete this employee?</p>
+            <div className="flex justify-center gap-3 mt-4" dir="rtl">
+              <button
+                onClick={handleConfirmDelete}
+                className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
+              >
+                Yes
+              </button>
+              <button
+                onClick={handleCancelDelete}
+                className="bg-gray-300 px-4 py-2 rounded hover:bg-gray-400"
+              >
+                No
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

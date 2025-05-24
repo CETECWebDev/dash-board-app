@@ -5,20 +5,31 @@ const languagesText = {
         devices: { en: 'Devices', fa: 'دستگاه ها' },
         roads: { en: 'Roads', fa: 'محور ها' },
         users: { en: 'Users', fa: 'کاربر ها' },
-        database: { en: 'Database', fa:'دیتابیس'},
-        settings: {en: 'Settings' , fa: 'تنظیمات'}
+        database: { en: 'Database', fa: 'دیتابیس' },
+        settings: { en: 'Settings', fa: 'تنظیمات' }
     },
 
     deviceDataCard: {
-        status: {en : 'Status' , fa: 'وضعیت'} ,
-        active: {en : 'Active' , fa: 'فعال'},
-        deactive: {en : 'Deactive' , fa: 'غیر فعال'},
-        countedVehicle: {en : 'Counted Vehicle' , fa: 'خودرو های شمارش شده'},
-        direction: {en : 'Directions' , fa: 'مسیریابی'},
-        detail: {en: ' Details' , fa: ' جزئیات'},
+        status: { en: 'Status', fa: 'وضعیت' },
+        active: { en: 'Active', fa: 'فعال' },
+        deactive: { en: 'Deactive', fa: 'غیر فعال' },
+        countedVehicle: { en: 'Counted Vehicle', fa: 'خودرو های شمارش شده' },
+        direction: { en: 'Directions', fa: 'مسیریابی' },
+        detail: { en: ' Details', fa: ' جزئیات' },
     },
 
+    pagination: {
+        previous: { en: "← Previous", fa: " قبلی ←" },
+        next: { en: "Next", fa: "بعدی" },
+    },
 
+    devicespage: {
+        adddevice: { en: "+ Add new device", fa: " افزودن دستگاه جدید +" },
+        settings: { en: "Change Settings", fa: "تغییر تنظیمات" },
+    },
+    employeespage: {
+        adduser: { en: "+ Add User", fa: "افزودن کاربر + " },
+    },
 };
 
 const translate = (dir, path) => {

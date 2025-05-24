@@ -1,6 +1,7 @@
 // components/PaginationControls.js
 import React from 'react'
 import { useDirectionContext } from "@/context/DirectionContext";
+import { translate } from '@/language/language';
 
 
 export default function PaginationControls({ 
@@ -19,7 +20,7 @@ export default function PaginationControls({
         disabled={currentPage === 1}
       >
         <span dir={dir}>
-          {dir === 'rtl' ? '← قبلی' : '← Previous'}
+          {translate(dir , "pagination.previous")}
         </span>
       </button>
 

@@ -58,14 +58,6 @@ const languagesText = {
         back: { en: 'back', fa: 'بازگشت' }
     },
 
- 
-
-
-    employeespage: {
-        adduser: { en: " Add User", fa: "افزودن کاربر  " },
-    },
-   
-
 
 
 

@@ -33,7 +33,7 @@ function DeviceDataCard({ selectedDevice }) {
         <Link href={'/'} className='flex items-center justify-center gap-2 border-2 rounded-full py-2 border-[var(--colTextA)] hover:text-[var(--textHover)] hover:border-[var(--textHover)]'> <FaThList /> {translate(dir, "deviceDataCard.detail")} </Link>
 
         <div className='hidden lg:block'>
-          <LineChart h={200} shadow={false} labelSize={8}/>
+          <LineChart h={200} shadow={false} labelSize={translate(dir ,"lineChart.dataCard_labelsize")}/>
         </div>
 
       </div>

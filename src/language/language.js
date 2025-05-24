@@ -78,6 +78,15 @@ const languagesText = {
         cancel: {en: 'Cancel' , fa: 'لغو'}
     }
 
+,
+    lineChart:{
+        y_axis_text:{en:'Income' , fa: 'درآمد'},
+        x_axis_text:{en:"Months", fa: "ماه " } ,
+        full_labelsize: {en: '14', fa: '18'},
+        dataCard_labelsize: {en: '10', fa: '14'},
+        
+    }
+
 
 };
 

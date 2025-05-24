@@ -5,6 +5,9 @@ import mockDevices from '@/data/db';
 // import mockDevices from '@/data/altDB';
 import LineChart from '../../module/Charts/LineChart';
 import DeviceDataCard from '../../module/Cards/DeviceDataCard';
+import { translate } from '@/language/language';
+import { useDirectionContext } from '@/context/DirectionContext';
+import DeviceStatusCount from '@/components/module/Cards/DeviceStatusCount';
 
 const MapView = dynamic(() => import('@/components/module/Maps/MapView'), {
   ssr: false,
@@ -13,6 +16,8 @@ const MapView = dynamic(() => import('@/components/module/Maps/MapView'), {
 export default function MainDashboard() {
   const devices = mockDevices;
   const [selectedDevice, setSelectedDevice] = useState(devices[0]);
+  const [activeDeviceCount, setActiveDeviceCount] = useState(0);
+  const { dir } = useDirectionContext();
 
   function scrollToTop() {
     window.scrollTo({
@@ -34,7 +39,11 @@ export default function MainDashboard() {
           <DeviceDataCard selectedDevice={selectedDevice} />
         </div>
 
-        <LineChart h={400} shadow={true} labelSize={14} />
+        <div className='flex flex-col-reverse md:flex-row w-full gap-2'>
+          <LineChart h={400} shadow={true} labelSize={translate(dir , "lineChart.full_labelsize")} />
+          <DeviceStatusCount devices={devices} activeDeviceCount={activeDeviceCount} setActiveDeviceCount={setActiveDeviceCount} />
+
+        </div>
 
         <button
           onClick={scrollToTop}

@@ -171,9 +171,9 @@ export default function Employees({ employees: initialEmployees }) {
 
       {showDeleteModal && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-          <div className="bg-white p-5 rounded shadow-lg">
+          <div className="bg-yellow-500 p-5 rounded shadow-lg">
             <p>Are you sure you want to delete this employee?</p>
-            <div className="flex justify-end gap-3 mt-4">
+            <div className="flex justify-center gap-3 mt-4" dir="rtl">
               <button
                 onClick={handleConfirmDelete}
                 className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"

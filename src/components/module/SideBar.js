@@ -20,6 +20,7 @@ import { MdTranslate } from "react-icons/md";
 import { CiRoute } from "react-icons/ci";
 import { MdDevices } from "react-icons/md";
 import { FaUserAlt } from "react-icons/fa";
+import languagesText from "@/language/language";
 
 export default function SideBar() {
   const { theme, setTheme } = useTheme();
@@ -52,7 +53,7 @@ export default function SideBar() {
       <button
         onClick={toggleMenu}
         className={`block mt-5 p-2 rounded-md bg-[var(--colCard)] text-[var(--coTextA)] shadow-md lg:hidden ${
-          dir === "rtl" ? "mr-5" : "ml-5"
+          dir === "rtl" ? "mr-5"  : "ml-5"
         }`}
         aria-label="Toggle Menu"
       >
@@ -99,12 +100,12 @@ export default function SideBar() {
               {[
                 {
                   icon: <FaHome className="text-blue-500" />,
-                  label: dir === "ltr" ? "Dashboard" : "داشبورد",
+                  label: dir === "ltr" ? languagesText.sidebar.dashboard.en : languagesText.sidebar.dashboard.fa ,
                   url: "/",
                 },
                 {
                   icon: <MdDevices  className="text-green-500" />,
-                  label: dir === "ltr" ? "Devices" : "دستگاه ها",
+                  label: dir === "ltr" ? languagesText.sidebar.devices.en : languagesText.sidebar.devices.fa,
                   url: "/devices",
                 },
                {

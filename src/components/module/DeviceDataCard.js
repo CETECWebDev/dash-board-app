@@ -7,6 +7,7 @@ import { FaThList } from "react-icons/fa";
 import Link from 'next/link';
 
 import { useDirectionContext } from "@/context/DirectionContext";
+import { translate } from '@/language/language';
 
 
 
@@ -21,14 +22,14 @@ function DeviceDataCard({ selectedDevice }) {
             <div className='lg:flex lg:flex-col lg:gap-7 grid grid-cols-2 gap-x-2 gap-y-5'>
                 <div className='flex items-center gap-2'>
                   <GrStatusGoodSmall className={selectedDevice.active ? 'text-green-500' : 'text-red-700'} />
-                  {dir === "ltr" ? "Status :" : "وضعیت :"}
+                  {translate(dir , "deviceDataCard.status") } :
                   {selectedDevice.active
-                    ? (dir === "ltr" ? " Active " : " فعال ")
-                    : (dir === "ltr" ? "Deactive" : " غیرفعال")}
+                    ? translate(dir , "deviceDataCard.active")
+                    : translate(dir , "deviceDataCard.deactive")}
                 </div>
-                <div className='flex items-center gap-2'><FaCarAlt /> {dir === "ltr" ? "Counted Vehicle : " : "خودروهای شمارش شده :"} {selectedDevice.countedV}</div>
-                <Link  target="_blank" href={`https://www.google.com/maps/dir/?api=1&destination=${selectedDevice.lat},${selectedDevice.lng}`} className=' flex items-center justify-center gap-2 border-2 rounded-full py-2 border-[var(--colTextA)] hover:text-[var(--textHover)] hover:border-[var(--textHover)]' ><FaLocationCrosshairs/> {(dir === "ltr" ? " Full Directions " : " مسیر ها ")} </Link>
-                <Link  href={'/'} className='flex items-center justify-center gap-2 border-2 rounded-full py-2 border-[var(--colTextA)] hover:text-[var(--textHover)] hover:border-[var(--textHover)]'> <FaThList/> {(dir === "ltr" ? " Full details " : " جزئیات کامل ")} </Link>
+                <div className='flex items-center gap-2'><FaCarAlt /> {translate(dir , "deviceDataCard.countedVehicle")} : {selectedDevice.countedV}</div>
+                <Link  target="_blank" href={`https://www.google.com/maps/dir/?api=1&destination=${selectedDevice.lat},${selectedDevice.lng}`} className=' flex items-center justify-center gap-2 border-2 rounded-full py-2 border-[var(--colTextA)] hover:text-[var(--textHover)] hover:border-[var(--textHover)]' ><FaLocationCrosshairs/> {translate(dir , "deviceDataCard.direction")} </Link>
+                <Link  href={'/'} className='flex items-center justify-center gap-2 border-2 rounded-full py-2 border-[var(--colTextA)] hover:text-[var(--textHover)] hover:border-[var(--textHover)]'> <FaThList/> {translate(dir , "deviceDataCard.detail")} </Link>
             </div>
         </div>
     );

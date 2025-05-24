@@ -93,7 +93,7 @@ export default function SideBar() {
         <div className="flex flex-col items-start pl-5 mt-10">
           <div className="flex flex-col gap-3">
             <h2 className="text-sm font-semibold text-gray-400 mb-2">
-              {dir === "ltr" ? "Main Navigation" : "منوی ناوبری"}
+              {translate(dir , "sidebar.navigation")}
             </h2>
             <ul className="space-y-2 flex flex-col gap-3">
               {[
@@ -109,25 +109,25 @@ export default function SideBar() {
                 },
                 {
                   icon: <CiRoute className="text-red-500" />,
-                  label: dir === "ltr" ? "Roads" : "مسیرها",
+                  label: translate(dir , "sidebar.roads") ,
                   url: "/roads",
                 },
                 {
                   icon: <FaUserAlt className="text-purple-500" />,
-                  label: dir === "ltr" ? "Employees" : "کاربرها",
+                  label: translate(dir , "sidebar.users"),
                   url: "/employees",
                 },
 
                 {
                   icon: <FaDatabase className="text-yellow-500" />,
-                  label: dir === "ltr" ? "Databases" : "دیتابیس ها",
+                  label: translate(dir , "sidebar.database"),
                   url: "#",
                 },
               ].map(({ icon, label, url }) => {
                 const isActive =
                   url === "/"
-                    ? pathname === "/" // فقط اگه دقیقاً صفحه اصلی بود
-                    : url && pathname.startsWith(url); // برای بقیه لینک‌ها
+                    ? pathname === "/" 
+                    : url && pathname.startsWith(url);  
 
                 return (
                   <li key={label}>
@@ -153,7 +153,7 @@ export default function SideBar() {
         <div className="flex flex-col items-start pl-5 mt-10">
           <div className="flex flex-col gap-3">
             <h2 className="text-sm font-semibold text-gray-400 mb-2">
-              {dir === "ltr" ? "Setting" : "تنظیمات"}
+              {translate(dir , "sidebar.settings")}
             </h2>
             <ul className="space-y-2 flex flex-col gap-3">
               <li>
@@ -173,7 +173,7 @@ export default function SideBar() {
                     className="hover:text-[var(--textHover)] hover:border-[var(--textHover)] border flex justify-center items-center rounded-full text-[var(--colTextB)] w-10 h-10"
                     title="Toggle Direction"
                   >
-                    {dir === "ltr" ? <MdTranslate /> : <MdTranslate />}
+                    <MdTranslate />
                   </button>
                 </div>
               </li>

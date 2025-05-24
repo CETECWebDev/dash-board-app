@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { useDirectionContext } from "@/context/DirectionContext";
 import { FiEdit, FiTrash2 } from "react-icons/fi";
+import { translate } from "@/language/language";
 
 export default function Route() {
   const { dir } = useDirectionContext();
@@ -105,7 +106,10 @@ export default function Route() {
       </div>
 
       <h1 className="text-3xl font-bold text-[var(--colTextA)] text-center mb-8" dir={dir}>
-        {dir === "rtl" ? "لیست محورها" : "Route List"}
+        {/* {dir === "rtl" ? "لیست محورها" : "Route List"}
+         */}
+                    {translate(dir , "Route.title")}
+
       </h1>
 
       <section className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -114,7 +118,9 @@ export default function Route() {
             className="text-xl font-semibold text-[var(--colTextA)] mb-4 text-center md:text-start"
             dir={dir}
           >
-            {dir === "rtl" ? "مسیر رفت" : "Outbound Route"}
+            {/* {dir === "rtl" ? "مسیر رفت" : "Outbound Route"} */}
+
+              {translate(dir , "Route.goRoute")}
           </h2>
           <div className="space-y-6">
             {currentData.map((route) => (
@@ -168,7 +174,9 @@ export default function Route() {
             className="text-xl font-semibold text-[var(--colTextA)] mb-4 text-center md:text-start"
             dir={dir}
           >
-            {dir === "rtl" ? "مسیر برگشت" : "Return Route"}
+            {/* {dir === "rtl" ? "مسیر برگشت" : "Return Route"} */}
+
+             {translate(dir , "Route.backRoute")}
           </h2>
           <div className="space-y-6">
             {currentBargasht.map((route) => (

@@ -85,6 +85,14 @@ const languagesText = {
         full_labelsize: {en: '14', fa: '18'},
         dataCard_labelsize: {en: '10', fa: '14'},
         
+    },
+
+    RoadList:{
+         title: { en: 'Add Road', fa: 'افزودن محور' },
+        name: { en: 'Road Name', fa: 'نام محور' },
+       office: { en: 'Road Name', fa: 'نام اداره کل استان' },
+        click: { en: 'ID', fa: 'ثبت' },
+        back: { en: 'Back', fa: "برگشت" },
     }
 
 

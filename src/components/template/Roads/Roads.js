@@ -21,7 +21,7 @@ export default function Routes() {
 
         {/* Add Device Button */}
       <div className='flex items-center gap-5 mb-3' >
-      <Link href={'#'} className='border-2 rounded-full py-2 px-4 border-[var(--colTextA)] hover:text-[var(--textHover)] hover:border-[var(--textHover)]'> {translate(dir,"Roads.addRoad")} </Link>
+      <Link href={'/add-rout'} className='border-2 rounded-full py-2 px-4 border-[var(--colTextA)] hover:text-[var(--textHover)] hover:border-[var(--textHover)]'> {translate(dir,"Roads.addRoad")} </Link>
       </div>
       {/* Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

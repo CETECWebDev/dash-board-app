@@ -32,17 +32,17 @@ function DeviceStatusCount({
           </div>
           <div className="flex items-center justify-between gap-2 px-2 py-3 border-b border-[var(--colBorder)]">
             <span className="flex items-center gap-2 font-semibold">
-              <GrStatusGoodSmall className="text-green-500 text-xl" />
+              <GrStatusGoodSmall className="text-[#1ac11a] text-xl" />
               {translate(dir,"DeviceStatusCount.activeDevices")}
             </span>
-            <span className="text-lg font-bold text-green-600">{activeDevices}</span>
+            <span className="text-lg font-bold text-[#1ac11a]">{activeDevices}</span>
           </div>
           <div className="flex items-center justify-between gap-2 px-2 py-3">
            <span className="flex items-center gap-2 font-semibold">
-              <GrStatusGoodSmall className="text-red-600 text-xl" />
+              <GrStatusGoodSmall className="text-[#ff0000] text-xl" />
               {translate(dir,"DeviceStatusCount.inactiveDevices")}
             </span>
-            <span className="text-lg font-bold text-red-600">{inactiveDevices}</span>
+            <span className="text-lg font-bold text-[#ff0000]">{inactiveDevices}</span>
           </div>
         </div>
       </div>

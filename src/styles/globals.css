@@ -236,3 +236,8 @@ input:focus {
   border-radius: 2px;
   border:none;
 }
+
+
+.apexcharts-text{
+  font-family: inherit !important;
+}

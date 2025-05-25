@@ -9,6 +9,7 @@ import deleteUser from "@/api-functions/deleteUser";
 import editUser from "@/api-functions/editUser";
 import { useRouter } from "next/router";
 import { translate } from "@/language/language";
+import DeleteUserModal from "@/components/module/Modals/DeleteUserModal";
 
 export default function Employees({ employees: initialEmployees }) {
   const [employees, setEmployees] = useState(initialEmployees);
@@ -93,7 +94,7 @@ export default function Employees({ employees: initialEmployees }) {
 
   return (
     <div className="min-h-screen p-5 text-[var(--colTextA)]">
-     <div className='flex items-center gap-5 mb-3' >
+      <div className="flex items-center gap-5 mb-3">
         <Link
           href={"/add-user"}
           className=" border-2 rounded-full py-2 px-4 border-[var(--colTextA)] hover:text-[var(--textHover)] hover:border-[var(--textHover)]"
@@ -106,69 +107,68 @@ export default function Employees({ employees: initialEmployees }) {
 
       <div>
         <ul className="w-full rounded-lg p-5 space-y-4 text-[var(--colTextA)] bg-[var(--colCard)] shadow-lg">
-        <h1 className="text-2xl font-bold mb-4 w-full text-center ">
-          {dir === "ltr" ? " Employee List " : " لیست کارمندان "}{" "}
-        </h1>
-        {(currentEmployees ?? []).map((emp) => (
-          <li
-            key={emp.id}
-            className="flex justify-between items-center border-b-2 border-[var(--colTextA)] py-5 last:border-b-0"
-          >
-            {editingId === emp.id ? (
-              // Edit mode
-              <>
-                <input
-                  className="bg-transparent border-b w-1/3"
-                  value={editName}
-                  onChange={(e) => setEditName(e.target.value)}
-                />
-                <input
-                  className="bg-transparent border-b w-1/3  "
-                  value={editEmail}
-                  onChange={(e) => setEditEmail(e.target.value)}
-                />
-                <div className="flex gap-3">
-                  <button
-                    onClick={saveEdit}
-                    className="text-green-400 hover:scale-110 text-2xl"
-                  >
-                    <MdCheck />
-                  </button>
-                  <button
-                    onClick={cancelEdit}
-                    className="text-red-400 hover:scale-110 text-2xl"
-                  >
-                    <MdClose />
-                  </button>
-                </div>
-              </>
-            ) : (
-              // View mode
-              <>
-                <span className="font-medium w-1/3">{emp.name}</span>
-                <span className="text-sm w-1/3">{emp.email}</span>
-                {/* <span className="text-sm w-1/3">{emp.id}</span> */}
-                <div className="flex gap-3">
-                  <button
-                    onClick={() => startEdit(emp)}
-                    className="hover:text-yellow-400 hover:scale-110 text-2xl"
-                  >
-                    <MdEdit />
-                  </button>
-                  <button
-                    onClick={() => confirmDelete(emp)}
-                    className="hover:text-red-400 hover:scale-110 text-2xl"
-                  >
-                    <MdDelete />
-                  </button>
-                </div>
-              </>
-            )}
-          </li>
-        ))}
-      </ul>
+          <h1 className="text-2xl font-bold mb-4 w-full text-center ">
+            {dir === "ltr" ? " Employee List " : " لیست کارمندان "}{" "}
+          </h1>
+          {(currentEmployees ?? []).map((emp) => (
+            <li
+              key={emp.id}
+              className="flex justify-between items-center border-b-2 border-[var(--colTextA)] py-5 last:border-b-0"
+            >
+              {editingId === emp.id ? (
+                // Edit mode
+                <>
+                  <input
+                    className="bg-transparent border-b w-1/3"
+                    value={editName}
+                    onChange={(e) => setEditName(e.target.value)}
+                  />
+                  <input
+                    className="bg-transparent border-b w-1/3  "
+                    value={editEmail}
+                    onChange={(e) => setEditEmail(e.target.value)}
+                  />
+                  <div className="flex gap-3">
+                    <button
+                      onClick={saveEdit}
+                      className="text-green-400 hover:scale-110 text-2xl"
+                    >
+                      <MdCheck />
+                    </button>
+                    <button
+                      onClick={cancelEdit}
+                      className="text-red-400 hover:scale-110 text-2xl"
+                    >
+                      <MdClose />
+                    </button>
+                  </div>
+                </>
+              ) : (
+                // View mode
+                <>
+                  <span className="font-medium w-1/3">{emp.name}</span>
+                  <span className="text-sm w-1/3">{emp.email}</span>
+                  {/* <span className="text-sm w-1/3">{emp.id}</span> */}
+                  <div className="flex gap-3">
+                    <button
+                      onClick={() => startEdit(emp)}
+                      className="hover:text-yellow-400 hover:scale-110 text-2xl"
+                    >
+                      <MdEdit />
+                    </button>
+                    <button
+                      onClick={() => confirmDelete(emp)}
+                      className="hover:text-red-400 hover:scale-110 text-2xl"
+                    >
+                      <MdDelete />
+                    </button>
+                  </div>
+                </>
+              )}
+            </li>
+          ))}
+        </ul>
       </div>
-      
 
       {/* Pagination controls */}
       <PaginationControls
@@ -177,28 +177,13 @@ export default function Employees({ employees: initialEmployees }) {
         setCurrentPage={setCurrentPage}
       />
 
-      {showDeleteModal && (
-        <div className="fixed w-screen h-screen top-0 left-0 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-md z-[99999]">
-          <div className="bg-[var(--colBg)] p-5 rounded shadow-lg">
-            <p>{translate(dir ,"employeespage.removemodal")}</p>
-            <div className="flex justify-center gap-3 mt-4" dir="rtl">
-              <button
-                onClick={handleConfirmDelete}
-                className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
-              >
-                {translate(dir ,"employeespage.removemodal_yes")}
-              </button>
-              <button
-                onClick={handleCancelDelete}
-                className="bg-gray-500 px-4 py-2 rounded text-white hover:bg-gray-600"
-              >
-                {translate(dir ,"employeespage.removemodal_no")}
-                
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
+      <DeleteUserModal
+        show={showDeleteModal}
+        onConfirm={handleConfirmDelete}
+        onCancel={handleCancelDelete}
+        translate={translate}
+        dir={dir}
+      />
     </div>
   );
 }

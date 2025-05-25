@@ -19,7 +19,7 @@ function DeviceDataCard({ selectedDevice }) {
 
   return (
     <div className="w-full lg:w-[25%] bg-[var(--colCard)] text-[var(--colTextA)] text-[clamp(12px,0.9dvw,14px)] shadow-lg rounded-2xl p-6 space-y-6">
-      <h3 className="text-xl font-semibold flex items-center gap-2 mb-10"> <TbDeviceComputerCamera className='text-2xl' /> {selectedDevice.name}</h3>
+      <h3 className="text-xl font-semibold flex items-center gap-2 mb-10"> <TbDeviceComputerCamera className='text-2xl' /> <span>{selectedDevice.name}</span></h3>
       <div className='lg:flex lg:flex-col lg:gap-7 grid grid-cols-2 gap-x-2 gap-y-5'>
         <div className='flex items-center gap-2'>
           <GrStatusGoodSmall className={selectedDevice.active ? 'text-green-500' : 'text-red-700'} />

@@ -106,7 +106,7 @@ export default function AddDevice() {
                         type="submit"
                         className="w-full border hover:border hover:border-[var(--textHover)] bg-[var(--colBg)] text-[var(--colTextA)] font-medium py-3 rounded-lg  hover:text-[var(--textHover)] transition"
                     >
-                        {translate(dir, "deviceSetting.applySelected")}
+                        {translate(dir, "deviceSetting.select")}
                     </button>
                 </div>
 

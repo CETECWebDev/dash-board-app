@@ -3,7 +3,7 @@ import { createContext, useContext, useEffect, useState } from 'react';
 const DirectionContext = createContext();
 
 export const DirectionProvider = ({ children }) => {
-  const [dir, setDir] = useState('ltr');
+  const [dir, setDir] = useState('rtl');
 
   useEffect(() => {
     const savedDir = localStorage.getItem('direction');
@@ -11,7 +11,7 @@ export const DirectionProvider = ({ children }) => {
       document.documentElement.setAttribute('dir', savedDir);
       setDir(savedDir);
     } else {
-      const currentDir = document.documentElement.getAttribute('dir') || 'ltr';
+      const currentDir = document.documentElement.getAttribute('dir') || 'rtl';
       setDir(currentDir);
       localStorage.setItem('direction', currentDir);
     }

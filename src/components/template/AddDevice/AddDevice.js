@@ -13,9 +13,12 @@ export default function AddDevice() {
 
   const { dir } = useDirectionContext();
 
+  const translateClass = (dir === 'rtl') ? '-translate-x-full' : 'translate-x-full'
+
   const [name, setName] = useState('');
   const [model, setModel] = useState('');
   const [serialNumber, setSerialNumber] = useState('');
+  const [isActive , setIsActive] = useState(true)
 
   const createDevice = (e) => {
     e.preventDefault();
@@ -60,7 +63,7 @@ export default function AddDevice() {
               <input
                 value={model}
                 onChange={e => setModel(e.target.value)}
-                placeholder={`Device's Lat`}
+                placeholder={`${translate(dir , "addDevice.lat")} ...`}
                 className="peer w-full bg-transparent text-[var(--colTextA)] py-3 focus:outline-none"
               />
             </div>
@@ -72,7 +75,7 @@ export default function AddDevice() {
               <input
                 value={model}
                 onChange={e => setModel(e.target.value)}
-                placeholder={`Device's Lng`}
+                placeholder={`${translate(dir , "addDevice.lng")} ...`}
                 className="peer w-full bg-transparent text-[var(--colTextA)] py-3 focus:outline-none"
               />
             </div>
@@ -140,30 +143,24 @@ export default function AddDevice() {
 
         {/* Device Status */}
 
-        <div className="text-[var(--colTextA)] flex items-center gap-4">
-          {translate(dir , 'addDevice.deviceStatus' )}
+        <div className="text-[var(--colTextA)] flex items-center gap-5">
+          {translate(dir , 'addDevice.deviceStatus' )} :
 
-          <label className="flex items-center gap-1 cursor-pointer">
-            <input
-              type="radio"
-              name="deviceStatus"
-              value="active"
-              className="accent-green-500 cursor-pointer bg-transparent"
-              defaultChecked
-            />
-            {translate(dir , 'addDevice.active' )}
-          </label>
 
-          <label className="flex items-center gap-1 cursor-pointer">
-            <input
-              type="radio"
-              name="deviceStatus"
-              value="deactive"
-              className="accent-red-500 cursor-pointer bg-transparent"
-            />
-             {translate(dir , 'addDevice.deactive' )}
-          </label>
+          <div className='flex items-center gap-2'>
+            <div>{translate(dir , 'addDevice.active' )}</div>
+
+            <div onClick={()=> setIsActive(!isActive)} className={`w-[50px] h-[25px] ${isActive ? 'bg-green-500' : 'bg-red-800' } rounded-full cursor-pointer transition-all duration-700`}>
+              <div className={`w-[25px] h-full shadow-lg ${isActive ? 'bg-green-400 translate-x-0' : `bg-red-600 ${translateClass}`} transition-all duration-700   rounded-full`}>
+
+              </div>
+            </div>
+
+            <div>{translate(dir , 'addDevice.deactive' )}</div>
+          </div>
+
         </div>
+
 
 
         {/* Submit Button */}

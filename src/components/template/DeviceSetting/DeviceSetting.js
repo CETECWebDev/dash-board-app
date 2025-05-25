@@ -14,11 +14,16 @@ import mockDevices from '@/data/db';
 
 export default function AddDevice() {
 
+    const submitHandler = (e) => {
+        e.preventDefault()
+
+    }
+
     const { dir } = useDirectionContext()
-    const [devices , setDevices] = useState(mockDevices) 
+    const [devices, setDevices] = useState(mockDevices)
     const [selectedDevices, setSelectedDevices] = useState([])
-    const [isModalOpen , setIsModalOpen] = useState(false)
-    
+    const [isModalOpen, setIsModalOpen] = useState(false)
+
     return (
         <div className='p-5 flex flex-col items-center gap-3'>
 
@@ -31,9 +36,9 @@ export default function AddDevice() {
                 setIsModalOpen={setIsModalOpen}
             />
 
-            <button onClick={()=> setIsModalOpen(true)} className=' border-2 w-[200px] rounded-full py-2 px-4 border-[var(--colTextA)] hover:text-[var(--textHover)] hover:border-[var(--textHover)]'>{translate(dir, "deviceSetting.select")}</button>
 
             <form
+                onSubmit={submitHandler}
                 className="bg-[var(--colCard)] p-8 rounded-2xl backdrop-blur-md w-full lg:w-[80%]"
             >
                 <h1 className="text-center text-2xl md:text-3xl font-medium text-[var(--colTextA)] mb-8">
@@ -97,6 +102,7 @@ export default function AddDevice() {
                         {translate(dir, "deviceSetting.applyAll")}
                     </button>
                     <button
+                        onClick={() => setIsModalOpen(true)}
                         type="submit"
                         className="w-full border hover:border hover:border-[var(--textHover)] bg-[var(--colBg)] text-[var(--colTextA)] font-medium py-3 rounded-lg  hover:text-[var(--textHover)] transition"
                     >

@@ -1,10 +1,14 @@
 // ApexChart.jsx
 import React from 'react';
 import dynamic from 'next/dynamic';
+import { translate } from '@/language/language';
+import { useDirectionContext } from '@/context/DirectionContext';
 
 const ApexChart = dynamic(() => import('react-apexcharts'), { ssr: false });
 
+
 const LineChart = ({h , shadow , labelSize}) => {
+const { dir } = useDirectionContext();
  const options = {
   chart: {
     type: 'line',
@@ -16,7 +20,7 @@ const LineChart = ({h , shadow , labelSize}) => {
   xaxis: {
     categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
     title: {
-      text: 'Months',
+      text: translate(dir,'lineChart.x_axis_text'),
       style: {
         color: ['var(--colTextA)'],
         fontSize: `${labelSize}px`
@@ -28,7 +32,7 @@ const LineChart = ({h , shadow , labelSize}) => {
     min: 0,
     // max: 100,
     title: {
-      text: 'Income ($)',
+      text: translate(dir,'lineChart.y_axis_text'),
       style: {
         color: ['var(--colTextA)'],
         fontSize: `${labelSize}px`
@@ -58,7 +62,7 @@ const series = [
 ];
 
 return (
-  <div className={`p-2 bg-[var(--colCard)] rounded-2xl ${shadow ? 'shadow-lg' : ''}`}>
+  <div className={`w-[100%]  p-2 bg-[var(--colCard)] rounded-2xl ${shadow ? 'shadow-lg' : ''}`}>
     <ApexChart options={options} series={series} type='line' height={h} />
   </div>
   

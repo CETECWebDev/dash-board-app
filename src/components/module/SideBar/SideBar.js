@@ -85,7 +85,7 @@ export default function SideBar() {
               className="w-full h-full object-cover"
             /> */}
           </div>
-          <h1 className="text-lg font-bold text-center">Elvin Sherman</h1>
+          <h1 className="text-lg font-bold text-center">New User</h1>
           <span className="text-xs text-gray-300">SUPERADMIN</span>
         </div>
 

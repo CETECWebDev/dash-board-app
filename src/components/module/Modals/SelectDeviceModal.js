@@ -47,7 +47,7 @@ export default function SelectDeviceModal(props) {
                 <div className='w-[70%] h-[500px] bg-[var(--colBg)] flex f rounded-xl'>
 
                     <div className='w-1/2 flex flex-col items-center'>
-                        <div className='my-5'>{translate(dir , "applySettingModal.deviceList")}</div>
+                        <div className='my-5'>{translate( dir , "applySettingModal.deviceList" )}</div>
                         <div className='overflow-y-auto flex flex-col gap-3 w-[90%] px-3 mb-5'>
                             {devices.map(device => {
                                 return (
@@ -82,7 +82,11 @@ export default function SelectDeviceModal(props) {
                 </div>
 
                 <div className='flex items-center gap-10'>
-                    <button onClick={() => setIsModalOpen(false)} className='bg-red-700 text-white px-10 py-2 rounded-full'>{translate(dir , "applySettingModal.cancel")}</button>
+                    <button onClick={() => {
+                        setIsModalOpen(false)      
+                        setSelectedDevices([])
+                    }
+                        } className='bg-red-700 text-white px-10 py-2 rounded-full'>{translate(dir , "applySettingModal.cancel")}</button>
                     <button className='bg-green-600 text-white px-10 py-2 rounded-full'>{translate(dir , "applySettingModal.apply")}</button>
                 </div>
 

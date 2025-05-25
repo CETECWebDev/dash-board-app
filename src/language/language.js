@@ -72,8 +72,8 @@ const languagesText = {
 
 
     applySettingModal: {
-        deviceList: {en: 'Device List' , fa: ''},
-        SelectedDevices: {en: 'Selected Devices' , fa: ''},
+        deviceList: {en: 'Device List' , fa: 'لیست دستگاه ها'},
+        SelectedDevices: {en: 'Selected Devices' , fa: 'دستگاه های انتخاب شده'},
         apply: {en: 'Apply' , fa: 'اعمال تغییرات'},
         cancel: {en: 'Cancel' , fa: 'لغو'}
     }

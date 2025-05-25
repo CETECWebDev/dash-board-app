@@ -33,7 +33,7 @@ export default function MainDashboard() {
           />
           <DeviceDataCard selectedDevice={selectedDevice} />
         </div>
-
+      
         <LineChart h={400} shadow={true} labelSize={14} />
 
         <button

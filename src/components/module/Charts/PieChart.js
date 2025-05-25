@@ -1,0 +1,71 @@
+'use client';
+import React from 'react';
+import dynamic from 'next/dynamic';
+const ApexChart = dynamic(() => import('react-apexcharts'), { ssr: false });
+
+const PieChart = () => {
+    const data = [2100, 850, 400]
+    const labels = ['سواری', 'سنگین', 'موتور']
+    const colors = ['#2e7d32', '#c62828', '#1565c0']
+
+    const options = {
+        chart: {
+            type: 'pie',
+        },
+        labels,
+        colors,
+        plotOptions: {
+            pie: {
+                expandOnClick: true,
+            },
+        },
+        stroke: {
+            show: false,
+            width: 4,
+            colors: ['transparent'], // یا رنگ پس‌زمینه‌ات
+        },
+        title: {
+            text: 'آمار تردد وسایل نقلیه',
+            align: 'center',
+            style: {
+                color: 'var(--colTextA)',
+                fontFamily: 'IRANSans, sans-serif',
+                fontSize: '18px',
+            },
+        },
+        dataLabels: {
+            enabled: true,
+            formatter: function (val, opts) {
+                return val.toFixed(1) + '%';
+            },
+            offset:5,
+            style: {
+                fontSize: '7px',
+                colors: ['var(--colTextA)'], 
+                fontFamily: 'IRANSans, sans-serif',
+            },
+            dropShadow: {
+                enabled: false, // 
+            },
+        },
+        tooltip: {
+            y: {
+                formatter: (val) => `${val} تردد`,
+            },
+        },
+        legend: {
+            position: 'bottom',
+            fontFamily: 'IRANSans, sans-serif',
+        },
+    };
+
+
+
+    return (
+        <div className="max-w-md mx-auto">
+            <ApexChart options={options} series={data} type="pie" height={200} />
+        </div>
+    );
+};
+
+export default PieChart

@@ -59,7 +59,7 @@ export default function SideBar() {
 
       <div
         className={`z-[99999]
-          fixed top-0 h-screen w-[300px] bg-[var(--colCard)] text-[var(--colTextA)] shadow-md flex-col p-4 overflow-y-auto
+          fixed top-0 h-screen w-[240px] bg-[var(--colCard)] text-[var(--colTextA)] shadow-md flex-col p-4 overflow-y-auto
           ${dir === "rtl" ? "right-0 left-auto" : "left-0 right-auto"}
           transition-transform duration-300 ease-in-out
           lg:translate-x-0

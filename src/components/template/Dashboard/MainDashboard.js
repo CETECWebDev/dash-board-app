@@ -3,11 +3,11 @@ import dynamic from 'next/dynamic';
 import { FaArrowUp } from 'react-icons/fa';
 import mockDevices from '@/data/db';
 // import mockDevices from '@/data/altDB';
-import LineChart from '../../module/Charts/LineChart';
 import DeviceDataCard from '../../module/Cards/DeviceDataCard';
 import { translate } from '@/language/language';
 import { useDirectionContext } from '@/context/DirectionContext';
 import DeviceStatusCount from '@/components/module/Cards/DeviceStatusCount';
+import OverallAreaChart from '@/components/module/Charts/OverallAreaChart';
 
 const MapView = dynamic(() => import('@/components/module/Maps/MapView'), {
   ssr: false,
@@ -41,7 +41,7 @@ export default function MainDashboard() {
 
         <div className='flex flex-col-reverse md:flex-row w-full gap-2'>
           <div className=' md:w-[75%]'>
-          <LineChart h={400} shadow={true} labelSize={translate(dir , "lineChart.full_labelsize")} />
+          <OverallAreaChart h={400} shadow={true} labelSize={translate(dir , "lineChart.full_labelsize")} />
           </div>
           <DeviceStatusCount devices={devices} activeDeviceCount={activeDeviceCount} setActiveDeviceCount={setActiveDeviceCount} />
 

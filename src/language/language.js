@@ -87,6 +87,13 @@ const languagesText = {
         full_labelsize: {en: '14', fa: '16'},
         dataCard_labelsize: {en: '10', fa: '12'},
         
+    } ,
+
+    DeviceStatusCount:{
+        title: { en: 'Device Count', fa: ' تعداد دستگاه‌ها' },
+        totalDevices: { en: 'Total Devices:', fa: 'کل دستگاه‌ها :' },
+        activeDevices: { en: 'Active Devices:', fa: 'دستگاه های فعال:' },
+        inactiveDevices: { en: 'Inactive Devices:', fa: 'دستگاه‌های غیرفعال:' },
     }
 
 

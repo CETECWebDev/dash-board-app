@@ -35,7 +35,7 @@ const OverallAreaChart = ({ h, shadow, labelSize }) => {
       },
     },
     stroke: {
-      curve: "smooth",
+      curve: "straight",
       width: 3,
     },
     dataLabels: {
@@ -54,11 +54,11 @@ const OverallAreaChart = ({ h, shadow, labelSize }) => {
   const series = [
     {
       name: "High - 2013",
-      data: [28, 29, 33, 36, 32, 32, 33], // Data for the first line
+      data: [5, 20, 27, 30,33, 31, 33], // Data for the first line
     },
     {
       name: "Low - 2013",
-      data: [12, 11, 14, 18, 17, 13, 13], // Data for the second line
+      data: [0, 11, 14, 18, 17, 13, 13], // Data for the second line
     },
   ];
 

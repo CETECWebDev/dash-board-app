@@ -102,6 +102,14 @@ const languagesText = {
         activeDevices: { en: 'Active Devices:', fa: 'دستگاه های فعال:' },
         inactiveDevices: { en: 'Inactive Devices:', fa: 'دستگاه‌های غیرفعال:' },
     }
+,
+    addUsers:{
+        title: { en: 'Add User', fa: 'افزودن کاربر' },
+        name: { en: 'Name...', fa: 'نام ...' },
+        email: { en: 'Email...', fa: 'ایمیل ....' },
+        backButton: { en: 'Back', fa: 'بازگشت' },
+        sendButton: { en: 'Add User', fa: 'افزودن کاربر' }
+    }
 
 
 };

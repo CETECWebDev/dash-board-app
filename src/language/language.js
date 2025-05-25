@@ -44,6 +44,8 @@ const languagesText = {
     addDevice: {
         title: { en: 'Add Device', fa: 'افزودن دستگاه' },
         name: { en: 'Device Name', fa: 'نام دستگاه' },
+        lat:{en:`Device's Lat` , fa:'عرض جغرافیایی' },
+        lng:{en:`Device's Lng` , fa:'طول جغرافیایی'},
         devicecode: { en: 'Device Code', fa: 'کد دستگاه' },
         deviceroad: { en: 'Device Road', fa: 'محور دستگاه' },
         simNumber: { en: 'Simcard Number', fa: 'شماره سیمکارت' },
@@ -72,8 +74,8 @@ const languagesText = {
 
 
     applySettingModal: {
-        deviceList: {en: 'Device List' , fa: ''},
-        SelectedDevices: {en: 'Selected Devices' , fa: ''},
+        deviceList: {en: 'Device List' , fa: 'لیست دستگاه ها'},
+        SelectedDevices: {en: 'Selected Devices' , fa: 'دستگاه های انتخاب شده'},
         apply: {en: 'Apply' , fa: 'اعمال تغییرات'},
         cancel: {en: 'Cancel' , fa: 'لغو'}
     }

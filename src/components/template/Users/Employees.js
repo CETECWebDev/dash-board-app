@@ -3,20 +3,19 @@ import Link from "next/link";
 import React, { useState } from "react";
 import { useDirectionContext } from "@/context/DirectionContext";
 import PaginationControls from "../../module/Controls/PaginationControls";
-// import PaginationControls from '../module/PaginationControls';
 import { MdDelete, MdEdit, MdCheck, MdClose } from "react-icons/md";
 import deleteUser from "@/api-functions/deleteUser";
 import editUser from "@/api-functions/editUser";
-import { useRouter } from "next/router";
 import { translate } from "@/language/language";
 import DeleteUserModal from "@/components/module/Modals/DeleteUserModal";
 
 export default function Employees({ employees: initialEmployees }) {
+
+  
   const [employees, setEmployees] = useState(initialEmployees);
   const [totalPages, currentEmployees, currentPage, setCurrentPage] =
     usePagination(6, employees);
-  const { dir, toggleDirection } = useDirectionContext();
-  const router = useRouter();
+  const { dir } = useDirectionContext();
   const [editingId, setEditingId] = useState(null);
   const [editName, setEditName] = useState("");
   const [editEmail, setEditEmail] = useState("");

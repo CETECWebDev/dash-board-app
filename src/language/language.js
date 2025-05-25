@@ -1,3 +1,5 @@
+import { TbAxisY } from "react-icons/tb";
+
 const languagesText = {
     sidebar: {
         navigation: { en: 'Navigation Menu', fa: 'منوی ناوبری' },
@@ -35,8 +37,13 @@ const languagesText = {
         detail: { en: ' Details', fa: ' جزئیات' },
     },
 
-    Roads: {
-        addRoad: { en: " Add Road", fa: "افزودن محور " },
+    addRoad: {
+        title: { en: " Add Road", fa: "افزودن محور " },
+        name: { en: "Road Name", fa: "نام محور" },
+        address: { en: "Axis Direction", fa: "ادرس محور" },
+        officeProvince: { en: "Office + Province", fa: "اداره + استان" },
+        click: { en: " add Road", fa: "افزودن محور" },
+        back: { en: "Back", fa: "بازگشت" },
 
     },
 

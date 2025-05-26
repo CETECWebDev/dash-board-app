@@ -5,7 +5,8 @@ import { GrStatusGoodSmall } from "react-icons/gr";
 import { MdOutlineHighlightOff } from "react-icons/md";
 import { FiPlus } from "react-icons/fi";
 
-function DeviceStatusCount({
+function 
+DeviceStatusCount({
   devices,
   activeDeviceCount,
   setActiveDeviceCount,

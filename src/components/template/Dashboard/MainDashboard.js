@@ -39,7 +39,7 @@ export default function MainDashboard() {
           <DeviceDataCard selectedDevice={selectedDevice} />
         </div>
 
-        <div className='flex flex-col-reverse md:flex-row w-full gap-2 h-[500px] 4k:h-[28dvh] '>
+        <div className='flex flex-col-reverse md:flex-row w-full gap-2 h-[500px] 4k:h-[50dvh] '>
           <div className=' md:w-[75%] '>
           <OverallAreaChart  shadow={true} labelSize={translate(dir , "lineChart.full_labelsize")} />
           </div>

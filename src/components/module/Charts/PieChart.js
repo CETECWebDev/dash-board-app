@@ -40,7 +40,7 @@ const PieChart = () => {
             },
             offset:5,
             style: {
-                fontSize: '7px',
+                fontSize: '8px',
                 colors: ['#ffffff'], 
                 fontFamily: 'IRANSans, sans-serif',
             },

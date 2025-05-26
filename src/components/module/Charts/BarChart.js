@@ -28,7 +28,7 @@ const BarChart = () => {
                 color: 'var(--colTextA)'
             }
         },
-        colors: ['var(--colTextA)']
+        colors: ['var(--textHover)']
     };
 
     const series = [

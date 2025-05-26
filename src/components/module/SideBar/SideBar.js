@@ -1,7 +1,7 @@
 import { useTheme } from "next-themes";
 import React, { useEffect, useState } from "react";
 import { FaHome, FaDatabase, FaUserAlt } from "react-icons/fa";
-import { IoMdSunny, IoIosMenu } from "react-icons/io";
+import { IoMdSunny, IoIosMenu , IoIosArrowBack  } from "react-icons/io";
 import { BsFillMoonStarsFill } from "react-icons/bs";
 import { MdTranslate, MdDevices } from "react-icons/md";
 import { CiRoute } from "react-icons/ci";
@@ -9,12 +9,15 @@ import { usePathname } from "next/navigation";
 import { useDirectionContext } from "@/context/DirectionContext";
 import { translate } from "@/language/language"
 import Link from "next/link";
+import { useSidebar } from "@/context/SidebarContext";
 
 export default function SideBar() {
+
+
   const { theme, setTheme } = useTheme();
   const { dir, toggleDirection } = useDirectionContext();
   const [mounted, setMounted] = useState(false);
-  const [isOpen, setIsOpen] = useState(false);
+  const { isSidebarOpen } = useSidebar()
   const pathname = usePathname();
 
   useEffect(() => {
@@ -23,37 +26,16 @@ export default function SideBar() {
 
   if (!mounted) return null;
 
-  const toggleMenu = () => setIsOpen(!isOpen);
-
-  const translateClass = isOpen
+  const translateClass = isSidebarOpen
     ? "translate-x-0"
     : dir === "rtl"
       ? "translate-x-full"
       : "-translate-x-full";
 
-  const backdropClass = isOpen
-    ? "fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden backdrop-blur-md"
-    : "hidden";
-
   return (
     <>
 
-      {/* Hamburger menu */}
-      <button
-        onClick={toggleMenu}
-        className={`block mt-5 p-2 rounded-md bg-[var(--colCard)] text-[var(--coTextA)] shadow-md lg:hidden ${dir === "rtl" ? "mr-5" : "ml-5"
-          }`}
-        aria-label="Toggle Menu"
-      >
-        {isOpen ? "✕" : <IoIosMenu size={24} />}
-      </button>
-
-      {/* Back drop Effect */}
-      <div
-        className={backdropClass}
-        onClick={() => setIsOpen(false)}
-        aria-hidden="true"
-      ></div>
+   
 
       {/* Side Bar */}
 
@@ -62,15 +44,11 @@ export default function SideBar() {
           fixed top-0 h-screen w-[240px] bg-[var(--colCard)] text-[var(--colTextA)] shadow-md flex-col p-4 overflow-y-auto
           ${dir === "rtl" ? "right-0 left-auto" : "left-0 right-auto"}
           transition-transform duration-300 ease-in-out
-          lg:translate-x-0
           ${translateClass}
         `}
       >
 
-        {/* samane details */}
-        <div>
-          <h1 className="text-center font-bold text-[var(--textTitle)]">{translate(dir , "sidebar.title")}</h1>
-        </div>
+
         
 
 
@@ -141,7 +119,7 @@ export default function SideBar() {
                         ? "border-[var(--textHover)]  font-semibold"
                         : "border-transparent hover:text-[var(--textHover)]"
                         }`}
-                      onClick={() => setIsOpen(false)}
+                      
                     >
                       {icon}
                       {label}
@@ -164,7 +142,7 @@ export default function SideBar() {
                 <div className="flex w-full gap-2">
                   <button
                     suppressHydrationWarning
-                    className="hover:text-[var(--textHover)] hover:border-[var(--textHover)] border flex justify-center items-center rounded-full color-[var(--colTextB)] w-10 h-10"
+                    className="linkHover hover:text-[var(--textHover)] hover:border-[var(--textHover)] border flex justify-center items-center rounded-full color-[var(--colTextB)] w-10 h-10"
                     onClick={() =>
                       setTheme(theme === "dark" ? "light" : "dark")
                     }
@@ -174,7 +152,7 @@ export default function SideBar() {
 
                   <button
                     onClick={() => toggleDirection()}
-                    className="hover:text-[var(--textHover)] hover:border-[var(--textHover)] border flex justify-center items-center rounded-full text-[var(--colTextB)] w-10 h-10"
+                    className="linkHover hover:text-[var(--textHover)] hover:border-[var(--textHover)] border flex justify-center items-center rounded-full text-[var(--colTextB)] w-10 h-10"
                     title="Toggle Direction"
                   >
                     <MdTranslate />

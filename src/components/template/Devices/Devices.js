@@ -20,15 +20,17 @@ export default function Devices() {
 
       <div className='flex items-center gap-2 mb-5 text-[14px]' >
 
-        <Link href={'/add-device'} className='  border-2 rounded-full py-2 px-4 border-[var(--colTextA)] hover:text-[var(--textHover)] hover:border-[var(--textHover)]'>{translate(dir ,"devicespage.adddevice")}</Link>
-        <Link href={'/device-settings'} className='  border-2 rounded-full py-2 px-4 border-[var(--colTextA)] hover:text-[var(--textHover)] hover:border-[var(--textHover)]'>{translate(dir ,"devicespage.settings")}</Link>
+        <Link href={'/add-device'} className='linkHover  border-2 rounded-full py-2 px-4 border-[var(--colTextA)] hover:text-[var(--textHover)] hover:border-[var(--textHover)]'>{translate(dir ,"devicespage.adddevice")}</Link>
+        <Link href={'/device-settings'} className='linkHover  border-2 rounded-full py-2 px-4 border-[var(--colTextA)] hover:text-[var(--textHover)] hover:border-[var(--textHover)]'>{translate(dir ,"devicespage.settings")}</Link>
 
       </div>
 
       {/* Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {pagedList.map(device => (
-          <DeviceInfoCard key={device.id} {...device} />
+          <div className='cursor-pointer hover:scale-[1.03] transition-all duration-500'>
+            <DeviceInfoCard key={device.id} {...device} />
+          </div>
         ))}
       </div>
 

@@ -35,8 +35,8 @@
 
 :root {
 
-  --colBg: #eeeeee;
-  --colCard: #efefef;
+  --colBg: #e4e4e4;
+  --colCard: #f2f2f0;
   --colTextA: #3A3878;
   --colTextB: #838AAB;
   --zoomControl: #3a3a3a;
@@ -207,4 +207,16 @@ input:focus {
 
 .apexcharts-legend-text{
   color: inherit !important;
+}
+
+
+/* other */
+
+
+.linkHover { 
+  transition: all 500ms ease-in-out;
+}
+
+.linkHover:hover{
+  transform: scale(1.03);
 }

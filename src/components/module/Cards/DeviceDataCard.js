@@ -27,14 +27,14 @@ function DeviceDataCard({ selectedDevice }) {
 
         <h3 className="text-xl font-semibold flex items-center justify-center gap-1 border-2 px-5 py-1 rounded-full"> <TbDeviceComputerCamera className='text-2xl' /> <div className='mt-1 text-[14px]'> {selectedDevice.name} </div></h3>
 
-        <div className='flex items-center gap-2'>
+        <div className='flex items-center gap-2 '>
           <Link
-            className='block'
+            className='block '
             target="_blank"
             href={`https://www.google.com/maps/dir/?api=1&destination=${selectedDevice.lat},${selectedDevice.lng}`}>
-            <MdDirections className='text-2xl flex items-center justify-center border-2 p-1 rounded-full w-[35px] h-[35px]' />
+            <MdDirections className='text-2xl flex items-center justify-center border-2 p-1 rounded-full w-[35px] h-[35px] hover:text-[var(--textHover)] hover:border-[var(--textHover)] linkHover' />
           </Link>
-          <Link href={'/'} className='text-xl flex items-center justify-center border-2 p-2 rounded-full w-[35px] h-[35px]'>
+          <Link href={'/'} className='text-xl flex items-center justify-center border-2 p-2 rounded-full w-[35px] h-[35px] hover:text-[var(--textHover)] hover:border-[var(--textHover)] linkHover'>
             <BsThreeDots />
           </Link>
         </div>

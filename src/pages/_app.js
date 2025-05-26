@@ -6,6 +6,7 @@ import { ThemeProvider } from "next-themes";
 import React, { useState } from "react";
 import { DirectionProvider } from "@/context/DirectionContext";
 import MainLayout from "@/components/MainLayout";
+import { SidebarProvider } from "@/context/SidebarContext";
 
 
 export default function App({ Component, pageProps }) {
@@ -13,11 +14,15 @@ export default function App({ Component, pageProps }) {
   return (
     <DirectionProvider>
       <ThemeProvider attribute={"class"} defaultTheme="dark">
-        <div >
-          <MainLayout>
-            <Component {...pageProps} />
-          </MainLayout>
-        </div>
+        <SidebarProvider>
+          
+          <div >
+            <MainLayout>
+              <Component {...pageProps} />
+            </MainLayout>
+          </div>
+
+        </SidebarProvider>
       </ThemeProvider>
     </DirectionProvider>
   );

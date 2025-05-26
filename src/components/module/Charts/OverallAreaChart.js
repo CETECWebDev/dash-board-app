@@ -64,11 +64,11 @@ const OverallAreaChart = ({ h, shadow, labelSize }) => {
 
   return (
     <div
-      className={`w-[100%] p-2 bg-[var(--colCard)] rounded-2xl ${
+      className={`w-[100%] h-full p-2 bg-[var(--colCard)] rounded-2xl  ${
         shadow ? "shadow-lg" : ""
       }`}
     >
-      <ApexChart options={options} series={series} type="area" />
+      <ApexChart options={options} series={series} type="area" height={`100%`} />
     </div>
   );
 };

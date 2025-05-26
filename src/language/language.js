@@ -8,11 +8,19 @@ const languagesText = {
         roads: { en: 'Roads', fa: 'محور ها' },
         users: { en: 'Users', fa: 'کاربر ها' },
         database: { en: 'Database', fa: 'دیتابیس' },
-        settings: { en: 'Settings', fa: 'تنظیمات' }
+        settings: { en: 'Settings', fa: 'تنظیمات' } ,
+        title: { en: 'Traffic Monitoring System', fa: 'سامانه جامع تردد شماری' },
     },
 
     pagination: {
         page: { en: "Page", fa: "صفحه" },
+    },
+
+    PieChart: {
+        title: { en: 'Device Status', fa: 'وضعیت دستگاه ها' },
+        heavy: { en: 'Truck', fa: 'سنگین' },
+        normal : { en: 'Sedan', fa: 'سواری' },
+        motorcycle: { en: 'Motorcycle', fa: 'موتور' },
     },
 
     devicespage: {
@@ -110,6 +118,8 @@ const languagesText = {
         backButton: { en: 'Back', fa: 'بازگشت' },
         sendButton: { en: 'Add User', fa: 'افزودن کاربر' }
     }
+
+
 
 
 };

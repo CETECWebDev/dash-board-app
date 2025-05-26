@@ -66,6 +66,14 @@ export default function SideBar() {
           ${translateClass}
         `}
       >
+
+        {/* samane details */}
+        <div>
+          <h1 className="text-center font-bold text-[var(--textTitle)]">{translate(dir , "sidebar.title")}</h1>
+        </div>
+        
+
+
         {/* info user */}
         <div className="flex flex-col items-center gap-2 mt-7 ">
           <div className="w-20 h-20  rounded-full overflow-hidden ">
@@ -118,11 +126,7 @@ export default function SideBar() {
                   url: "/employees",
                 },
 
-                {
-                  icon: <FaDatabase className="text-yellow-500" />,
-                  label: translate(dir, "sidebar.database"),
-                  url: "#",
-                },
+                
               ].map(({ icon, label, url }) => {
                 const isActive =
                   url === "/"

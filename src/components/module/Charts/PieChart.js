@@ -6,7 +6,7 @@ const ApexChart = dynamic(() => import('react-apexcharts'), { ssr: false });
 const PieChart = () => {
     const data = [2100, 850, 400]
     const labels = ['سواری', 'سنگین', 'موتور']
-    const colors = ['#2e7d32', '#c62828', '#1565c0']
+    const colors = ['#ff6347', '#003049', '#1e90ff']
 
     const options = {
         chart: {
@@ -41,7 +41,7 @@ const PieChart = () => {
             offset:5,
             style: {
                 fontSize: '7px',
-                colors: ['var(--colTextA)'], 
+                colors: ['#ffffff'], 
                 fontFamily: 'IRANSans, sans-serif',
             },
             dropShadow: {

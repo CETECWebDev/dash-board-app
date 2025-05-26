@@ -46,6 +46,7 @@
 
   --selecMarker: #99919d;
 
+
 }
 
 .dark {
@@ -220,4 +221,8 @@ input:focus {
 
 .apexcharts-text{
   font-family: inherit !important;
+}
+
+.apexcharts-legend-text{
+  color: inherit !important;
 }

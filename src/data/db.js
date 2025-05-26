@@ -11,7 +11,7 @@
     { id: 10, name: "Device 10", lat: 37.2730, lng: 49.5670, active: true, countedV: 15 },
   ]
   
-  const mockRoutes = [
+  const mockRoads = [
     { id: 1, name: "Road 1", Road_Name: "Rash-tehran" ,firmware: "v1.0" ,ip:"192.923.123.123"},
     { id: 2, name: "Road 2", Road_Name: "tehran-rasht" ,firmware: "v2.0" ,ip:"190.923.123.123" },
     { id: 3, name: "Road 3", Road_Name: "Rash-tehran" ,firmware: "v3.0" ,ip:"194.923.123.123" },
@@ -30,4 +30,4 @@
 
 
   export default mockDevices;
-  export { mockRoutes };
+  export { mockRoads };

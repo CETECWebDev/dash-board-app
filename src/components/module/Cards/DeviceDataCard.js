@@ -19,7 +19,7 @@ function DeviceDataCard({ selectedDevice }) {
   const { dir } = useDirectionContext();
 
   return (
-    <div className="w-full  lg:w-[25%]  overflow-y-auto bg-[var(--colCard)] text-[var(--colTextA)] text-[clamp(12px,0.9dvw,14px)] shadow-lg rounded-2xl p-6 space-y-6">
+    <div className="w-full  lg:w-[25%] lg:h-[90dvh]  overflow-y-auto overflow-x-hidden bg-[var(--colCard)] text-[var(--colTextA)] text-[clamp(12px,0.9dvw,14px)] shadow-lg rounded-2xl p-6 space-y-6">
 
       <div className='flex items-center justify-between'>
 
@@ -42,7 +42,7 @@ function DeviceDataCard({ selectedDevice }) {
       <div className='flex flex-col gap-3 w-full'>
 
         <div className='flex items-center gap-2 w-full' >
-          <GrStatusGoodSmall className={selectedDevice.active ? 'text-green-500' : 'text-red-700'} />
+          <GrStatusGoodSmall className={selectedDevice.active ? 'text-[#1ac11a]' : 'text-[#ff0000]'} />
           {translate(dir, "deviceDataCard.status")} :
           {selectedDevice.active
             ? translate(dir, "deviceDataCard.active")

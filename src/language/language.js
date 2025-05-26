@@ -1,3 +1,5 @@
+import { TbAxisY } from "react-icons/tb";
+
 const languagesText = {
     sidebar: {
         navigation: { en: 'Navigation Menu', fa: 'منوی ناوبری' },
@@ -35,8 +37,13 @@ const languagesText = {
         detail: { en: ' Details', fa: ' جزئیات' },
     },
 
-    Roads: {
-        addRoad: { en: " Add Road", fa: "افزودن محور " },
+    addRoad: {
+        title: { en: " Add Road", fa: "افزودن محور " },
+        name: { en: "Road Name", fa: "نام محور" },
+        address: { en: "Axis Direction", fa: "ادرس محور" },
+        officeProvince: { en: "Office + Province", fa: "اداره + استان" },
+        click: { en: " add Road", fa: "افزودن محور" },
+        back: { en: "Back", fa: "بازگشت" },
 
     },
 
@@ -87,6 +94,21 @@ const languagesText = {
         full_labelsize: {en: '14', fa: '16'},
         dataCard_labelsize: {en: '10', fa: '12'},
         
+    } ,
+
+    DeviceStatusCount:{
+        title: { en: 'Device Count', fa: ' تعداد دستگاه‌ها' },
+        totalDevices: { en: 'Total Devices:', fa: 'کل دستگاه‌ها :' },
+        activeDevices: { en: 'Active Devices:', fa: 'دستگاه های فعال:' },
+        inactiveDevices: { en: 'Inactive Devices:', fa: 'دستگاه‌های غیرفعال:' },
+    }
+,
+    addUsers:{
+        title: { en: 'Add User', fa: 'افزودن کاربر' },
+        name: { en: 'Name...', fa: 'نام ...' },
+        email: { en: 'Email...', fa: 'ایمیل ....' },
+        backButton: { en: 'Back', fa: 'بازگشت' },
+        sendButton: { en: 'Add User', fa: 'افزودن کاربر' }
     }
 
 

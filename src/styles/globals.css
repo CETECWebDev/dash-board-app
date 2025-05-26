@@ -16,10 +16,18 @@
 @font-face {
   font-family: 'IranYekan';
   src: url('/fonts/iranyekanwebregular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'IranYekan';
+  src: url('/fonts/iranyekanwebbold.ttf') format('truetype');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
+
 .font-IranYekan {
   font-family: 'IranYekan', sans-serif;
 }
@@ -30,7 +38,7 @@
   --colBg: #eeeeee;
 
   /*  رنگ سایدبار و کارت ها   */
-  --colCard: #fdfefe;
+  --colCard: #efefef;
 
   /*  رنگ متن 1 */
   --colTextA: #3A3878;
@@ -45,6 +53,9 @@
   --textHover: #60a5fa;
 
   --selecMarker: #99919d;
+
+  --textTitle:#3A3878;
+
 
 
 }
@@ -69,6 +80,8 @@
   --textHover: orange;
 
   --selecMarker: #eae1e1;
+
+  --textTitle:orange;
 
 }
 

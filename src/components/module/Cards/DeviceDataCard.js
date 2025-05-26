@@ -19,7 +19,7 @@ function DeviceDataCard({ selectedDevice }) {
   const { dir } = useDirectionContext();
 
   return (
-    <div className="w-full  lg:w-[25%] lg:h-[90dvh]  overflow-y-auto overflow-x-hidden bg-[var(--colCard)] text-[var(--colTextA)] text-[clamp(12px,0.9dvw,14px)] shadow-lg rounded-2xl p-6 space-y-6">
+    <div className="w-full  lg:w-[25%] lg:h-[80dvh]  overflow-y-auto overflow-x-hidden bg-[var(--colCard)] text-[var(--colTextA)] text-[clamp(12px,0.9dvw,14px)] shadow-lg rounded-2xl p-6 space-y-6">
 
       <div className='flex items-center justify-between'>
 
@@ -57,8 +57,8 @@ function DeviceDataCard({ selectedDevice }) {
 
       </div>
 
-      <div className='lg:flex flex-col gap-10 lg:gap-0 items-center hidden'>
-        <div className='w-full h-[200px] 4k:h-[28dvh]'>
+      <div className=' gap-10 lg:gap-0 items-center'>
+        <div className='w-full h-[160px] 4k:h-[28dvh]'>
           <LineChart shadow={false} labelSize={translate(dir, "lineChart.dataCard_labelsize")} />
         </div>
         <div className='w-full h-[200px] 4k:h-[28dvh] 4k:mt-20'>

@@ -18,7 +18,7 @@ function DeviceStatusCount({
   const { dir } = useDirectionContext();
 
   return (
-    <div className="w-full md:w-[40%] lg:w-[25%] bg-[var(--colCard)] text-[var(--colTextA)] text-[clamp(12px,0.9vw,14px)] rounded-2xl shadow-lg p-8 space-y-8 transition-transform ">
+    <div className="h-full w-full md:w-[40%] lg:w-[25%] bg-[var(--colCard)] text-[var(--colTextA)] text-[clamp(12px,0.9vw,14px)] rounded-2xl shadow-lg p-8 space-y-8 transition-transform ">
       <h3 className="text-2xl text-center font-bold gap-2 mb-8 tracking-wide">
         {translate(dir,"DeviceStatusCount.title")}
       </h3>
@@ -26,7 +26,7 @@ function DeviceStatusCount({
         <div className="flex flex-col gap-8 w-full">
           <div className="flex items-center justify-between gap-2 px-2 py-3 border-b border-[var(--colBorder)]">
             <span className="flex items-center gap-2 font-semibold">
-              <FiPlus className="text-white text-2xl" />
+              <FiPlus className="text-yellow-500 text-2xl" />
               {translate(dir,"DeviceStatusCount.totalDevices")}</span>
             <span className="text-lg font-bold">{totalDevices}</span>
           </div>

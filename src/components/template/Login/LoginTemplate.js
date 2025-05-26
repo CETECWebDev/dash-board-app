@@ -30,10 +30,10 @@ function LoginTemplate() {
   };
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-[var(--colBg)]">
+    <div className="  fixed inset-0 flex items-center justify-center bg-[var(--colBg)]">
       <form
         onSubmit={handleSubmit}
-        className="bg-[var(--colCard)] p-8 rounded-2xl backdrop-blur-md w-[90%] max-w-md"
+        className=" shadow-lg  bg-white p-8 rounded-2xl backdrop-blur-md w-[90%] max-w-md"
       >
         <h1 className="text-center text-2xl md:text-3xl font-medium text-[var(--colTextA)] mb-8">
           Login

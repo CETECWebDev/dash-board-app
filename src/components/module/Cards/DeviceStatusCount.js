@@ -5,7 +5,8 @@ import { GrStatusGoodSmall } from "react-icons/gr";
 import { MdOutlineHighlightOff } from "react-icons/md";
 import { FiPlus } from "react-icons/fi";
 
-function DeviceStatusCount({
+function 
+DeviceStatusCount({
   devices,
   activeDeviceCount,
   setActiveDeviceCount,
@@ -18,8 +19,8 @@ function DeviceStatusCount({
   const { dir } = useDirectionContext();
 
   return (
-    <div className="h-full w-full md:w-[40%] lg:w-[25%] bg-[var(--colCard)] text-[var(--colTextA)] text-[clamp(12px,0.9vw,14px)] rounded-2xl shadow-lg p-8 space-y-8 transition-transform ">
-      <h3 className="text-2xl text-center font-bold gap-2 mb-8 tracking-wide">
+    <div className="h-full w-full  bg-[var(--colCard)] text-[var(--colTextA)] text-[clamp(12px,0.9vw,14px)] rounded-2xl shadow-lg p-8 space-y-8 transition-transform ">
+      <h3 className="text-xl text-center font-bold gap-2 mb-8 tracking-wide">
         {translate(dir,"DeviceStatusCount.title")}
       </h3>
       <div className="flex flex-col items-center gap-6">

@@ -68,7 +68,7 @@ const OverallAreaChart = ({ h, shadow, labelSize }) => {
         shadow ? "shadow-lg" : ""
       }`}
     >
-      <ApexChart options={options} series={series} type="area" height={h} />
+      <ApexChart options={options} series={series} type="area" />
     </div>
   );
 };

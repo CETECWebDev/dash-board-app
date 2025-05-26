@@ -108,7 +108,7 @@ const languagesText = {
         title: { en: 'Device Count', fa: ' تعداد دستگاه‌ها' },
         totalDevices: { en: 'Total Devices:', fa: 'کل دستگاه‌ها :' },
         activeDevices: { en: 'Active Devices:', fa: 'دستگاه های فعال:' },
-        inactiveDevices: { en: 'Inactive Devices:', fa: 'دستگاه‌های غیرفعال:' },
+        inactiveDevices: { en: 'Deactive Devices:', fa: 'دستگاه‌های غیرفعال:' },
     }
 ,
     addUsers:{

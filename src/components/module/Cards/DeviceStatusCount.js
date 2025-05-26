@@ -26,7 +26,7 @@ function DeviceStatusCount({
         <div className="flex flex-col gap-8 w-full">
           <div className="flex items-center justify-between gap-2 px-2 py-3 border-b border-[var(--colBorder)]">
             <span className="flex items-center gap-2 font-semibold">
-              <FiPlus className="text-white text-2xl" />
+              <FiPlus className="text-yellow-500 text-2xl" />
               {translate(dir,"DeviceStatusCount.totalDevices")}</span>
             <span className="text-lg font-bold">{totalDevices}</span>
           </div>

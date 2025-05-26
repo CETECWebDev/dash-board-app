@@ -35,13 +35,13 @@ const OverallAreaChart = ({ h, shadow, labelSize }) => {
       },
     },
     stroke: {
-      curve: "straight",
+      curve: 'smooth',
       width: 3,
     },
     dataLabels: {
       enabled: false,
     },
-    colors: ["#1E90FF", "#FF6347"], // Colors for the two lines
+    colors: ["#008ffb", "#00e396"], // Colors for the two lines
     grid: {
       yaxis: {
         lines: {
@@ -54,11 +54,11 @@ const OverallAreaChart = ({ h, shadow, labelSize }) => {
   const series = [
     {
       name: "High - 2013",
-      data: [5, 20, 27, 30,33, 31, 33], // Data for the first line
+      data: [31, 40, 28, 51, 42, 109, 100], // Data for the first line
     },
     {
       name: "Low - 2013",
-      data: [0, 11, 14, 18, 17, 13, 13], // Data for the second line
+      data: [11, 32, 45, 32, 34, 52, 41], // Data for the second line
     },
   ];
 

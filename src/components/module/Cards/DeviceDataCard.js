@@ -58,7 +58,7 @@ function DeviceDataCard({ selectedDevice }) {
       </div>
 
       <div className=''>
-        <LineChart h={200} shadow={false} labelSize={translate(dir, "lineChart.dataCard_labelsize")} />
+        <LineChart shadow={false} labelSize={translate(dir, "lineChart.dataCard_labelsize")} />
         <PieChart />
       </div>
    

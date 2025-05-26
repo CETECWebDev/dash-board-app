@@ -12,6 +12,8 @@ import { useDirectionContext } from "@/context/DirectionContext";
 import { translate } from '@/language/language';
 import LineChart from '../Charts/LineChart';
 import PieChart from '../Charts/PieChart';
+import DonutChart from '../Charts/DonutChart';
+import BarChart from '../Charts/BarChart';
 
 
 
@@ -19,7 +21,7 @@ function DeviceDataCard({ selectedDevice }) {
   const { dir } = useDirectionContext();
 
   return (
-    <div className="w-full  lg:w-[25%] lg:h-[80dvh]  overflow-y-auto overflow-x-hidden bg-[var(--colCard)] text-[var(--colTextA)] text-[clamp(12px,0.9dvw,14px)] shadow-lg rounded-2xl p-6 space-y-6">
+    <div className="w-full  lg:w-[25%] h-auto  overflow-y-auto overflow-x-hidden bg-[var(--colCard)] text-[var(--colTextA)] text-[clamp(12px,0.9dvw,14px)] shadow-lg rounded-2xl p-6 space-y-6">
 
       <div className='flex items-center justify-between'>
 
@@ -58,11 +60,11 @@ function DeviceDataCard({ selectedDevice }) {
       </div>
 
       <div className=' gap-10 lg:gap-0 items-center'>
-        <div className='w-full h-[160px] 4k:h-[28dvh]'>
-          <LineChart shadow={false} labelSize={translate(dir, "lineChart.dataCard_labelsize")} />
+        <div className='w-full h-[160px]  4k:h-[28dvh]'>
+          <BarChart shadow={false} labelSize={translate(dir, "lineChart.dataCard_labelsize")} />
         </div>
-        <div className='w-full h-[200px] 4k:h-[28dvh] 4k:mt-20'>
-          <PieChart />
+        <div className='w-full h-[200px] mt-5  4k:h-[28dvh] 4k:mt-10'>
+          <DonutChart />
         </div>
       </div>
 

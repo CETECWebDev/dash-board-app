@@ -17,7 +17,7 @@ const languagesText = {
     },
 
     PieChart: {
-        title: { en: 'Device Status', fa: 'وضعیت دستگاه ها' },
+        title: { en: 'Device Status', fa: 'امار تردد خودرو ها' },
         heavy: { en: 'Truck', fa: 'سنگین' },
         normal : { en: 'Sedan', fa: 'سواری' },
         motorcycle: { en: 'Motorcycle', fa: 'موتور' },

@@ -5,51 +5,65 @@ import { translate } from '@/language/language';
 import { useDirectionContext } from '@/context/DirectionContext';
 const ApexChart = dynamic(() => import('react-apexcharts'), { ssr: false });
 
-const PieChart = () => {
+const DonutChart = () => {
     const { dir } = useDirectionContext();
-    const data = [2100, 850, 400]
-    const labels = [translate(dir , "PieChart.normal"), translate(dir , "PieChart.heavy"), translate(dir , "PieChart.motorcycle")]
-    const colors = ['#00FF9C', '#344CB7', '#CF0F47']
+    const data = [700, 850, 400];
+    const labels = [
+        translate(dir, "PieChart.normal"),
+        translate(dir, "PieChart.heavy"),
+        translate(dir, "PieChart.motorcycle")
+    ];
+    const colors = ['#19d645', '#344CB7', '#CF0F47'];
 
     const options = {
+
         chart: {
-            type: 'pie',
+            type: 'donut',  
         },
+
         labels,
         colors,
+
         plotOptions: {
             pie: {
-                expandOnClick: true,
+                donut: {
+                    size: "60%"
+                },
+                dataLabels: {
+                    offset: 0,
+                },
             },
         },
         stroke: {
-            show: false,
-            width: 4,
-            colors: ['transparent'], // یا رنگ پس‌زمینه‌ات
+            show: true,
+            width: 3,
+            colors: ['var(--colCard)'],
         },
         title: {
-            text: translate(dir ,"PieChart.title" ),
+            text: translate(dir, "PieChart.title"),
             align: 'center',
             style: {
                 color: 'var(--colTextA)',
                 fontFamily: 'IRANSans, sans-serif',
-                fontSize: '16px',
+                fontSize: '14px',
             },
         },
         dataLabels: {
-            enabled: true,
-            formatter: function (val, opts) {
+            enabled: false,
+            formatter: function (val) {
                 return val.toFixed(1) + '%';
             },
-            offset:5,
             style: {
-                fontSize: '8px',
-                colors: ['#ffffff'], 
+                fontSize: '10px',
+                colors: ['#fff'],
                 fontFamily: 'IRANSans, sans-serif',
             },
             dropShadow: {
-                enabled: false, // 
+                enabled: false,
             },
+            offsetY: 0,
+            offsetX: 0,
+            textAnchor: 'middle',
         },
         tooltip: {
             y: {
@@ -66,10 +80,9 @@ const PieChart = () => {
 
     return (
         <div className="w-full h-full">
-            <ApexChart key={dir} options={options} series={data} type="pie" height={'100%'} />
+            <ApexChart key={dir} options={options} series={data} type="donut" height={'100%'} />
         </div>
     );
 };
 
-export default PieChart
-
+export default DonutChart;

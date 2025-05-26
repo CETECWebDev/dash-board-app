@@ -49,7 +49,7 @@ function DeviceDataCard({ selectedDevice }) {
             : translate(dir, "deviceDataCard.deactive")}
         </div>
 
-     
+
 
         <div className='flex items-center gap-2 w-full'><FaCarAlt /> {translate(dir, "deviceDataCard.countedVehicle")} : {selectedDevice.countedV}</div>
 
@@ -57,13 +57,21 @@ function DeviceDataCard({ selectedDevice }) {
 
       </div>
 
-      <div className=''>
-        <LineChart shadow={false} labelSize={translate(dir, "lineChart.dataCard_labelsize")} />
-        <PieChart />
+      <div className='lg:flex flex-col gap-10 lg:gap-0 items-center hidden'>
+        <div className='w-full h-[200px]'>
+          <LineChart shadow={false} labelSize={translate(dir, "lineChart.dataCard_labelsize")} />
+        </div>
+        <div className='w-full h-[200px] 4k:h-[300px] mt-10 lg:mt-0 4k:mt-20'>
+          <PieChart />
+        </div>
       </div>
-   
+
     </div>
   );
 }
 
 export default DeviceDataCard;
+
+
+
+

@@ -62,8 +62,8 @@ const series = [
 ];
 
 return (
-  <div className={`w-[100%] h-[200px] 4k:h-[400px]  p-2 bg-[var(--colCard)] rounded-2xl ${shadow ? 'shadow-lg' : ''}`}>
-    <ApexChart options={options} series={series} type='line' />
+  <div className={`w-[100%] p-2 bg-[var(--colCard)] rounded-2xl ${shadow ? 'shadow-lg' : ''}`}>
+    <ApexChart options={options} series={series} type='line'/>
   </div>
   
 );

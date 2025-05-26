@@ -19,7 +19,7 @@ DeviceStatusCount({
   const { dir } = useDirectionContext();
 
   return (
-    <div className="h-full w-full md:w-[40%] lg:w-[25%] bg-[var(--colCard)] text-[var(--colTextA)] text-[clamp(12px,0.9vw,14px)] rounded-2xl shadow-lg p-8 space-y-8 transition-transform ">
+    <div className="h-full w-full  bg-[var(--colCard)] text-[var(--colTextA)] text-[clamp(12px,0.9vw,14px)] rounded-2xl shadow-lg p-8 space-y-8 transition-transform ">
       <h3 className="text-2xl text-center font-bold gap-2 mb-8 tracking-wide">
         {translate(dir,"DeviceStatusCount.title")}
       </h3>

@@ -40,13 +40,13 @@ export default function MainDashboard() {
         </div>
 
      <div className='flex flex-col-reverse md:flex-row w-full gap-2'>
-  <div className='h-[40dvh] md:h-auto md:w-[70%]'>
+  <div className='h-[40dvh] md:h-auto md:w-[75%]'>
     <OverallAreaChart
       shadow={true}
       labelSize={translate(dir, 'lineChart.full_labelsize')}
     />
   </div>
-  <div className='md:w-[30%]'>
+  <div className='md:w-[25%]'>
     <DeviceStatusCount
       devices={devices}
       activeDeviceCount={activeDeviceCount}

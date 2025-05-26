@@ -19,7 +19,7 @@ function DeviceDataCard({ selectedDevice }) {
   const { dir } = useDirectionContext();
 
   return (
-    <div className="w-full  lg:w-[25%]  overflow-y-auto bg-[var(--colCard)] text-[var(--colTextA)] text-[clamp(12px,0.9dvw,14px)] shadow-lg rounded-2xl p-6 space-y-6">
+    <div className="w-full  lg:w-[25%] lg:h-[90dvh]  overflow-y-auto overflow-x-hidden bg-[var(--colCard)] text-[var(--colTextA)] text-[clamp(12px,0.9dvw,14px)] shadow-lg rounded-2xl p-6 space-y-6">
 
       <div className='flex items-center justify-between'>
 

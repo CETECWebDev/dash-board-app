@@ -40,7 +40,7 @@ export default function MainDashboard() {
         </div>
 
      <div className='flex flex-col-reverse md:flex-row w-full gap-2'>
-  <div className='h-[40dvh] 4k:h-[50dvh]  md:h-auto md:w-[75%]'>
+  <div className='h-[40dvh] 4k:h-[35dvh]  md:h-auto md:w-[75%]'>
     <OverallAreaChart
       shadow={true}
       labelSize={translate(dir, 'lineChart.full_labelsize')}

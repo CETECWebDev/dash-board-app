@@ -58,10 +58,10 @@ function DeviceDataCard({ selectedDevice }) {
       </div>
 
       <div className='lg:flex flex-col gap-10 lg:gap-0 items-center hidden'>
-        <div className='w-full h-[200px] 4k:h-[30dvh]'>
+        <div className='w-full h-[200px] 4k:h-[28dvh]'>
           <LineChart shadow={false} labelSize={translate(dir, "lineChart.dataCard_labelsize")} />
         </div>
-        <div className='w-full h-[200px] 4k:h-[30dvh] 4k:mt-20'>
+        <div className='w-full h-[200px] 4k:h-[28dvh] 4k:mt-20'>
           <PieChart />
         </div>
       </div>

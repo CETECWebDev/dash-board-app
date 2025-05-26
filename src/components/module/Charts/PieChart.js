@@ -8,7 +8,7 @@ const ApexChart = dynamic(() => import('react-apexcharts'), { ssr: false });
 const PieChart = () => {
     const { dir } = useDirectionContext();
     const data = [2100, 850, 400]
-    const labels = [translate(dir , "PieChart.normal"), translate(dir , "PieChart.heavy"), translate(dir , "PieChart.Motorcycle")]
+    const labels = [translate(dir , "PieChart.normal"), translate(dir , "PieChart.heavy"), translate(dir , "PieChart.motorcycle")]
     const colors = ['#ff6347', '#003049', '#1e90ff']
 
     const options = {
@@ -65,10 +65,11 @@ const PieChart = () => {
 
 
     return (
-        <div className="max-w-md mx-auto h-[200px] 4k:h-[100px]">
-            <ApexChart key={dir} options={options} series={data} type="pie" />
+        <div className="w-full h-full">
+            <ApexChart options={options} series={data} type="pie" height={'100%'} />
         </div>
     );
 };
 
 export default PieChart
+

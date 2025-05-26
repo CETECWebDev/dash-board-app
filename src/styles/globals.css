@@ -34,53 +34,29 @@
 
 
 :root {
-  /* رنگ پس زمینه اصلی */
+
   --colBg: #eeeeee;
-
-  /*  رنگ سایدبار و کارت ها   */
   --colCard: #efefef;
-
-  /*  رنگ متن 1 */
   --colTextA: #3A3878;
-
-  /*  رنگ متن 2 */
   --colTextB: #838AAB;
-
   --zoomControl: #3a3a3a;
   --zoomControlText: #ffffff;
-
-
   --textHover: #60a5fa;
-
   --selecMarker: #99919d;
-
   --textTitle:#3A3878;
-
-
 
 }
 
 .dark {
-  /* رنگ پس زمینه اصلی */
+
   --colBg: #2C353C;
-
-  /*  رنگ سایدبار و کارت ها   */
   --colCard: #242730;
-
-  /*  رنگ متن 1 */
   --colTextA: #ececec;
-
-  /*  رنگ متن 2 */
   --colTextB: #b7b7b7;
-
-
   --zoomControl: orange;
   --zoomControlText: #ffffff;
-
   --textHover: orange;
-
   --selecMarker: #eae1e1;
-
   --textTitle:orange;
 
 }
@@ -109,6 +85,20 @@
   gap: 5px !important;
   flex-direction: row-reverse !important;
 }
+
+
+/* Chart styles */
+
+.apexcharts-yaxis-label,
+.apexcharts-xaxis-label {
+  fill: var(--colTextB) !important;
+}
+
+.apexcharts-tooltip,
+.apexcharts-tooltip-title {
+  background-color: var(--colCard) !important;
+}
+
 
 /* map markers */
 
@@ -146,26 +136,7 @@
 }
 
 
-/* .selected-marker {
-  transform: scale(1.2);
-  box-shadow: 0 0 0 1px var(--selecMarker);
-}  */
 
-
-/* Chart styles */
-
-.apexcharts-yaxis-label,
-.apexcharts-xaxis-label {
-  fill: var(--colTextB) !important;
-}
-
-.apexcharts-tooltip,
-.apexcharts-tooltip-title {
-  background-color: var(--colCard) !important;
-}
-
-
-/* test */
 
 .selected-marker {
   position: relative;
@@ -183,7 +154,6 @@
   width: 16px;
   height: 16px;
   border-radius: 50%;
-  /* border: 2px solid transparent; */
   border: 2px solid #1ac11a;
   filter: drop-shadow(0 0 2px #1ac11a) drop-shadow(0 0 4px #1ac11a);
   animation: pulseNeon 1.0s ease-in-out infinite;
@@ -200,7 +170,6 @@
   width: 16px;
   height: 16px;
   border-radius: 50%;
-  /* border: 2px solid transparent; */
   border: 2px solid #ff0000;
   filter: drop-shadow(0 0 2px #ff0000) drop-shadow(0 0 4px #ff0000);
   animation: pulseNeon 1.0s ease-in-out infinite;

@@ -62,8 +62,8 @@ const PieChart = () => {
 
 
     return (
-        <div className="max-w-md mx-auto">
-            <ApexChart options={options} series={data} type="pie" height={200} />
+        <div className="max-w-md mx-auto h-[200px] 4k:[500px">
+            <ApexChart options={options} series={data} type="pie" />
         </div>
     );
 };

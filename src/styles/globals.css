@@ -51,10 +51,10 @@
 
 .dark {
   /* رنگ پس زمینه اصلی */
-  --colBg: #3f3f46;
+  --colBg: #3f3f3f;
 
   /*  رنگ سایدبار و کارت ها   */
-  --colCard: #27272a;
+  --colCard: #333333;
 
   /*  رنگ متن 1 */
   --colTextA: #ececec;
@@ -159,26 +159,6 @@
   transform: scale(1.2);
 }
 
-/* .selected-marker.active::after  {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  translate: -50% -50%;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  border: 2px solid transparent;
-
-  
-  border-top: 2px solid #1ac11a;
-
-
-  filter: drop-shadow(0 0 2px #1ac11a) drop-shadow(0 0 4px #1ac11a);
-
-  animation: rotateNeon 1.2s linear infinite;
-  z-index: -1;
-} */
 
 
 .selected-marker.active::after {

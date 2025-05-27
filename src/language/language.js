@@ -8,7 +8,7 @@ const languagesText = {
         roads: { en: 'Roads', fa: 'محور ها' },
         users: { en: 'Users', fa: 'کاربر ها' },
         database: { en: 'Database', fa: 'دیتابیس' },
-        settings: { en: 'Settings', fa: 'تنظیمات' } ,
+        settings: { en: 'Settings', fa: 'تنظیمات' },
         title: { en: 'Traffic Monitoring System', fa: 'سامانه جامع تردد شماری' },
     },
 
@@ -19,7 +19,7 @@ const languagesText = {
     PieChart: {
         title: { en: 'Device Status', fa: 'امار تردد خودرو ها' },
         heavy: { en: 'Truck', fa: 'سنگین' },
-        normal : { en: 'Sedan', fa: 'سواری' },
+        normal: { en: 'Sedan', fa: 'سواری' },
         motorcycle: { en: 'Motorcycle', fa: 'موتور' },
     },
 
@@ -59,8 +59,10 @@ const languagesText = {
     addDevice: {
         title: { en: 'Add Device', fa: 'افزودن دستگاه' },
         name: { en: 'Device Name', fa: 'نام دستگاه' },
-        lat:{en:`Device's Lat` , fa:'عرض جغرافیایی' },
-        lng:{en:`Device's Lng` , fa:'طول جغرافیایی'},
+        lat: { en: `Device's Lat`, fa: 'عرض جغرافیایی' },
+        lng: { en: `Device's Lng`, fa: 'طول جغرافیایی' },
+        description: { en: `Description`, fa: 'توضیحات'},
+        deviceSerial: { en: `Device's Serial`, fa: 'سریال دستگاه' },
         devicecode: { en: 'Device Code', fa: 'کد دستگاه' },
         deviceroad: { en: 'Device Road', fa: 'محور دستگاه' },
         simNumber: { en: 'Simcard Number', fa: 'شماره سیمکارت' },
@@ -89,29 +91,29 @@ const languagesText = {
 
 
     applySettingModal: {
-        deviceList: {en: 'Device List' , fa: 'لیست دستگاه ها'},
-        SelectedDevices: {en: 'Selected Devices' , fa: 'دستگاه های انتخاب شده'},
-        apply: {en: 'Apply' , fa: 'اعمال تغییرات'},
-        cancel: {en: 'Cancel' , fa: 'لغو'}
+        deviceList: { en: 'Device List', fa: 'لیست دستگاه ها' },
+        SelectedDevices: { en: 'Selected Devices', fa: 'دستگاه های انتخاب شده' },
+        apply: { en: 'Apply', fa: 'اعمال تغییرات' },
+        cancel: { en: 'Cancel', fa: 'لغو' }
     }
 
-,
-    lineChart:{
-        y_axis_text:{en:'Income' , fa: 'درآمد'},
-        x_axis_text:{en:"Months", fa: "ماه " } ,
-        full_labelsize: {en: '14', fa: '16'},
-        dataCard_labelsize: {en: '10', fa: '12'},
-        
-    } ,
+    ,
+    lineChart: {
+        y_axis_text: { en: 'Income', fa: 'درآمد' },
+        x_axis_text: { en: "Months", fa: "ماه " },
+        full_labelsize: { en: '14', fa: '16' },
+        dataCard_labelsize: { en: '10', fa: '12' },
 
-    DeviceStatusCount:{
+    },
+
+    DeviceStatusCount: {
         title: { en: 'Device Count', fa: ' تعداد دستگاه‌ها' },
         totalDevices: { en: 'Total Devices:', fa: 'کل دستگاه‌ها :' },
         activeDevices: { en: 'Active Devices:', fa: 'دستگاه های فعال:' },
         inactiveDevices: { en: 'Deactive Devices:', fa: 'دستگاه‌های غیرفعال:' },
     }
-,
-    addUsers:{
+    ,
+    addUsers: {
         title: { en: 'Add User', fa: 'افزودن کاربر' },
         name: { en: 'Name...', fa: 'نام ...' },
         email: { en: 'Email...', fa: 'ایمیل ....' },

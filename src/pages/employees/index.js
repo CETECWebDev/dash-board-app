@@ -4,6 +4,10 @@ import Employees from '@/components/template/Users/Employees';
 import React from 'react'
 
 export default function EmployeesPage({ employees }) {
+
+  console.log(employees);
+  
+
   return (
 
     <>
@@ -19,6 +23,7 @@ export default function EmployeesPage({ employees }) {
 export async function getServerSideProps() {
 
   const data = await fetchUsers()
+
 
   return {
     props: {

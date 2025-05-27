@@ -7,7 +7,7 @@ export default async function handler(req, res) {
         return res.status(400).json({ message: 'ID is required' });
       }
 
-      const response = await fetch(`http://89.235.119.239/gateway/employees/${id}`, {
+      const response = await fetch(`http://89.235.119.239/gateway/employee/${id}`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json'

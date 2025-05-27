@@ -4,7 +4,7 @@ export default async function handler(req, res) {
 
 
     try {
-      const response = await fetch(`http://89.235.119.239/gateway/employees/${id}/`, {
+      const response = await fetch(`http://89.235.119.239/gateway/employee/${id}/`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -27,5 +27,4 @@ export default async function handler(req, res) {
     res.status(405).end(`Method ${req.method} Not Allowed`);
   }
 }
-
 

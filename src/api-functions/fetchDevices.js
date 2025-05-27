@@ -1,8 +1,8 @@
 
-const fetchUsers = async () => {
+const fetchDevices = async () => {
     try {
 
-        const res = await fetch('http://89.235.119.239/gateway/employee/');
+        const res = await fetch('http://89.235.119.239/gateway/device/');
         const data = await res.json()
         return data
 
@@ -12,4 +12,4 @@ const fetchUsers = async () => {
     }
 }
 
-export default fetchUsers
+export default fetchDevices

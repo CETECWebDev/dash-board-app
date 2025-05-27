@@ -38,8 +38,8 @@ export default function MapView({ devices, selectedDevice, setSelectedDevice }) 
 
 
         devices.forEach(device => {
-            const icon = getBlinkingIcon(device.active, selectedDevice.id === device.id);
-            const marker = L.marker([device.lat, device.lng], { icon }).addTo(mapRef.current);
+            const icon = getBlinkingIcon(device.status, selectedDevice.id === device.id);
+            const marker = L.marker([device.lat, device.long], { icon }).addTo(mapRef.current);
 
             marker.on('click', () => {
                 setSelectedDevice(device);

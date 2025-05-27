@@ -13,8 +13,8 @@ const MapView = dynamic(() => import('@/components/module/Maps/MapView'), {
   ssr: false,
 });
 
-export default function MainDashboard() {
-  const devices = mockDevices;
+export default function MainDashboard({devices}) {
+  
   const [selectedDevice, setSelectedDevice] = useState(devices[0]);
   const [activeDeviceCount, setActiveDeviceCount] = useState(0);
   const { dir } = useDirectionContext();

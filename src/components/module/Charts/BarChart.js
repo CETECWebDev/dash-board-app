@@ -1,8 +1,11 @@
 import React from "react";
 import dynamic from 'next/dynamic';
+import { translate } from "@/language/language";
+import { useDirectionContext } from "@/context/DirectionContext";
 const ApexChart = dynamic(() => import('react-apexcharts'), { ssr: false });
 
 const BarChart = () => {
+    const { dir } = useDirectionContext();
     const options = {
         chart: {
             id: "basic-bar",
@@ -18,6 +21,16 @@ const BarChart = () => {
                 }
             }
         },
+
+          dataLabels: {
+        enabled: true,
+        style: {
+            // fontSize: '14px',
+            fontFamily: translate(dir , "font.fontFamily"),
+
+            colors: ['#fff'] // رنگ اعداد درون ستون
+        }
+    },
         title: {
             text: "دستگاه های شمارش شده",
             align: "center",

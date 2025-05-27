@@ -32,7 +32,7 @@ const PieChart = () => {
             align: 'center',
             style: {
                 color: 'var(--colTextA)',
-                fontFamily: 'IRANSans, sans-serif',
+                fontFamily: 'IranSans, sans-serif',
                 fontSize: '16px',
             },
         },
@@ -45,7 +45,7 @@ const PieChart = () => {
             style: {
                 fontSize: '8px',
                 colors: ['#ffffff'], 
-                fontFamily: 'IRANSans, sans-serif',
+                fontFamily: 'IranSans, sans-serif',
             },
             dropShadow: {
                 enabled: false, // 
@@ -58,7 +58,7 @@ const PieChart = () => {
         },
         legend: {
             position: 'bottom',
-            fontFamily: 'IRANSans, sans-serif',
+            fontFamily: 'IranSans, sans-serif',
         },
     };
 

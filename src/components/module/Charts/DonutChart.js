@@ -44,7 +44,7 @@ const DonutChart = () => {
             align: 'center',
             style: {
                 color: 'var(--colTextA)',
-                fontFamily: 'IRANSans, sans-serif',
+                fontFamily: translate(dir , "font.fontFamily"),
                 fontSize: '14px',
             },
         },
@@ -56,7 +56,8 @@ const DonutChart = () => {
             style: {
                 fontSize: '10px',
                 colors: ['#fff'],
-                fontFamily: 'IRANSans, sans-serif',
+                fontFamily: translate(dir , "font.fontFamily"),
+                
             },
             dropShadow: {
                 enabled: false,

@@ -24,13 +24,13 @@ export default function RoadInfoCard(props) {
                     {translate(dir, "deviceInfoCard.province")} : {province}
                 </div>
                 <div className="text-[var(--colTextB)] text-sm w-full">
-                    {translate(dir, "deviceInfoCard.province")} : {province}
-                </div>
-                <div className="text-[var(--colTextB)] text-sm w-full">
                     {translate(dir, "deviceInfoCard.road_type")} : {road_type}
                 </div>
                 <div className="text-[var(--colTextB)] text-sm w-full">
                     {translate(dir, "deviceInfoCard.volume_road")} : {volume_road}
+                </div>
+                <div className="text-[var(--colTextB)] text-sm w-full">
+                    {translate(dir, "deviceInfoCard.volume_each_line")} : {volume_each_line}
                 </div>
                 <div className="text-[var(--colTextB)] text-sm w-full">
                     {translate(dir, "deviceInfoCard.direction")} : {direction}

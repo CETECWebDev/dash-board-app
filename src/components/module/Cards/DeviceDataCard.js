@@ -53,7 +53,7 @@ function DeviceDataCard({ selectedDevice }) {
 
 
 
-        <div className='flex items-center gap-2 w-full'><FaCarAlt /> {translate(dir, "deviceDataCard.countedVehicle")} : {selectedDevice.countedV}</div>
+        <div className='flex items-center gap-2 w-full'><FaCarAlt /> {translate(dir, "deviceDataCard.road")} : {selectedDevice.location}</div>
 
 
 

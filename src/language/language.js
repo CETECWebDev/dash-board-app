@@ -39,6 +39,7 @@ const languagesText = {
     deviceDataCard: {
         status: { en: 'Status', fa: 'وضعیت' },
         active: { en: 'Active', fa: 'فعال' },
+        road: { en: 'Road', fa: 'محور' },
         deactive: { en: 'Deactive', fa: 'غیر فعال' },
         countedVehicle: { en: 'Counted Vehicle', fa: 'خودرو های شمارش شده' },
         direction: { en: 'Directions', fa: 'مسیریابی' },

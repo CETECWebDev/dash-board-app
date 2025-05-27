@@ -13,7 +13,7 @@ DeviceStatusCount({
 }) {
   const totalDevices = Array.isArray(devices) ? devices.length : 0;
   const activeDevices = Array.isArray(devices)
-    ? devices.filter((device) => device.active === true).length
+    ? devices.filter((device) => device.status == true).length
     : 0;
   const inactiveDevices = totalDevices - activeDevices;
   const { dir } = useDirectionContext();

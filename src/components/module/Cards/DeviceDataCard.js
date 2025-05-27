@@ -42,9 +42,9 @@ function DeviceDataCard({ selectedDevice }) {
           <div className='flex flex-col gap-3 w-full'>
     
             <div className='flex items-center gap-2 w-full' >
-              <GrStatusGoodSmall className={selectedDevice.active ? 'text-[#1ac11a]' : 'text-[#ff0000]'} />
+              <GrStatusGoodSmall className={selectedDevice.status ? 'text-[#1ac11a]' : 'text-[#ff0000]'} />
               {translate(dir, "deviceDataCard.status")} :
-              {selectedDevice.active
+              {selectedDevice.status
                 ? translate(dir, "deviceDataCard.active")
                 : translate(dir, "deviceDataCard.deactive")}
             </div>

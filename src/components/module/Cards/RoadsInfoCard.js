@@ -18,22 +18,22 @@ export default function RoadInfoCard(props) {
             <div className='grid grid-cols-3 gap-3 place-items-center'>
 
                 <div className="text-[var(--colTextB)] text-sm w-full">
-                    {translate(dir, "deviceInfoCard.road_id")} : {road_id}
+                    {translate(dir, "RoadsInfoCard.road_id")} : {road_id}
                 </div>
                 <div className="text-[var(--colTextB)] text-sm w-full">
-                    {translate(dir, "deviceInfoCard.province")} : {province}
+                    {translate(dir, "RoadsInfoCard.province")} : {province}
                 </div>
                 <div className="text-[var(--colTextB)] text-sm w-full">
-                    {translate(dir, "deviceInfoCard.road_type")} : {road_type}
+                    {translate(dir, "RoadsInfoCard.road_type")} : {road_type}
                 </div>
                 <div className="text-[var(--colTextB)] text-sm w-full">
-                    {translate(dir, "deviceInfoCard.volume_road")} : {volume_road}
+                    {translate(dir, "RoadsInfoCard.volume_road")} : {volume_road}
                 </div>
                 <div className="text-[var(--colTextB)] text-sm w-full">
-                    {translate(dir, "deviceInfoCard.volume_each_line")} : {volume_each_line}
+                    {translate(dir, "RoadsInfoCard.volume_each_line")} : {volume_each_line}
                 </div>
                 <div className="text-[var(--colTextB)] text-sm w-full">
-                    {translate(dir, "deviceInfoCard.direction")} : {direction}
+                    {translate(dir, "RoadsInfoCard.direction")} : {direction}
                 </div>
 
 

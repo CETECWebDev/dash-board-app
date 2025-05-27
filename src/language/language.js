@@ -138,7 +138,7 @@ const languagesText = {
         location: {en:'Location' , fa: 'محور'},
     }, 
 
-    deviceInfoCard: {
+    RoadsInfoCard: {
         name: {en: 'Name' , fa:'نام محور '},
         road_id: {en: 'Road ID' , fa:'کد محور'},
         province: {en: 'Province' , fa:' استان'},

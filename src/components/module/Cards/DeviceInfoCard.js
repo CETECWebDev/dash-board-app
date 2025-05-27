@@ -1,8 +1,12 @@
+import { useDirectionContext } from '@/context/DirectionContext'
+import { translate } from '@/language/language'
 import React from 'react'
 
 export default function DeviceInfoCard(props) {
 
-    const { id , name , lat , lng , active , countedV } = props
+    const {dir} = useDirectionContext()
+
+    const { id , name , location , status , serial_number } = props
 
     return (
         <div
@@ -13,19 +17,19 @@ export default function DeviceInfoCard(props) {
                     {name} <span className=" text-sm">({id})</span>
                 </span>
                 <span
-                    className={`px-2 py-1 rounded text-xs font-semibold ${active
+                    className={`px-2 py-1 rounded text-xs font-semibold ${status
                             ? 'bg-green-100 text-green-700'
                             : 'bg-red-100 text-red-700'
                         }`}
                 >
-                    {active ? 'Active' : 'Inactive'}
+                    {status ? 'Active' : 'Inactive'}
                 </span>
             </div>
             <div className="text-[var(--colTextB)] text-sm">
-                Lat: {lat}, Lng: {lng}
+                {translate(dir , 'deviceInfoCard.location')} : {location}
             </div>
             <div className="text-[var(--colTextB)] font-medium">
-                Counted Value: {countedV}
+                {translate(dir , 'deviceInfoCard.serial')} : {serial_number}
             </div>
         </div>
     )

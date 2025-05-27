@@ -10,6 +10,8 @@ import { useDirectionContext } from "@/context/DirectionContext";
 import { translate } from "@/language/language"
 import Link from "next/link";
 import { useSidebar } from "@/context/SidebarContext";
+import { TbReport } from "react-icons/tb";
+
 
 export default function SideBar() {
 
@@ -103,6 +105,11 @@ export default function SideBar() {
                   label: translate(dir, "sidebar.users"),
                   url: "/employees",
                 },
+                {
+                  icon: <TbReport />,
+                  label: translate(dir, "sidebar.reports"),
+                  url: '#'
+                }
 
                 
               ].map(({ icon, label, url }) => {

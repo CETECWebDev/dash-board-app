@@ -7,7 +7,7 @@ export default function Home({ devices }) {
     <>
 
       <SideBar />
-      < MainDashboard  devices={devices} />
+      < MainDashboard devices={devices} />
     </>
   )
 }
@@ -20,6 +20,7 @@ export async function getStaticProps() {
   return {
     props: {
       devices: data
-    }
+    },
+    revalidate: 60 * 60 * 24 * 7
   }
 }

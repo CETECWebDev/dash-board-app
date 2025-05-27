@@ -8,9 +8,9 @@ import { useDirectionContext } from "@/context/DirectionContext";
 import { translate } from '@/language/language';
 
 
-export default function Devices() {
+export default function Devices({devices}) {
 
-  const devices = mockDevices;
+  
   const [totalPages, pagedList, currentPage, setCurrentPage] = usePagination(8, devices)
   const { dir } = useDirectionContext();
   

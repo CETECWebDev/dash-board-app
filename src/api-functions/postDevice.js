@@ -10,13 +10,11 @@ const postDevice = async (device) => {
             body : JSON.stringify(device)
         })
 
-        if(res.status === 201){
-            return ('Device Created')
-        }else{
-            return ('Something went wrong')
-        }
+        console.log(res);
+        
 
-
+        return res
+        
     }catch (err) {
         console.log("Erro =>" , err);
         return false

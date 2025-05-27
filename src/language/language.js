@@ -1,6 +1,7 @@
 import { TbAxisY } from "react-icons/tb";
 
 const languagesText = {
+
     sidebar: {
         navigation: { en: 'Navigation Menu', fa: 'منوی ناوبری' },
         dashboard: { en: 'Dashboard', fa: 'داشبورد' },
@@ -10,6 +11,7 @@ const languagesText = {
         database: { en: 'Database', fa: 'دیتابیس' },
         settings: { en: 'Settings', fa: 'تنظیمات' },
         title: { en: 'Traffic Monitoring System', fa: 'سامانه جامع تردد شماری' },
+        reports: {en: 'Reports' , fa: 'گزارشات'}
     },
 
     pagination: {
@@ -69,6 +71,8 @@ const languagesText = {
         simNumber: { en: 'Simcard Number', fa: 'شماره سیمکارت' },
         simSerial: { en: 'Simcard Serial', fa: 'سریال سیمکارت' },
         deviceStatus: { en: 'Device Status', fa: 'وضعیت دستگاه' },
+        road_installed: { en: 'Road Installed', fa: 'کد محور' },
+        openMap: { en: 'Open Map', fa: 'باز کردن نقشه' },
         active: { en: 'Active', fa: 'فعال' },
         deactive: { en: 'Deactive', fa: 'غیر فعال' },
         createDevice: { en: 'Create Device', fa: ' ثبت دستگاه' },
@@ -121,6 +125,17 @@ const languagesText = {
         email: { en: 'Email...', fa: 'ایمیل ....' },
         backButton: { en: 'Back', fa: 'بازگشت' },
         sendButton: { en: 'Add User', fa: 'افزودن کاربر' }
+    },
+
+    resultModal: {
+        successDevice: {en: 'Device Successfully Created' , fa:'دستگاه با موفقیت ثبت شد'},
+        error: {en: 'Something went wrong' , fa:'خطایی رخ داد'}
+    },
+
+    deviceInfoCard: {
+        name: {en:'Name' , fa: ' نام دستگاه'},
+        serial: {en:'Serial' , fa: ' سریال دستگاه'},
+        location: {en:'Location' , fa: 'محور'},
     }
 
 

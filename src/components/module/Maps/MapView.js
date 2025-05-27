@@ -103,7 +103,7 @@ export default function MapView({ devices, selectedDevice, setSelectedDevice, ty
 
 
     return (
-        <div id="map" className={`w-[100%] ${type === 'monitoring' ? 'lg:w-[75%]' : 'w-full'}  h-[50dvh] lg:h-auto transform-gpu rounded-xl z-0  ${theme.theme === 'dark' ? 'border-zinc-600 border-2 shadow-md' : 'shadow-md'} relative`} >
+        <div id="map" className={`w-[100%] ${type === 'monitoring' ? 'lg:w-[75%] h-[50dvh]' : 'w-full'}   lg:h-auto transform-gpu rounded-xl z-0  ${theme.theme === 'dark' ? 'border-zinc-600 border-2 shadow-md' : 'shadow-md'} relative`} >
         </div>
     )
 }

@@ -118,7 +118,7 @@ export default function AddDevice() {
 
 
         {/* lat & lng */}
-        <div className='flex items-center gap-5 mb-5'>
+        <div className='flex flex-col lg:flex-row items-center  gap-5 mb-5'>
 
 
 
@@ -155,7 +155,7 @@ export default function AddDevice() {
         </div>
 
         {/* input Container */}
-        <div className='w-full grid grid-cols-3 gap-5 mb-10'>
+        <div className='w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-10'>
 
           {/* Device Name */}
           <div className="mb-6 border-b border-[var(--colTextA)] flex items-center gap-3">

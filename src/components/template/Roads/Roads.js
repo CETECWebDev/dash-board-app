@@ -9,9 +9,9 @@ import { useDirectionContext } from "@/context/DirectionContext";
 import { translate } from '@/language/language';
 
 
-export default function Roads() {
-  const Roads = mockRoads;
-  const [totalPages, pagedList, currentPage, setCurrentPage] = usePagination(8, Roads)
+export default function Roads({roads}) {
+  
+  const [totalPages, pagedList, currentPage, setCurrentPage] = usePagination(8, roads)
   const { dir } = useDirectionContext();
 
 

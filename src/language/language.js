@@ -136,7 +136,18 @@ const languagesText = {
         name: {en:'Name' , fa: ' نام دستگاه'},
         serial: {en:'Serial' , fa: ' سریال دستگاه'},
         location: {en:'Location' , fa: 'محور'},
+    }, 
+
+    deviceInfoCard: {
+        name: {en: 'Name' , fa:'نام محور '},
+        road_id: {en: 'Road ID' , fa:'کد محور'},
+        province: {en: 'Province' , fa:' استان'},
+        road_type: {en: 'Type' , fa:'نوع محور'},
+        volume_road: {en: 'Road Volume' , fa:'ظرفیت  کل محور'},
+        volume_each_line: {en: 'Volume Each Line' , fa:'ظرفیت هر لاین'},
+        direction: {en: 'Direction' , fa:'مسیر'},
     }
+
 
 
 

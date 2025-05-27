@@ -102,8 +102,8 @@ const languagesText = {
     lineChart: {
         y_axis_text: { en: 'Income', fa: 'درآمد' },
         x_axis_text: { en: "Months", fa: "ماه " },
-        full_labelsize: { en: '14', fa: '16' },
-        dataCard_labelsize: { en: '10', fa: '12' },
+        full_labelsize: { en: '14', fa: '14' },
+        dataCard_labelsize: { en: '10', fa: '10' },
 
     },
 
@@ -120,6 +120,11 @@ const languagesText = {
         email: { en: 'Email...', fa: 'ایمیل ....' },
         backButton: { en: 'Back', fa: 'بازگشت' },
         sendButton: { en: 'Add User', fa: 'افزودن کاربر' }
+    },
+
+    font:{
+        fontFamily: { en: 'sans-serif', fa: 'IranSans' },
+
     }
 
 

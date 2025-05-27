@@ -8,6 +8,7 @@ import { useDirectionContext } from "@/context/DirectionContext";
 import { MdRoute, MdOutlineDescription } from "react-icons/md";
 import { translate } from '@/language/language';
 import postDevice from '@/api-functions/postDevice';
+import MapModal from '@/components/module/Modals/MapModal';
 
 
 export default function AddDevice() {
@@ -23,6 +24,9 @@ export default function AddDevice() {
   const [location, setLocation] = useState('')
   const [lat, setLat] = useState('')
   const [long, setLong] = useState('')
+
+
+  const [isModalOpen , setIsModalOpen] = useState(false)
 
 
   const createDevice = async (e) => {
@@ -50,7 +54,7 @@ export default function AddDevice() {
         },
         body: JSON.stringify({ path: '/' }),
       })
-    } 
+    }
 
 
     alert(res)
@@ -61,6 +65,9 @@ export default function AddDevice() {
 
   return (
     <div className='p-5 mt-8 flex justify-center'>
+
+      <MapModal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} setLat={setLat} setLong={setLong} />
+
       <form
         onSubmit={createDevice}
         className="bg-[var(--colCard)] p-8 rounded-2xl backdrop-blur-md w-full lg:w-[70%]"
@@ -111,6 +118,12 @@ export default function AddDevice() {
               />
             </div>
           </div>
+
+          <div className='w-full text-[var(--colTextA)] font-bold flex justify-center'>
+            <button onClick={()=>setIsModalOpen(!isModalOpen)} type='button' className='linkHover border-2 border-[var(--colTextA)] rounded-full py-1 px-5'>باز کردن نقشه</button>
+          </div>
+
+
 
         </div>
 

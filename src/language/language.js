@@ -95,6 +95,7 @@ const languagesText = {
         deviceList: { en: 'Device List', fa: 'لیست دستگاه ها' },
         SelectedDevices: { en: 'Selected Devices', fa: 'دستگاه های انتخاب شده' },
         apply: { en: 'Apply', fa: 'اعمال تغییرات' },
+        apply: { en: 'Confirm', fa: 'ثبت مکان' },
         cancel: { en: 'Cancel', fa: 'لغو' }
     }
 

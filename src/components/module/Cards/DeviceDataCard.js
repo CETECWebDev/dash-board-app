@@ -4,14 +4,10 @@ import { MdDirections } from "react-icons/md";
 import { BsThreeDots } from "react-icons/bs";
 import { GrStatusGoodSmall } from "react-icons/gr";
 import { FaCarAlt, FaChartPie } from "react-icons/fa";
-import { FaLocationCrosshairs } from "react-icons/fa6";
-import { FaThList } from "react-icons/fa";
 import Link from 'next/link';
 
 import { useDirectionContext } from "@/context/DirectionContext";
 import { translate } from '@/language/language';
-import LineChart from '../Charts/LineChart';
-import PieChart from '../Charts/PieChart';
 import DonutChart from '../Charts/DonutChart';
 import BarChart from '../Charts/BarChart';
 

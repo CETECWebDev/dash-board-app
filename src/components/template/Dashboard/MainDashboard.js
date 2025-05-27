@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import dynamic from 'next/dynamic';
 import { FaArrowUp } from 'react-icons/fa';
-import mockDevices from '@/data/db';
-// import mockDevices from '@/data/altDB';
 import DeviceDataCard from '../../module/Cards/DeviceDataCard';
 import { translate } from '@/language/language';
 import { useDirectionContext } from '@/context/DirectionContext';
@@ -32,6 +30,7 @@ export default function MainDashboard({devices}) {
 
         <div className='flex lg:flex-row flex-col-reverse gap-2 mb-3'>
           <MapView
+            type={'monitoring'}
             devices={devices}
             selectedDevice={selectedDevice}
             setSelectedDevice={setSelectedDevice}

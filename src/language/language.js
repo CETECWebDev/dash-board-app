@@ -20,9 +20,10 @@ const languagesText = {
 
     PieChart: {
         title: { en: 'Device Status', fa: 'امار تردد خودرو ها' },
-        heavy: { en: 'Truck', fa: 'سنگین' },
-        normal: { en: 'Sedan', fa: 'سواری' },
-        motorcycle: { en: 'Motorcycle', fa: 'موتور' },
+        heavy: { en: 'Truck', fa: 'کامیونت و مینی بوس' },
+        normal: { en: 'Sedan', fa: 'اتوبوس' },
+        sangin: { en: 'Sedan', fa: 'سنگین' },
+        motorcycle: { en: 'Motorcycle', fa: 'سواری و وانت' },
     },
 
     devicespage: {
@@ -105,7 +106,7 @@ const languagesText = {
 
     ,
     lineChart: {
-        y_axis_text: { en: 'Income', fa: 'درآمد' },
+        y_axis_text: { en: 'Income', fa: 'امار کل شمارش' },
         x_axis_text: { en: "Months", fa: "ماه " },
         full_labelsize: { en: '14', fa: '14' },
         dataCard_labelsize: { en: '10', fa: '10' },

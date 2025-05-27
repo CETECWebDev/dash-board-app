@@ -7,13 +7,15 @@ const ApexChart = dynamic(() => import('react-apexcharts'), { ssr: false });
 
 const DonutChart = () => {
     const { dir } = useDirectionContext();
-    const data = [700, 850, 400];
+    const data = [700, 850, 1700 , 200];
     const labels = [
         translate(dir, "PieChart.normal"),
         translate(dir, "PieChart.heavy"),
-        translate(dir, "PieChart.motorcycle")
+        translate(dir, "PieChart.motorcycle"),
+        translate(dir, "PieChart.sangin"),
+       
     ];
-    const colors = ['#19d645', '#344CB7', '#CF0F47'];
+    const colors = ['#19d645', '#344CB7', '#CF0F47' , '#FE5D26'];
 
     const options = {
 

@@ -52,7 +52,7 @@ export default function SideBar() {
 
 
         <div className="flex flex-col items-center justify-center">
-          <img src="/cetec.svg" alt="" />
+          <img src="/cetec.png" alt="" />
           <div>شرکت قطب دانش</div>
         </div>
 

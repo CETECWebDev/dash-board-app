@@ -51,7 +51,10 @@ export default function SideBar() {
       >
 
 
-        
+        <div className="flex flex-col items-center justify-center">
+          <img src="/cetec.svg" alt="" />
+          <div>شرکت قطب دانش</div>
+        </div>
 
 
         {/* info user */}
@@ -73,8 +76,8 @@ export default function SideBar() {
               className="w-full h-full object-cover"
             /> */}
           </div>
-          <h1 className="text-lg font-bold text-center">New User</h1>
-          <span className="text-xs text-gray-300">SUPERADMIN</span>
+          <h1 className="text-lg font-bold text-center">کاربر جدید</h1>
+          <span className="text-xs text-gray-300">ادمین</span>
         </div>
 
         {/* navigation */}

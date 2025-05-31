@@ -2,7 +2,7 @@ const postDevice = async (device) => {
     
 
     try{
-        const res = await fetch(`/api/devices` , {
+        const res = await fetch(`/api/devices/` , {
             method: 'POST' , 
             headers : {
                 'Content-Type' : 'application/json'

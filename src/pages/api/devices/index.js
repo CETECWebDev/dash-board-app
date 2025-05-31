@@ -1,41 +1,60 @@
+import apiRequest from "@/api/axios-instance/main"
+import axios from "axios"
+
+
 const handler = async (req, res) => {
 
     if (req.method === 'POST') {
 
         try {
 
-            const device  = req.body
+            const device = req.body
 
-            const response = await fetch(`http://89.235.119.239/gateway/device/`, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(device)
-            })
+            const response = await apiRequest.post('/device/', device)
 
             if (response.status === 201) {
 
-                return res.status(201).json('device created')
+                return res.status(201).json('device created');
 
             } else {
 
-                return res.status(422).json('something went wrong')
+                return res.status(422).json('something went wrong');
 
             }
 
 
-
         } catch (error) {
+
+            console.log(error);
 
             res.status(500).json({ message: 'Server error', error });
 
         }
 
-
-
     }
 
+
+    else if (req.method === 'GET') {
+        try {
+
+            const response = await apiRequest.get('/device/')
+
+            return res.status(200).json(response.data)
+
+        } catch (error) {
+
+            console.log(error);
+
+            res.status(500).json({ message: 'Server error', error });
+
+        }
+    }
+
+
     else {
+
         return res.status(422).json('method is not allowed')
+
     }
 
 

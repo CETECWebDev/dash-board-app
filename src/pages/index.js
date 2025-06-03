@@ -1,13 +1,26 @@
-import fetchDevices from "@/api-functions/fetchDevices"
+import apiRequest from "@/api/axios-instance/main"
 import SideBar from "@/components/module/SideBar/SideBar"
-import MainDashboard from "@/components/template/Dashboard/MainDashboard"
+import GridSpace from "@/components/template/MainDashBoard/GridSpace"
+import MapAndDataCard from "@/components/template/MainDashBoard/MapAndDataCard"
+import useDevices from "@/stores/deviceStore"
+import { useEffect } from "react"
 
-export default function Home({ devices }) {
+
+export default function Home({ devicesList }) {
+
+  const { setDevices, setSelectedDevice } = useDevices()
+
+  useEffect(() => {
+    setDevices(devicesList)
+    setSelectedDevice(devicesList[0])
+  }, [devicesList])
+
+
   return (
     <>
-
       <SideBar />
-      < MainDashboard devices={devices} />
+      <MapAndDataCard />
+      <GridSpace />
     </>
   )
 }
@@ -15,12 +28,12 @@ export default function Home({ devices }) {
 
 export async function getStaticProps() {
 
-  const data = await fetchDevices()
+  const res = await apiRequest.get('/device/')
 
   return {
     props: {
-      devices: data
+      devicesList: res.data
     },
-    revalidate: 60 * 60 * 24 * 7
   }
+
 }

@@ -1,26 +1,35 @@
-import fetchRoads from '@/api-functions/fetchRoads'
+import apiRequest from '@/api/axios-instance/main'
 import SideBar from '@/components/module/SideBar/SideBar'
-import Roads from '@/components/template/Roads/Roads'
-import React from 'react'
+import usePagination from '@/hooks/usePagination'
+import BottomPart from '@/components/template/DevicesAndRoads/BottomPart'
+import TopPart from '@/components/template/DevicesAndRoads/TopPart'
+import ListContainer from '@/components/template/DevicesAndRoads/ListContainer'
+import roadsPageContent from '@/content/roadsPageContent'
 
-export default function RoadsPage({roads}) {
-  return (
+
+export default function index({roadsList}) {
+
+    const paginationProps = usePagination(10 , roadsList)
+    const content = roadsPageContent
+
+    return (
         <>
-        <SideBar/>
-        <Roads roads={roads} />
-        
+            <SideBar />
+            <TopPart content={content} {...paginationProps} />
+            <ListContainer content={content}  pagedList={paginationProps.pagedList}/>
+            <BottomPart {...paginationProps} />
         </>
-  )
+    )
 }
 
 export async function getStaticProps() {
 
-  const data = await fetchRoads()
+    const res = await apiRequest.get('/road/')
 
-  return {
-    props: {
-      roads: data
-    },
-    revalidate: 60 * 10
-  }
+    return {
+        props: {
+            roadsList:res.data
+        },
+    }
+
 }

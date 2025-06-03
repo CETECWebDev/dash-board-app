@@ -1,10 +1,17 @@
 import React, { useEffect, useRef } from 'react'
-import L, { map } from 'leaflet'
 import { useTheme } from 'next-themes'
-import { getBlinkingIcon } from '@/lib/getBlinkingIcon';
-import { getLocIcon } from '@/lib/getLocIcon';
+import generateMap from '@/utils/generateMap';
+import renderMarkers from '@/utils/renderDeviceMarker';
+import handleMapClickMarker from '@/utils/handleMapClickMarker';
+import useLocation from '@/stores/locationStore';
+import useAppStore from '@/stores/appStore';
 
-export default function MapView({ devices, selectedDevice, setSelectedDevice, type , setLatOnMap , setLongOnMap }) {
+
+export default function MapView(props) {
+
+    const { devices, selectedDevice, setSelectedDevice, type } = props
+    const { setLat, setLong } = useLocation()
+    const { isSideBarOpen } = useAppStore()
 
     const theme = useTheme()
     const mapRef = useRef(null);
@@ -16,94 +23,36 @@ export default function MapView({ devices, selectedDevice, setSelectedDevice, ty
 
     useEffect(() => {
 
-        // map init once
+        generateMap(mapRef, theme, darkmap, lightmap)
 
-        mapRef.current = L.map('map').setView([37.1652, 49.6847], 8);
-        L.tileLayer(
-            `${theme.theme === 'dark' ? darkmap : lightmap}?api_key=2caa2f4f-00f2-47a0-ba76-37bf1e0f7940`
-        ).addTo(mapRef.current);
         return () => {
             mapRef.current.remove();
         }
 
 
-
-
-    }, [theme])
-
-
-
-
+    }, [theme , isSideBarOpen])
 
 
     useEffect(() => {
 
 
         if (type === 'monitoring') {
-            markersRef.current.forEach(marker => {
-                marker.remove();
-            });
-            markersRef.current = [];
-
-            devices.forEach(device => {
-                const icon = getBlinkingIcon(device.status, selectedDevice.id === device.id);
-                const marker = L.marker([device.lat, device.long], { icon }).addTo(mapRef.current);
-
-                marker.on('click', () => {
-                    setSelectedDevice(device);
-                });
-
-                markersRef.current.push(marker);
-            });
-
+            if (!mapRef.current) return;
+            if (!devices || devices.length === 0) return;
+            renderMarkers({ mapRef, markersRef, devices, selectedDevice, setSelectedDevice })
         }
 
         else {
-            if (!mapRef.current) return;
-
-            if (clickMarkerRef.current) {
-                mapRef.current.removeLayer(clickMarkerRef.current);
-                clickMarkerRef.current = null;
-            }
-
-            mapRef.current.off('click');
-
-
-            mapRef.current.on('click', function (e) {
-
-                const lat = e.latlng.lat;
-                const lng = e.latlng.lng;
-
-                const icon = getLocIcon()
-
-                console.log('Latitude: ' + lat + ', Longitude: ' + lng);
-
-                if (clickMarkerRef.current) {
-                    mapRef.current.removeLayer(clickMarkerRef.current);
-                }
-
-
-                const marker = L.marker([lat, lng], { icon })
-                    .addTo(mapRef.current)
-                    .bindPopup(`  Location : ${lat.toFixed(5)}, ${lng.toFixed(5)}`)
-                    .openPopup();
-
-
-                setLatOnMap(lat)
-                setLongOnMap(lng)    
-
-                clickMarkerRef.current = marker;
-
-            })
+            handleMapClickMarker({ mapRef, clickMarkerRef, setLat, setLong })
         }
 
 
-    }, [selectedDevice, theme]);
+    }, [selectedDevice, theme , isSideBarOpen]);
 
 
 
     return (
-        <div id="map" className={`w-[100%] ${type === 'monitoring' ? 'lg:w-[75%] h-[50dvh]' : 'w-full'}   lg:h-auto transform-gpu rounded-xl z-0  ${theme.theme === 'dark' ? 'border-zinc-600 border-2 shadow-md' : 'shadow-md'} relative`} >
+        <div id="map" className={`w-[100%] h-[60dvh]  lg:h-auto transform-gpu rounded-xl z-0  ${theme.theme === 'dark' ? 'border-zinc-600 border-2 shadow-md' : 'shadow-md'} relative`} >
         </div>
     )
 }

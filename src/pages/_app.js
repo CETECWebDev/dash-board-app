@@ -1,29 +1,28 @@
-import SideBar from "@/components/module/SideBar/SideBar";
 import "@/styles/globals.css";
 import "leaflet/dist/leaflet.css";
 
 import { ThemeProvider } from "next-themes";
-import React, { useState } from "react";
-import { DirectionProvider } from "@/context/DirectionContext";
+import React from "react";
 import MainLayout from "@/components/MainLayout";
-import { SidebarProvider } from "@/context/SidebarContext";
+import { useTranslation } from "react-i18next";
+import '@/i18n'
+
 
 
 export default function App({ Component, pageProps }) {
 
-  return (
-    <DirectionProvider>
-      <ThemeProvider attribute={"class"} defaultTheme="dark">
-        <SidebarProvider>
-          
-          <div >
-            <MainLayout>
-              <Component {...pageProps} />
-            </MainLayout>
-          </div>
+  const { i18n } = useTranslation() 
+  
 
-        </SidebarProvider>
-      </ThemeProvider>
-    </DirectionProvider>
+  return (
+
+    <ThemeProvider attribute={"class"} defaultTheme="dark">
+      <div className={`${i18n.language === 'fa' ? `rtl font-[IranSans]` : 'font-roboto'}`}>
+        <MainLayout>
+          <Component {...pageProps} />
+        </MainLayout>
+      </div>
+    </ThemeProvider>
+
   );
 }

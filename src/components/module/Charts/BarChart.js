@@ -1,11 +1,13 @@
 import React from "react";
 import dynamic from 'next/dynamic';
-import { translate } from "@/language/language";
-import { useDirectionContext } from "@/context/DirectionContext";
+import { useTranslation } from "react-i18next";
+import deviceDataCardContent from "@/content/deviceDataCardContent";
 const ApexChart = dynamic(() => import('react-apexcharts'), { ssr: false });
 
 const BarChart = () => {
-    const { dir } = useDirectionContext();
+
+    const {t} = useTranslation()
+
     const options = {
         chart: {
             id: "basic-bar",
@@ -17,22 +19,21 @@ const BarChart = () => {
             categories: ["فروردین", "اردیبهشت", "خرداد", "تیر", "مرداد"],
             labels: {
                 style: {
-                    fontSize: '8px',  
+                    fontSize: '8px',
                 }
             }
         },
 
-          dataLabels: {
-        enabled: true,
-        style: {
-            // fontSize: '14px',
-            fontFamily: translate(dir , "font.fontFamily"),
-
-            colors: ['#fff'] // رنگ اعداد درون ستون
-        }
-    },
+        dataLabels: {
+            enabled: true,
+            style: {
+                // fontSize: '14px',
+                colors: ['#fff'] ,
+                fontFamily : 'inherit'
+            }
+        },
         title: {
-            text: "دستگاه های شمارش شده",
+            text: t(deviceDataCardContent.countedVehicleChart.chartTitle.textKey),
             align: "center",
             style: {
                 fontSize: '14px',

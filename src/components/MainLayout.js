@@ -1,21 +1,19 @@
-import { useDirectionContext } from "@/context/DirectionContext";
-import { useSidebar } from "@/context/SidebarContext";
-import SideBarToggleBtn from "./module/SideBarToggleBtn/SideBarToggleBtn";
+import useAppStore from "@/stores/appStore";
+import SideBarToggleButton from "./module/SideBar/SideBarToggleButton";
 import Header from "./module/Header/Header";
 
 export default function MainLayout({ children }) {
 
-  const { dir } = useDirectionContext();
-  const { isSidebarOpen } = useSidebar()
+  const { isSideBarOpen } = useAppStore()
 
   const closeMenuClass = `w-full`
-  const openMenuClass = `${dir === 'rtl' ? 'lg:mr-[240px]' : 'lg:ml-[240px]'} w-screen lg:w-[calc(100%-240px)] `
+  const openMenuClass = `w-screen lg:w-[calc(100%-240px)] lg:ms-[240px]`
 
   return (
-    <div className={`flex ${dir === 'rtl' ? 'font-IranSans' : 'font-roboto'} `}>
-      <div className={`${isSidebarOpen ? openMenuClass : closeMenuClass}`}>
-        <div className="w-full flex items-center px-5 pt-5 gap-3">
-          <SideBarToggleBtn />
+    <div className={`flex`}>
+      <div className={isSideBarOpen ? openMenuClass : closeMenuClass}>
+        <div className="w-full mb-3 flex items-center px-3 pt-3 gap-3">
+          <SideBarToggleButton />
           <Header />
         </div>
         {children}

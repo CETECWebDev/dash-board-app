@@ -4,13 +4,14 @@ import usePagination from '@/hooks/usePagination'
 import BottomPart from '@/components/template/DevicesAndRoads/BottomPart'
 import TopPart from '@/components/template/DevicesAndRoads/TopPart'
 import ListContainer from '@/components/template/DevicesAndRoads/ListContainer'
-import devicesPageContent from '@/content/devicesPageContent'
+import userPageContent from '@/content/userPageContent'
 
 
-export default function index({devicesList}) {
 
-    const paginationProps = usePagination(10 , devicesList)
-    const content = devicesPageContent
+export default function Users({usersList}) {
+
+    const paginationProps = usePagination(10 , usersList)
+    const content = userPageContent
 
     return (
         <>
@@ -24,11 +25,11 @@ export default function index({devicesList}) {
 
 export async function getStaticProps() {
 
-    const res = await apiRequest.get('/device/')
+    const res = await apiRequest.get('/employee/')
 
     return {
         props: {
-            devicesList: res.data
+            usersList:res.data
         },
     }
 

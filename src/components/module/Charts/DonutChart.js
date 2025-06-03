@@ -1,26 +1,29 @@
 'use client';
 import React from 'react';
 import dynamic from 'next/dynamic';
-import { translate } from '@/language/language';
-import { useDirectionContext } from '@/context/DirectionContext';
+import { useTranslation } from 'react-i18next';
+import deviceDataCardContent from '@/content/deviceDataCardContent';
 const ApexChart = dynamic(() => import('react-apexcharts'), { ssr: false });
 
 const DonutChart = () => {
-    const { dir } = useDirectionContext();
-    const data = [700, 850, 1700 , 200];
+
+    const { t , i18n } = useTranslation()
+
+
+    const data = [700, 850, 1700, 200];
     const labels = [
-        translate(dir, "PieChart.normal"),
-        translate(dir, "PieChart.heavy"),
-        translate(dir, "PieChart.motorcycle"),
-        translate(dir, "PieChart.sangin"),
-       
+        t(deviceDataCardContent.chartLabel.sedan.textKey),
+        t(deviceDataCardContent.chartLabel.bus.textKey),
+        t(deviceDataCardContent.chartLabel.truck.textKey),
+        t(deviceDataCardContent.chartLabel.heavy.textKey)
+
     ];
-    const colors = ['#19d645', '#344CB7', '#CF0F47' , '#FE5D26'];
+    const colors = ['#19d645', '#344CB7', '#CF0F47', '#FE5D26'];
 
     const options = {
 
         chart: {
-            type: 'donut',  
+            type: 'donut',
         },
 
         labels,
@@ -42,11 +45,11 @@ const DonutChart = () => {
             colors: ['var(--colCard)'],
         },
         title: {
-            text: translate(dir, "PieChart.title"),
+            text: t(deviceDataCardContent.vehicleChart.chartTitle.textKey),
             align: 'center',
             style: {
+                fontFamily: 'IranYekan' ,
                 color: 'var(--colTextA)',
-                fontFamily: translate(dir , "font.fontFamily"),
                 fontSize: '14px',
             },
         },
@@ -56,10 +59,9 @@ const DonutChart = () => {
                 return val.toFixed(1) + '%';
             },
             style: {
+                fontFamily: 'inherit' ,
                 fontSize: '10px',
                 colors: ['#fff'],
-                fontFamily: translate(dir , "font.fontFamily"),
-                
             },
             dropShadow: {
                 enabled: false,
@@ -83,7 +85,7 @@ const DonutChart = () => {
 
     return (
         <div className="w-full h-full">
-            <ApexChart key={dir} options={options} series={data} type="donut" height={'100%'} />
+            <ApexChart key={i18n.language} options={options} series={data} type="donut" height={'100%'} />
         </div>
     );
 };

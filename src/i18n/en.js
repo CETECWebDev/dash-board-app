@@ -1,0 +1,48 @@
+const en = {
+
+    headerTitle: 'Traffic Monitoring System',
+    username: 'User Name',
+    admin: 'Admin',
+    navigation: 'Navigation Menu',
+    dashboard: 'Dashboard',
+    devices: 'Devices',
+    roads: 'Roads',
+    users: 'Users',
+    reports: 'Reports',
+    settings: 'Settings',
+    active: 'Active',
+    deactive: 'Deactive',
+    status: 'Status',
+    road: 'Road',
+    countedVehicle: 'Counted Vehicle',
+    vehicleDetail: 'Vehicle Detail',
+    truck: 'Truck',
+    bus: 'Bus',
+    heavy: 'Heavy',
+    sedan: 'Sedan',
+    month: 'Month',
+    totalCount: 'Total Count',
+    deviceNumberTitle: 'Device Count',
+    totalDevices: 'Total Devices',
+    activeDevices: 'Active Devices',
+    deactiveDevices: 'Deactive Devices',
+    addDeviceButton: 'Add Device',
+    addRoadButton: 'Add Road',
+    deviceSettings: 'Device Settings',
+    deviceSerial: 'Deivce Serial',
+    page: 'Page' ,
+    from: 'From' ,
+    roadCode: 'Road Code',
+    province: 'Province',
+    roadType: 'Road Type',
+    roadVolume: 'Road Volume',
+    roadDirection: 'Direction',
+    volumeEachLine : 'Volume Each Line',
+    addUser : 'Add User',
+    email: 'Email',
+
+
+}
+
+
+export default en

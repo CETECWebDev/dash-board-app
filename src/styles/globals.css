@@ -9,6 +9,7 @@
   font-style: normal;
   font-display: swap;
 }
+
 @font-face {
   font-family: 'IranSans';
   src: url('/fonts/IRANSansWebFaNum_Bold.ttf') format('truetype');
@@ -58,8 +59,8 @@
 
 .dark {
 
-  --colBg: #2C353C;
-  --colCard: #242730;
+  --colBg: #444444;
+  --colCard: #333333;
   --colTextA: #ececec;
   --colTextB: #b7b7b7;
   --zoomControl: orange;
@@ -237,4 +238,32 @@ input:focus {
 
 .linkHover:hover {
   transform: scale(1.03);
+}
+
+
+/* rtl */
+
+.rtl {
+  direction: rtl;
+}
+
+.ltr {
+  direction: ltr;
+}
+
+
+body {
+  background: var(--colBg);
+  transition: all ease-in-out 300ms;
+}
+
+
+.btnHover {
+  transition: all 500ms ease-in-out;
+}
+
+.btnHover:hover {
+  transform: scale(1.03);
+  border-color: var(--textHover);
+  color: var(--textHover);
 }

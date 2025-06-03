@@ -1,12 +1,10 @@
-import { useDirectionContext } from '@/context/DirectionContext'
-import { translate } from '@/language/language'
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 
 export default function DeviceInfoCard(props) {
 
-    const {dir} = useDirectionContext()
-
     const { id , name , location , status , serial_number } = props
+    const {t} = useTranslation()
 
     return (
         <div
@@ -26,10 +24,10 @@ export default function DeviceInfoCard(props) {
                 </span>
             </div>
             <div className="text-[var(--colTextB)] text-sm">
-                {translate(dir , 'deviceInfoCard.location')} : {location}
+                {t('road')} : {location}
             </div>
             <div className="text-[var(--colTextB)] font-medium">
-                {translate(dir , 'deviceInfoCard.serial')} : {serial_number}
+                {t('deviceSerial')} : {serial_number}
             </div>
         </div>
     )

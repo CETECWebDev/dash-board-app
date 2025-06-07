@@ -5,6 +5,7 @@ import { ThemeProvider } from "next-themes";
 import React from "react";
 import MainLayout from "@/components/MainLayout";
 import { useTranslation } from "react-i18next";
+import "@/api/interceptors/interceptors";
 import '@/i18n'
 
 

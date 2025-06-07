@@ -4,8 +4,12 @@ const useDevices = create((set) => ({
 
     devices: [],
     setDevices: (newDevices) => set(() => ({devices: newDevices})),
+
     selectedDevice: {},
-    setSelectedDevice: (newDevice) => set(() => ({ selectedDevice: newDevice }))
+    setSelectedDevice: (newDevice) => set(() => ({ selectedDevice: newDevice })),
+
+    selectedDevices: [],
+    setSelectedDevices: (newDevices) => set(() => ({ selectedDevices: newDevices })),
 
 }))
 

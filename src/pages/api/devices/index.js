@@ -7,30 +7,23 @@ const handler = async (req, res) => {
     if (req.method === 'POST') {
 
         try {
+            const device = req.body;
+            const response = await apiRequest.post('/device/', device);
 
-            const device = req.body
-
-            const response = await apiRequest.post('/device/', device)
-
-            if (response.status === 201) {
-
-                return res.status(201).json('device created');
-
-            } else {
-
-                return res.status(422).json('something went wrong');
-
-            }
-
+            return res.status(response.status).json({ message: 'device created' });
 
         } catch (error) {
+            console.error("Axios error:", error.response);
 
-            console.log(error);
 
-            res.status(500).json({ message: 'Server error', error });
+            if (error.response) {
+                return res
+                    .status(error.response.status)
+                    .json('Request failed');
+            }
 
+            return res.status(500).json({ message: error.customMessage || 'Server error', error });
         }
-
     }
 
 

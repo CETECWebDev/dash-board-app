@@ -1,7 +1,9 @@
-import apiRequest from "../axios-instance/main";
+import apiRequestProxy from "../axios-instance/proxy";
+import i18n from "@/i18n";
 
-apiRequest.interceptors.request.use(
+apiRequestProxy.interceptors.request.use(
   (config) => {
+    console.log("📤 Request sent from proxy to:", config.url);
     console.log("Request:", config.method.toUpperCase(), config.url);
     return config;
   },
@@ -12,51 +14,29 @@ apiRequest.interceptors.request.use(
 );
 
 
-apiRequest.interceptors.response.use(
-  (response) => {
-    return response;
-  },
+
+apiRequestProxy.interceptors.response.use(
+  (response) => response,
   (error) => {
+    const customMessages = {
+      400: i18n.t('400'),
+      401: i18n.t('401'),
+      403: i18n.t('403'),
+      404: i18n.t('404'),
+      500: i18n.t('500'),
+    };
+
     if (error.response) {
-   
       const status = error.response.status;
-      const data = error.response.data;
 
-      console.error(`Response error: Status ${status}`, data);
+      const customMessage = customMessages[status];
 
-      switch (status) {
-        case 400:
-          alert("Bad request.");
-          break;
-        case 401:
-          alert("You are not authorized. Please log in.");
-          break;
-        case 403:
-          alert("Access forbidden.");
-          break;
-        case 404:
-          alert("Resource not found.");
-          break;
-        case 500:
-          alert("Server error occurred. Please try again later.");
-          break;
-        default:
-          alert(data.message || "An unknown error occurred.");
-      }
-    } else if (error.request) {
-  
-      console.error("No response received:", error.request);
-      alert("No response from server. Please check your internet connection.");
-
+      error.customMessage = customMessage 
+      return Promise.reject(error);
     } else {
-        
-      console.error("Axios error:", error.message);
-      alert("An error occurred while sending the request.");
-
+      error.customMessage = 'اتصال به سرور ممکن نیست. لطفاً اینترنتت رو بررسی کن. 📡';
+      return Promise.reject(error);
     }
-
-    return Promise.reject(error);
   }
 );
 
-export default apiRequest;

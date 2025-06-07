@@ -4,7 +4,7 @@ import RoadInfoCard from "@/components/module/Cards/RoadInfoCard";
 const roadsPageContent = {
 
     btnLinks: [
-        {textKey:'addUser' , href: '/add-user' , icon: <FaPlus/> } , 
+        {textKey:'addRoadButton' , href: '/add-user' , icon: <FaPlus/> } , 
     ] ,
 
     cardComponent: RoadInfoCard

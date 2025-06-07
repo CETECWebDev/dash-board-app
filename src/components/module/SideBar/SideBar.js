@@ -1,6 +1,5 @@
 import useAppStore from "@/stores/appStore";
 import React from "react";
-import { useTranslation } from "react-i18next";
 import CetecLogo from '@/asset/CetecLogo.svg'
 import ProfileSection from "@/components/template/SideBar/ProfileSection";
 import i18n from "@/i18n";

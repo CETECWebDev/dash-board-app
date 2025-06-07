@@ -40,6 +40,45 @@ const fa = {
     volumeEachLine: 'ظرفیت هر لاین',
     addUser: 'افزودن کاربر',
     email: 'ایمیل',
+    addDeviceFormTitle: `افزودن دستگاه`,
+    lat: `عرض جغرافیایی`,
+    long: `طول جغرافیایی`,
+    openMap: `مشاهد نقشه`,
+    deviceName: `نام دستگاه`,
+    description: `توضیحات`,
+    deviceSerial: `سریال دستگاه`,
+    deviceRoad: `محور دستگاه`,
+    roadInstalled: `کد محور`,
+    simNumber: `شماره سیمکارت`,
+    simSerial: `سریال سیمکارت`,
+    registerDevice: 'ثبت دستگاه',
+    back: 'بازگشت',
+    cancel: 'لغو',
+    confirm: 'تایید',
+    apply: 'اعمال تنظیمات',
+
+    //api request Message 
+    400: 'درخواست نامعتبر , ورودی ها را مجدد بررسی کنید',
+    401: 'شما اهراز هویت نشدید , مجدد وارد حساب کاربری شوید',
+    403: `شما اجازه دسترسی به این بخش را ندارید`,
+    404: 'صفحه مورد نظر پیدا نشد',
+    500: 'خطای سرور , لطفا بعدا تلاش کنید',
+
+    deviceRegistred: 'دستگاه با موفقیت ثبت شد',
+
+
+    deviceSettings: 'تنظیمات دستگاه',
+    serverIP: 'ای پی سرور',
+    frameware: 'نسخه فریم ویر',
+    loopNumber: 'شماره لوپ',
+    selectDevice: 'انتخاب دستگاه',
+
+
+    devicesList: 'لیست دستگاه ها',
+    selectedDevicesList: 'دستگاه های انتخاب شده',
+
+
+
 }
 
 

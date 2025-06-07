@@ -1,9 +1,9 @@
 import apiRequest from '@/api/axios-instance/main'
 import SideBar from '@/components/module/SideBar/SideBar'
 import usePagination from '@/hooks/usePagination'
-import BottomPart from '@/components/template/DevicesAndRoads/BottomPart'
-import TopPart from '@/components/template/DevicesAndRoads/TopPart'
-import ListContainer from '@/components/template/DevicesAndRoads/ListContainer'
+import BottomPart from '@/components/template/DevicesRoadsUsers/BottomPart'
+import TopPart from '@/components/template/DevicesRoadsUsers/TopPart'
+import ListContainer from '@/components/template/DevicesRoadsUsers/ListContainer'
 import devicesPageContent from '@/content/devicesPageContent'
 
 

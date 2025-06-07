@@ -20,7 +20,7 @@ export default function FaClock() {
 
   return (
     <div className="text-[var(--colTextA)] font-vazir text-[clamp(10px,0.8dvw,16px)] font-bold">
-      <p className="flex items-center gap-2"><span>{now.format("dddd")}</span> <span>{now.format("jYYYY/jMM/jDD")}</span></p>
+      <p className="flex items-center gap-2"><span>{now.format("dddd")}</span> <span>{now.format("jYYYY / jMM / jDD")}</span></p>
       <p>ساعت : {now.format("ss : mm : HH")}</p>
     </div>
   );

@@ -34,6 +34,7 @@ export async function getStaticProps() {
     props: {
       devicesList: res.data
     },
+    revalidate: 60 * 5 
   }
 
 }

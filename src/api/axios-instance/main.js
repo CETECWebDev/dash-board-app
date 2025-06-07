@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const apiRequest = axios.create({
-    baseURL: process.env.API_URL ,
+    baseURL: 'http://89.235.119.239/gateway/' ,
     headers: {"Content-Type" : "application/json"} ,
 })
 

@@ -1,6 +1,6 @@
 import apiRequest from "@/api/axios-instance/main"
 import SideBar from "@/components/module/SideBar/SideBar"
-import GridSpace from "@/components/template/MainDashBoard/GridSpace"
+import ChartsGrid from "@/components/template/MainDashBoard/ChartsGrid"
 import MapAndDataCard from "@/components/template/MainDashBoard/MapAndDataCard"
 import useDevices from "@/stores/deviceStore"
 import { useEffect } from "react"
@@ -20,7 +20,7 @@ export default function Home({ devicesList }) {
     <>
       <SideBar />
       <MapAndDataCard />
-      <GridSpace />
+      <ChartsGrid />
     </>
   )
 }

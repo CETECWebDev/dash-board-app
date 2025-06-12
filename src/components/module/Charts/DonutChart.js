@@ -18,12 +18,13 @@ const DonutChart = () => {
         t(deviceDataCardContent.chartLabel.heavy.textKey)
 
     ];
-    const colors = ['#19d645', '#344CB7', '#CF0F47', '#FE5D26'];
+    const colors = ["#008ffb", "#00e396" , ];
 
     const options = {
 
         chart: {
             type: 'donut',
+            fontFamily: 'Yekan',
         },
 
         labels,
@@ -48,7 +49,7 @@ const DonutChart = () => {
             text: t(deviceDataCardContent.vehicleChart.chartTitle.textKey),
             align: 'center',
             style: {
-                fontFamily: 'IranYekan' ,
+                fontFamily: 'Yekan' ,
                 color: 'var(--colTextA)',
                 fontSize: '14px',
             },
@@ -59,7 +60,7 @@ const DonutChart = () => {
                 return val.toFixed(1) + '%';
             },
             style: {
-                fontFamily: 'inherit' ,
+                fontFamily: 'Yekan' ,
                 fontSize: '10px',
                 colors: ['#fff'],
             },
@@ -77,7 +78,7 @@ const DonutChart = () => {
         },
         legend: {
             position: 'bottom',
-            fontFamily: 'IRANSans, sans-serif',
+            fontFamily: 'Yekan',
         },
     };
 

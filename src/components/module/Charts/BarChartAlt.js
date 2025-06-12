@@ -1,13 +1,12 @@
 import React from "react";
 import dynamic from 'next/dynamic';
 import { useTranslation } from "react-i18next";
-import deviceDataCardContent from "@/content/deviceDataCardContent";
 import { toPersianDigits } from "@/utils/toPersianDigit";
 const ApexChart = dynamic(() => import('react-apexcharts'), { ssr: false });
 
-const BarChart = () => {
+const BarChartAlt = () => {
 
-    const { t } = useTranslation()
+    const { t , i18n } = useTranslation()
 
     const options = {
         chart: {
@@ -17,13 +16,17 @@ const BarChart = () => {
                 show: false,
             },
         },
-        xaxis: {
-            categories: ["فروردین", "اردیبهشت", "خرداد", "تیر", "مرداد"],
-            labels: {
-                style: {
-                    fontSize: '8px',
+         tooltip: {
+            y: {
+                formatter: function (val) {
+                    return toPersianDigits(val);
                 }
-            }
+            },
+            style: {
+                fontFamily: 'Yekan',
+                fontSize: '13px',
+            },
+            cssClass: i18n.language === 'fa' ? 'rtl' : ''
         },
         plotOptions: {
             bar: {
@@ -32,25 +35,33 @@ const BarChart = () => {
                 // borderRadiusWhenStacked: 'last',
             }
         },
+        xaxis: {
+            categories: ["فروردین", "اردیبهشت", "خرداد", "تیر", "مرداد"],
+            labels: {
+                style: {
+                    fontSize: '8px',
+                }
+            }
+        },
 
         dataLabels: {
             formatter: function (val) {
-                return toPersianDigits(String(val));
+                return toPersianDigits(val);
             },
             enabled: true,
             style: {
                 // fontSize: '14px',
                 colors: ['#fff'],
-                fontFamily: 'inherit'
+                fontFamily: 'Yekan'
             }
         },
         title: {
-            text: t(deviceDataCardContent.countedVehicleChart.chartTitle.textKey),
+            // text: t(deviceDataCardContent.countedVehicleChart.chartTitle.textKey),
             align: "center",
             style: {
                 fontSize: '14px',
                 fontWeight: 'bold',
-                fontFamily: 'inherit',
+                fontFamily: 'Yekan',
                 color: 'var(--colTextA)'
             }
         },
@@ -59,9 +70,13 @@ const BarChart = () => {
 
     const series = [
         {
-            name: "تعداد خودرو",
+            name: '',
             data: [30, 40, 35, 50, 49],
 
+        },
+        {
+            name: '',
+            data: [25, 60, 28, 60, 70], // Data for the second line
         }
     ];
 
@@ -72,4 +87,4 @@ const BarChart = () => {
     );
 };
 
-export default BarChart;
+export default BarChartAlt;

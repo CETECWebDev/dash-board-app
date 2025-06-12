@@ -18,7 +18,7 @@ export default function App({ Component, pageProps }) {
   return (
 
     <ThemeProvider attribute={"class"} defaultTheme="dark">
-      <div className={`${i18n.language === 'fa' ? `rtl font-[IranSans]` : 'font-roboto'}`}>
+      <div className={`${i18n.language === 'fa' ? `rtl font_yekan` : 'font-roboto'}`}>
         <MainLayout>
           <Component {...pageProps} />
         </MainLayout>

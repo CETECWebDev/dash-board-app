@@ -3,47 +3,18 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: 'IranSans';
-  src: url('/fonts/IRANSans.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
+  font-family: 'Yekan';
+  src: url('/fonts/iranyekanwebmedium.2d4f96e5.woff');
 }
 
-@font-face {
-  font-family: 'IranSans';
-  src: url('/fonts/IRANSansWebFaNum_Bold.ttf') format('truetype');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-.font-IranSans {
-  font-family: 'IranSans', sans-serif;
-}
-
-@font-face {
-  font-family: 'IranYekan';
-  src: url('/fonts/iranyekanwebregular.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'IranYekan';
-  src: url('/fonts/iranyekanwebbold.ttf') format('truetype');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-.font-IranYekan {
-  font-family: 'IranYekan', sans-serif;
+.font_yekan {
+  font-family: 'Yekan';
 }
 
 
 :root {
+
+  font-family: 'YekanReg';
 
   --colBg: #e4e4e4;
   --colCard: #f2f2f0;
@@ -59,8 +30,8 @@
 
 .dark {
 
-  --colBg: #444444;
-  --colCard: #333333;
+  --colBg: #1F2E35;
+  --colCard: #22343C;
   --colTextA: #ececec;
   --colTextB: #b7b7b7;
   --zoomControl: orange;
@@ -77,16 +48,16 @@
 
 .leaflet-control-zoom-out {
   border-radius: 50% !important;
-  background-color: var(--zoomControl) !important;
-  color: var(--zoomControlText) !important;
-  border: none !important;
+  background-color: var(--colBg) !important;
+  color: var(--colTextA) !important;
+  border: 1px solid var(--colTextA) !important;
 }
 
 .leaflet-control-zoom-in {
   border-radius: 50% !important;
-  background-color: var(--zoomControl) !important;
-  color: var(--zoomControlText) !important;
-  border: none !important;
+  background-color: var(--colBg) !important;
+  color: var(--colTextA) !important;
+  border: 1px solid var(--colTextA) !important;
 }
 
 .leaflet-touch .leaflet-bar {
